@@ -1,11 +1,16 @@
-# Getting Started with shortsqueeze React App
+# shortsqueeze frontend
 
-This project is the forntend of the website
+This project was bootstrapped with react. 
 
-## About shortsqueeze
+## bootstrap
 
-We are building world's largest artisan community.
+Used bootsrap for css
 
-### Bootstrap
+### `npm start`
 
-Bootstrap is installed for css
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+

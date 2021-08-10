@@ -22,12 +22,19 @@
   background-size: cover;
 }
 
+.navButtons {
+  background-color: #f8f000;
+  border-radius: 2rem;
+  display: inline;
+  transform: translateY(20%);
+}
+
 .logoImage {
   height: 4vh;
 }
 
 .navbar-light .navbar-toggler {
-  color: rgba(0,0,0,.55);
+  color: rgba(0, 0, 0, 0.55);
   border-color: transparent;
 }
 
@@ -36,7 +43,7 @@
   right: 13vw;
   font-size: 24px !important;
   margin-right: 15px;
-  transform: translateY(-55%);
+  transform: translateY(-30%);
 }
 
 @media (min-width: 768px) {
@@ -91,3 +98,6 @@
   }
 }
 
+.btn:focus, .btn:active {
+  box-shadow: 0px 0px 0 2.5px black !important;
+}
