@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./styles.css";
 
+
+
 function Navbar(props) {
   return (
     <nav
@@ -18,13 +20,11 @@ function Navbar(props) {
             src={process.env.PUBLIC_URL + "/logo.png"}
             style={{ transform: "translateY(10%)", paddingRight:"3rem"}}
           />
-        <a className="ml-auto" href="#">
           <i
-            className="fa fa-shopping-cart moving-cart ml-auto"
+            className="fa fa-shopping-cart moving-cart"
             aria-hidden="true"  
-            style={{ color: "rgb(1,1,1)"}}
+            style={{ color: "rgb(1,1,1)", }}
           ></i>
-        </a>
         <button
           data-bs-toggle="collapse"
           className="navbar-toggler navbar-toggler-right"
