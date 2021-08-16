@@ -1,7 +1,8 @@
 import Navbar from './navbar';
 import Cover from './cover';
 import LoadingImage from './Loading';
-import react, { useState } from 'react';
+import  { useState } from 'react';
+import "./page.css";
 
 function App() {
   const [isShow,setIsShow]=useState(false);
@@ -13,11 +14,11 @@ function App() {
 
 
   return (
-    <react.Fragment>
+    <div className="selection">
     <LoadingImage Show={isShow} />
     <Navbar />
     <Cover LoadEvent={LoadingScreenState} Show={isShow}/>
-    </react.Fragment>
+    </div>
   );
 }
 export default App;
