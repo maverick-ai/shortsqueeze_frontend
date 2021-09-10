@@ -101,3 +101,51 @@
 .btn:focus, .btn:active {
   box-shadow: 0px 0px 0 2.5px black !important;
 }
+
+
+.borderArtist{
+  height: 369px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+
+.cardArtist{
+  height: 80vh;
+  width: 300px;
+  background: grey;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 70px 63px -60px #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cardArtistImage{
+  background: url('https://i.pinimg.com/736x/8f/a0/51/8fa051251f5ac2d0b756027089fbffde--terry-o-neill-al-pacino.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80vh;
+  
+}
+
+.cardArtistImage:hover .h2Artist{
+  background-repeat: no-repeat;
+  background-position:left center;
+  background-size: 80vh;
+  opacity: 1;
+}
+
+
+.h2Artist{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 20px;
+  opacity: 0;
+  transition: opacity 1s;}
