@@ -1,4 +1,5 @@
-import "./styles.css";
+import "./CardMain.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CardArtist = (props) => {
   return (
@@ -10,4 +11,19 @@ const CardArtist = (props) => {
   );
 };
 
-export default CardArtist;
+const CardMain = (props) => {
+  return (
+    <div className="container-sm rounded">
+      <div class="row">
+        <div class="col">
+          <CardArtist />
+        </div>
+        <div class="col">
+          <CardArtist />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CardMain;

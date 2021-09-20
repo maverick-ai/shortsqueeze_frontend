@@ -20,7 +20,6 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Cover LoadEvent={LoadingScreenState} Show={isShow} />
-          
         </Route>
         <Route path="/home" exact>
           <Redirect to="/" />
