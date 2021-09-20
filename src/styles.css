@@ -113,11 +113,11 @@
 }
 
 .cardArtist{
-  height: 80vh;
+  height: 379px;
   width: 300px;
   background: grey;
   border-radius: 10px;
-  transition: background 0.8s;
+  transition: 0.8s;
   overflow: hidden;
   background: black;
   box-shadow: 0 70px 63px -60px #000000;
@@ -130,15 +130,19 @@
 .cardArtistImage{
   background: url('https://i.pinimg.com/736x/8f/a0/51/8fa051251f5ac2d0b756027089fbffde--terry-o-neill-al-pacino.jpg');
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 80vh;
+  background-position: left center;
+  background-size: 300px;
   
 }
 
-.cardArtistImage:hover .h2Artist{
+.cardArtistImage:hover {
   background-repeat: no-repeat;
   background-position:left center;
-  background-size: 80vh;
+  background-size: 600px;
+  opacity: 1;
+}
+
+.cardArtistImage:hover .h2Artist{
   opacity: 1;
 }
 
