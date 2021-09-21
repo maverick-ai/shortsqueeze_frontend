@@ -8,8 +8,8 @@ function PasswordField() {
   const HandleLockOnClick = (event) => {
     console.log("pressed");
     setAddPasswordState(true);
-      setTimeout(() => {
-        setAddPasswordState(false);
+    setTimeout(() => {
+      setAddPasswordState(false);
       }, 2500);
   };
 
@@ -20,7 +20,7 @@ function PasswordField() {
     };
 
   return (
-    <div className={`password ${addPasswordState && 'false'}`}>
+    <div className={`password ${addPasswordState===true?'false':''}`}>
     <div className="field">
         <input onChange={HandleOnChange} id="password1" type="password" required />
         <label htmlFor="password1">Password</label>
