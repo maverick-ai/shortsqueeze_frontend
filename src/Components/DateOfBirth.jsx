@@ -7,7 +7,9 @@ const zodiacs = ['capricorn', 'aquarius', 'pisces', 'aries', 'taurus', 'gemini',
 
 
 function DateOfBirth() {
-
+  
+  const errorDivNotBorn=<div className="error-message">Not born yet?</div>;
+  const errorDivAge=<div className="error-message">{`> 120 years is really old!`}</div>;
 
     function getZodiac(day, month) {
         let zodiac = [''].concat(zodiacs).concat([zodiacs[0]]),
@@ -41,6 +43,7 @@ function DateOfBirth() {
           <div className="zodiac"></div>
         </div>
         <input
+        onChange={}
           type="text"
           className="month"
           placeholder="MM"
@@ -49,6 +52,7 @@ function DateOfBirth() {
         />
         <span>/</span>
         <input
+        onChange={}
           type="text"
           className="day"
           placeholder="DD"
@@ -57,6 +61,7 @@ function DateOfBirth() {
         />
         <span>/</span>
         <input
+        onChange={}
           type="text"
           className="year"
           placeholder="YYYY"
