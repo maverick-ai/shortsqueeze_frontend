@@ -40,16 +40,23 @@
 
 .moving-cart {
   position: absolute;
-  right: 13vw;
+  right: calc(4rem + 10vw);;
   font-size: 24px !important;
   margin-right: 15px;
   transform :translateY(25%);
 }
-
-@media (min-width: 768px) {
+@media (max-width: 576px) {
   .moving-cart {
     position: absolute;
-    right: 4vw;
+    right: calc(2.5rem + 3vw);
+    transform: translateY(25%);
+  }
+}
+
+@media (min-width: 992px) {
+  .moving-cart {
+    position: absolute;
+    right: calc(1.375rem + 4vw);
     transform: translateY(25%);
   }
 }

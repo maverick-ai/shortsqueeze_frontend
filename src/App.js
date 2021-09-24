@@ -1,6 +1,7 @@
 import Navbar from "./navbar";
 import Cover from "./cover";
 import LoadingImage from "./Loading";
+import LogIn from "./LogIn";
 import { useState } from "react";
 import "./page.css";
 import { Route, Redirect, Switch } from "react-router-dom";
@@ -15,10 +16,11 @@ function App() {
 
   return (
     <div className="selection">
-      <LoadingImage Show={isShow} />
+      
       <Navbar />
       <Switch>
         <Route path="/" exact>
+        <LoadingImage Show={isShow} />
           <Cover LoadEvent={LoadingScreenState} Show={isShow} />
         </Route>
         <Route path="/home" exact>
@@ -35,6 +37,9 @@ function App() {
         </Route>
         <Route path="/support" exact>
           <Redirect to="/" />
+        </Route>
+        <Route path="/logIn" exact>
+          <LogIn />
         </Route>
       </Switch>
     </div>

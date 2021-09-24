@@ -9,7 +9,7 @@ import "./styles.css";
 function Navbar(props) {
   return (
     <nav
-      className="navbar navbar-light navbar-expand-md fixed-top"
+      className="navbar navbar-light navbar-expand-lg fixed-top"
       id="mainNav"
     >
       <div className="container">
@@ -64,6 +64,11 @@ function Navbar(props) {
             <li className="nav-item nav-link">
               <button className="btn btn-sm navButtons" onClick={props.support}>
                 support
+              </button>
+            </li>
+            <li className="nav-item nav-link">
+              <button className="btn btn-sm navButtons" onClick={props.profile}>
+                profile
               </button>
             </li>
           </ul>
