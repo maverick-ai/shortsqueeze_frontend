@@ -1,6 +1,7 @@
 .LogInImageStyle {
+  filter: brightness(78%);
     position: relative;
-    z-index: 4;
+    z-index: 1;
     object-fit: cover;
     object-position: 50% 65%;
     height: 100vh;

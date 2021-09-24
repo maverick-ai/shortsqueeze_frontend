@@ -6,13 +6,15 @@ import LogInForm from "./LogInForm";
 
 function LogIn(prop) {
   return (
-    <div className="divOfLogInPage" style={{ display: "block" }}>
+    <div 
+    className="divOfLogInPage" 
+    style={{ display: "block" ,position:'relative'}}>
       <img
         className="LogInImageStyle"
         alt="Scenic Background"
         src={process.env.PUBLIC_URL + "/logIn.jpg"}
       />
-      <LogInForm />
+       <LogInForm />
     </div>
   );
 }

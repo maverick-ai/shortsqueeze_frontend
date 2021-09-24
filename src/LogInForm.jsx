@@ -1,39 +1,20 @@
 import React from "react";
 import "./LogInForm.css";
 import EmailField from "./Components/Email";
+import PasswordField from "./Components/Password";
 
 function LogInForm() {
-  return (
-    <form className="form">
-      <div className="form__container">
-        <div class="fieldset">
-          <EmailField />
-          <div className="field">
-            <input
-              className="input"
-              type="email"
-              placeholder="E-mail address"
-              required
-            />
-          </div>
-          <div className="field">
-            <input
-              className="input"
-              type="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-        </div>
-        <button className="btn">Sign in</button>
-        <div className="text">
-          Can’t remember your password? <a href="/">Recover it</a>.
-        </div>
-      </div>
-      <div className="form__footer">
-        Don't Have an Account? <a href="index.html">Create it</a>.
-      </div>
+  return (<div className="containerForm">
+    <form className="form" style={{textAlign:"center"}}>
+    <EmailField />
+    <div style={{paddingTop:"30px"}}>
+    <PasswordField />
+    </div>
+    <div style={{paddingTop:"10px"}}>
+    <button className="buttonForm">LOGIN</button>
+    </div>
     </form>
+    </div>
   );
 }
 

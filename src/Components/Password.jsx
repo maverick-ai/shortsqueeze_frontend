@@ -20,6 +20,7 @@ function PasswordField() {
     };
 
   return (
+    
     <div className={`password ${addPasswordState===true?'false':''}`}>
     <div className="field">
         <input onChange={HandleOnChange} id="password1" type="password" required />
