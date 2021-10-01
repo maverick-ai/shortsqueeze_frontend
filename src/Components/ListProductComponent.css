@@ -21,9 +21,8 @@
 .MoreDetailButton {
   background-color: #f8f000;
   border-radius: 6rem;
-  display: inline;
   width: 160px !important;
-  transform: translateY(20%);
+  height: 43px;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -78,11 +77,4 @@
 .MoreDetailButton:focus,
 .MoreDetailButton:active {
   box-shadow: 0px 0px 0 2.5px black !important;
-}
-
-.prodctEndLine {
-    margin: auto;
-  width: 100px;
-  display: block;
-  border-top: 50px dotted red;
 }

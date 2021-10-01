@@ -3,7 +3,7 @@ import { useRef } from "react";
 import "./AddToCart.scss";
 
 
-function AddToCart() {
+function AddToCart(props) {
   const buttonRef = useRef();
   const [addedState, setAddedState]=useState(false);
 
@@ -14,6 +14,8 @@ function AddToCart() {
     setTimeout(() => {
         setAddedState(false);
       }, 3500);
+
+    props.ClickAdd();
   };
 
 

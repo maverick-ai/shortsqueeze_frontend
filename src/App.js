@@ -7,6 +7,8 @@ import "./page.css";
 import { Route, Redirect, Switch } from "react-router-dom";
 import ListProducts from "./ListProduct";
 import ProductDetail from "./ProductDetail";
+import { Provider } from 'react-redux';
+import store from './Store/index';
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -16,8 +18,8 @@ function App() {
   }
 
   return (
-    <div className="selection">
-      
+    <Provider store={store}>
+    <div className="selection">     
       <Navbar />
       <Switch>
         <Route path="/" exact>
@@ -47,6 +49,7 @@ function App() {
         </Route>
       </Switch>
     </div>
+    </Provider>
   );
 }
 export default App;
