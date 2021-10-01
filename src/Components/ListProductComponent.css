@@ -1,0 +1,88 @@
+.productImage {
+  border-radius: 50px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  padding: 2px 20px 1px;
+}
+
+.info {
+  padding: 1px 20px 5px;
+}
+
+.buttonPadding {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.MoreDetailButton {
+  background-color: #f8f000;
+  border-radius: 6rem;
+  display: inline;
+  width: 160px !important;
+  transform: translateY(20%);
+}
+
+@media only screen and (min-width: 1400px) {
+  .productImage {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .productImage {
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .productImage {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .productImage {
+    height: 525px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .productImage {
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .productImage {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+}
+
+.MoreDetailButton:focus,
+.MoreDetailButton:active {
+  box-shadow: 0px 0px 0 2.5px black !important;
+}
+
+.prodctEndLine {
+    margin: auto;
+  width: 100px;
+  display: block;
+  border-top: 50px dotted red;
+}

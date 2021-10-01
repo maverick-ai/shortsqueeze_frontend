@@ -5,7 +5,8 @@ import LogIn from "./LogIn";
 import { useState } from "react";
 import "./page.css";
 import { Route, Redirect, Switch } from "react-router-dom";
-
+import ListProducts from "./ListProduct";
+import ProductDetail from "./ProductDetail";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -29,8 +30,11 @@ function App() {
         <Route path="/artisans" exact>
           <Redirect to="/" />
         </Route>
-        <Route path="/products" exact>
-          <Redirect to="/" />
+        <Route path="/listproducts" exact>
+          <ListProducts />
+        </Route>
+        <Route path="/product/:productId" exact>
+          <ProductDetail />
         </Route>
         <Route path="/story" exact>
           <Redirect to="/" />

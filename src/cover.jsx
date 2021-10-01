@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./styles.css";
+import ListProductComponent from "./Components/ListProductComponent";
 
 function Cover(prop) {
   return (
@@ -16,6 +17,7 @@ function Cover(prop) {
         <h1 className="coverHeading1">Artisan's</h1>
         <h1 className="coverHeading">Voice</h1>
       </div>
+      < ListProductComponent />
     </div>
   );
 }
