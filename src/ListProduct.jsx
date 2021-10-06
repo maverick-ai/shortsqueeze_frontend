@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useCallback } from "react";
+import ListProductComponent from "./Components/ListProductComponent";
 import serverBaseURL from "./constants";
+import "./ListProduct.css";
 
 function ListProducts(props) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingFinished, setIsLoadingFinished] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [product, setProduct] = useState([]);
 
   const fetchListOfProduct = useCallback(async () => {
-    setIsLoading(true);
     try {
-        
-        console.log(".......................................response ");
-      const response = await fetch("http://127.0.0.1:8000/api/listproducts/", {
+      const response = await fetch(serverBaseURL+"api/listproducts/", {
         headers: {
           "Authorization": "Token 623ab0169fccd7d3a17ff3f4affc7c001d8e17f5",
           "Accept": "*/*",
@@ -20,9 +19,15 @@ function ListProducts(props) {
       if (!response.ok) {
         throw new Error("Response is not ok");
       }
-      console.log(".......................................response ");
       const data = await response.json();
-      console.log(data);
+      console.log(data.results);
+      const loadedProducts = [];
+
+      const transformedProductrs=data.results.map((item)=>{
+       return <ListProductComponent key={item.product_id} title={item.title} description={item.description}  />
+      });
+
+      setProduct(transformedProductrs);
     } catch (error) {}
     setIsLoading(false);
   },[]);
@@ -31,7 +36,7 @@ function ListProducts(props) {
     fetchListOfProduct();
   }, [ fetchListOfProduct]);
 
-  return <div></div>;
+  return <div className="MainDiv">{product}</div>;
 }
 
 export default ListProducts;

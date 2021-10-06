@@ -7,10 +7,12 @@
   font-size: 40px;
   font-weight: bold;
   padding: 2px 20px 1px;
+  font-family:Helvetica
 }
 
 .info {
   padding: 1px 20px 5px;
+  font-family:Helvetica
 }
 
 .buttonPadding {
@@ -19,7 +21,8 @@
 }
 
 .MoreDetailButton {
-  background-color: #f8f000;
+  background-color: #0294dd;
+  color: white;
   border-radius: 6rem;
   width: 160px !important;
   height: 43px;
@@ -77,4 +80,8 @@
 .MoreDetailButton:focus,
 .MoreDetailButton:active {
   box-shadow: 0px 0px 0 2.5px black !important;
+  color: white;
+}
+.MoreDetailButton:hover{
+  color: white;
 }

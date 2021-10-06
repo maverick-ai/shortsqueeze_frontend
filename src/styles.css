@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: local('Helvetica'), url(./fonts/Helvetica/Helvetica.ttf) format('truetype');
+}
 .coverImageStyle {
   position: relative;
   object-fit: cover;
