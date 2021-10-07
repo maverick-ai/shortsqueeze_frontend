@@ -1,11 +1,10 @@
 hr{
-  
+      
     border: 0;
     height: 1px;
-    width: 10%;
+    width: 30%;
     position: relative;
-    margin: 30px auto;
-    
+    margin: 30px auto 0 auto;
     
     &.center-ball{
       background: grey;
@@ -16,7 +15,7 @@ hr{
         height: 6px;
         background: grey;
         display: inline-block;
-        border: 2px solid grey;
+        border: 3px solid grey;
         border-radius: 50%;
         position: absolute;
         top: -4px;

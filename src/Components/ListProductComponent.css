@@ -7,12 +7,38 @@
   font-size: 40px;
   font-weight: bold;
   padding: 2px 20px 1px;
-  font-family:Helvetica
+  font-family:Helvetica;
+  color: rgba(41, 41, 41, 1);
 }
+
+.paddingTop{
+  padding-top: 30px;
+}
+.price{
+  padding: 2px 20px 1px;
+  color: rgba(90 , 90, 90  , 1);
+}
+.priceText{
+  color: rgba(151 , 151, 151  , 1);
+}
+
+.orInPrice{
+  color: rgba(151, 151, 151  , 1);
+
+}
+
+.currencyType{
+  color: rgba(151, 151, 151  , 1);
+}
+
+/* .insidePrice{
+  text-decoration: underline;
+} */
 
 .info {
   padding: 1px 20px 5px;
-  font-family:Helvetica
+  font-family:Helvetica;
+  color: rgba(131, 131, 131  , 1);
 }
 
 .buttonPadding {
