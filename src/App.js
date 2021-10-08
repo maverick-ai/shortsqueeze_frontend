@@ -9,6 +9,7 @@ import ListProducts from "./ListProduct";
 import ProductDetail from "./ProductDetail";
 import { Provider } from 'react-redux';
 import store from './Store/index';
+import TestCarousel from "./test";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -29,6 +30,9 @@ function App() {
         <Route path="/home" exact>
           <Redirect to="/" />
         </Route>
+        <Route path="/test123" exact>
+          <TestCarousel />
+        </Route>
         <Route path="/artisans" exact>
           <Redirect to="/" />
         </Route>
@@ -47,6 +51,7 @@ function App() {
         <Route path="/logIn" exact>
           <LogIn />
         </Route>
+        
       </Switch>
     </div>
     </Provider>

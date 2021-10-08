@@ -3,6 +3,9 @@
     padding: 20px;
   }
   
+  .carouselImage{
+    border-radius: 50px;
+  }
   .title {
     font-size: 40px;
     font-weight: bold;

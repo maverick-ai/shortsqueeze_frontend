@@ -1,20 +1,56 @@
-// import React, {useState, useCallback, useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import LoadingImage from "./Loading";
+import serverBaseURL from "./constants";
+import ProductDetailComponent from "./Components/ProductDetailComponent";
 
 
-// function ProductDetail(props){
-//     const [isLoading,setIsLoading]=useState(false);
+function ProductsDetail(props) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [product, setProduct] = useState();
 
-//     const fetchProductDetail=useCallback(async ()=>{
-//         setIsLoading(true);
-//         setIsLoading(false);
-//     }
-//     );
+  const fetchListOfProduct = useCallback(async () => {
+    try {
+      const response = await fetch(serverBaseURL + "api/product/e5d852c7-fd0f-40b3-b30a-785868750a92/", {
+        headers: {
+          Authorization: "Token 623ab0169fccd7d3a17ff3f4affc7c001d8e17f5",
+          Accept: "*/*",
+          Connection: "keep-alive",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Response is not ok");
+      }
+      const data = await response.json();
+      console.log("Inside fetch .................");
+      console.log(data["productImages"]);
 
+      setProduct(<ProductDetailComponent
+      key={data["product_id"]}
+        ItemNumber={data["productImages"].length}
+        ImagesItems={data["productImages"]}
+        title={data["title"]}
+        description={data.description}
+        price={data.price}
+        currency={data.currency}
+        crypto={data.crypto}
+        priceInCrypto={data.priceInCrypto}
+      />);
 
-//     useEffect(()=>{
-//         fetchProductDetail();
-//     },[fetchProductDetail]);
+      setIsLoading(false);
+    } catch (error) {}
+    
+  }, []);
 
+  useEffect(() => {
+    fetchListOfProduct();
+  }, [fetchListOfProduct]);
 
-// }
-// export default ProductDetail;
+  return (
+    <div className={`MainDiv ${isLoading===false?"PaddingTopDiv":""}`}>
+      {isLoading === false ? product : <LoadingImage Show={!isLoading} />}
+      {/* <LoadingImage Show={false} /> */}
+    </div>
+  );
+}
+
+export default ProductsDetail;

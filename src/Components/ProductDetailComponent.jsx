@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./ProductDetailComponent.css";
@@ -6,108 +6,131 @@ import AddToCart from "./AddToCart";
 import serverBaseURL from "../constants";
 import { cartActions } from "../Store/AddToCartSlice";
 import { useDispatch } from "react-redux";
+import Carousel from 'react-bootstrap/Carousel'
 
 function ProductDetailComponent(props) {
   const dispatch = useDispatch();
+  // const [itemNumbers, setitemNumbers] = useState();
 
   function AddToCartSlice() {
     dispatch(cartActions.increaseItem({ id: props.key, price: props.price }));
   }
 
-  function createListForCarouslel(ItemNumber) {
-    let arrayOfList = [];
-    for (i = 0; i < ItemNumber; i++) {
-      if (i === 0) {
-        arrayOfList.push(
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            class="active"
-          ></li>
-        );
-      } else {
-        arrayOfList.push(
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to={`${i}`}
-          ></li>
-        );
-      }
-    }
+  // useEffect(() => {
+  //   console.log("inside list .................");
+  //   console.log(props.ItemNumber);
 
-    return arrayOfList;
-  }
-
-  function createImagesForCarouslel(ImagesItems) {
-    let arrayOfImages = [];
-    for (i = 0; i < ImagesItems; i++) {
-      if (i === 0) {
-        arrayOfImages.push(
-          <div class="carousel-item active">
-            <img
-              class="d-block w-100"
-              src={`${serverBaseURL}${ImagesItems[i].file}`}
-              alt={`${i} slide`}
-            />
-          </div>
-        );
-      } else {
-        arrayOfImages.push(
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src={`${serverBaseURL}${ImagesItems[i].file}`}
-              alt={`${i} slide`}
-            />
-          </div>
-        );
-      }
-    }
-
-    return arrayOfImages;
-  }
-
+  //   let arrayOfList = [];
+  //   for (let i = 0; i < props.ItemNumber; i++) {
+  //     if (i === 0) {
+  //       arrayOfList.push(
+  //         <li
+  //           data-target="#carouselExampleIndicators"
+  //           data-slide-to="0"
+  //           className="active"
+  //         ></li>
+  //       );
+  //     } else {
+  //       arrayOfList.push(
+  //         <li
+  //           data-target="#carouselExampleIndicators"
+  //           data-slide-to={`${i}`}
+  //         ></li>
+  //       );
+  //     }
+  //   }
+  //   setitemNumbers(arrayOfList);
+  //   let arrayOfImages = [];
+  //   console.log("inside images items .................");
+  //   console.log(props.ImagesItems);
+  //   for (let i = 0; i < props.ImagesItems; i++) {
+  //     if (i === 0) {
+  //       arrayOfImages.push(
+  //         <div className="carousel-item active">
+  //           <img
+  //             className="d-block w-100"
+  //             src={process.env.PUBLIC_URL + "/testProduct.jpg"}
+  //             alt={`${i} slide`}
+  //           />
+  //         </div>
+  //       );
+  //     } else {
+  //       arrayOfImages.push(
+  //         <div className="carousel-item">
+  //           <img
+  //             className="d-block w-100"
+  //             src={process.env.PUBLIC_URL + "/testProduct.jpg"}
+  //             alt={`${i} slide`}
+  //           />
+  //         </div>
+  //       );
+  //     }
+  //   }
+  // }, []);
+ 
+  
   return (
     <div className="container-lg paddingTop">
       <div className="row">
         <div className="col-sm-6">
-          <div
-            id="carouselExampleIndicators"
-            class="carousel slide"
-            data-ride="carousel"
-            data-interval="5000"
-          >
-            <ol class="carousel-indicators">
-              {createListForCarouslel(props.ItemNumber)}
-            </ol>
-            <div class="carousel-inner">
-              {createImagesForCarouslel(props.ImagesItems)}
-            </div>
-            <a
-              class="carousel-control-prev"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a
-              class="carousel-control-next"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+          <Carousel indicators={true} pause='hover'>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src= {process.env.PUBLIC_URL + "/testProduct.jpg"}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100 carouselImage"
+                src={
+                  process.env.PUBLIC_URL + "/cover.jpg"
+                }
+                alt="Second slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={process.env.PUBLIC_URL + "/testProduct.jpg"}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={
+                  process.env.PUBLIC_URL + "/cover.jpg"
+                }
+                alt="Second slide"
+              />
+
+              <Carousel.Caption>
+                <h3>fourth slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
         </div>
         <div className="col-sm-6 ">
           <div>
