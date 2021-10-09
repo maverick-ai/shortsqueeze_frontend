@@ -130,7 +130,6 @@ function ProductDetailComponent(props) {
               <Dropdown.Toggle id="dropdown-autoclose-true">
                 Default Dropdown
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 <Dropdown.Item eventKey="option-1">1</Dropdown.Item>
                 <Dropdown.Item eventKey="option-2">2</Dropdown.Item>
