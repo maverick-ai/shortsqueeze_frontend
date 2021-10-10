@@ -8,7 +8,11 @@
   font-family: Helvetica;
   color: rgba(41, 41, 41, 1);
 }
-
+.spanQuanityText{
+  padding: 2px 20px 1px;
+  font-family: Helvetica;
+  color: rgba(90, 90, 90, 1);
+}
 .paddingTop {
   padding-top: 60px;
 }

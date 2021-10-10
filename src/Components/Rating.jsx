@@ -37,7 +37,7 @@ function Rating(props) {
             <svg className="eye right">
               <use xlinkHref="#eye" />
             </svg>
-            <svg class="mouth">
+            <svg className="mouth">
               <use xlinkHref="#mouth" />
             </svg>
           </div>

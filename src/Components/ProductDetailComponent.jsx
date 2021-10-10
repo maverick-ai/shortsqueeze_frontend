@@ -3,11 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./ProductDetailComponent.css";
 import AddToCart from "./AddToCart";
-import serverBaseURL from "../constants";
 import { cartActions } from "../Store/AddToCartSlice";
 import { useDispatch } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
-import Dropdown from "react-bootstrap/Dropdown";
+import DropDown from "./DropDown";
 import Rating from "./Rating";
 
 function ProductDetailComponent(props) {
@@ -125,23 +124,21 @@ function ProductDetailComponent(props) {
                 {props.crypto} {props.priceInCrypto}
               </span>{" "}
               <span className="currencyType">(Crypto currency)</span>
-            </h4>
-            <Dropdown onSelect={dropdownOnSelect} className="d-inline mx-2">
-              <Dropdown.Toggle id="dropdown-autoclose-true">
-                Default Dropdown
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item eventKey="option-1">1</Dropdown.Item>
-                <Dropdown.Item eventKey="option-2">2</Dropdown.Item>
-                <Dropdown.Item eventKey="option-3">3</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            </h4>    
+          </div>
+          <div className="row">
+          <div className="col-sm-6 d-flex justify-content-center">
+            <span className="spanQuanityText">Quantity:</span>
+            <DropDown MaxQuantity={5} MinQuantity={1} />
+          </div>
+            <div className="col-sm-6 d-flex justify-content-center">
             <AddToCart ClickAdd={AddToCartSlice} />
+            </div>
           </div>
         </div>
       </div>
       <p className="info">{props.description}</p>
-      <div className=" d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         <h4 className="ratingHeading">Rate</h4>
       </div>
       <div className="ratingPadding d-flex justify-content-center">
