@@ -7,7 +7,7 @@ function CartRow(props){
     <div>
     <div className="row">
         <div className="col-sm-8">{props.title}</div>
-        <div className="col-sm-2"><DropDown CurrentQuantity={props.quantity} /></div>
+        <div className="col-sm-2"><DropDown CurrentQuantity={props.quantity} MinQuantity={props.MinQuantity} MaxQuantity={props.MaxQuantity} /></div>
         <div className="col-sm-2">{props.price}</div>
     </div>
     <hr />

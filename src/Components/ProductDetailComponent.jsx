@@ -137,6 +137,17 @@ function ProductDetailComponent(props) {
           </div>
         </div>
       </div>
+      <div className="row">
+        <div className="col-sm-6">
+        <h2>Artist</h2>
+      <p>Artist Description</p>
+        </div>
+        <div className="col-sm-6">
+          <img src={props.ArtistImageURL} />
+        </div>
+      </div>
+      
+      <h2>Description</h2>
       <p className="info">{props.description}</p>
       <div className="d-flex justify-content-center">
         <h4 className="ratingHeading">Rate</h4>
