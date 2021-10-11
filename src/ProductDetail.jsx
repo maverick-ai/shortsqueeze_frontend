@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import LoadingImage from "./Loading";
-import serverBaseURL from "./constants";
+import {serverBaseURL} from "./constants";
 import ProductDetailComponent from "./Components/ProductDetailComponent";
 
 
@@ -34,6 +34,16 @@ function ProductsDetail(props) {
         currency={data.currency}
         crypto={data.crypto}
         priceInCrypto={data.priceInCrypto}
+        MinQuantity={data.minQunatity}
+        MaxQuantity={data.maxQunatity}
+        Hashtags={data.hashatgs}
+        OutOfStock={data.outOfStock}
+        Category={data.category_product}  
+        SubCategory={data.subcategory_product}
+        ArtistFirstName={data.artist_first_name}
+        ArtistLastName={data.artist_last_name}
+        ArtistStory={data.story}
+        ProductID={data.product_id}
       />);
 
       setIsLoading(false);

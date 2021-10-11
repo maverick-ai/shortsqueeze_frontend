@@ -8,106 +8,84 @@ import { useDispatch } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
 import DropDown from "./DropDown";
 import Rating from "./Rating";
+import {serverBaseURLImage} from "../constants";
 
 function ProductDetailComponent(props) {
   const dispatch = useDispatch();
-  // const [itemNumbers, setitemNumbers] = useState();
+  const [hashTags, setHashTags] = useState([]);
+  const [images, setimages] = useState([]);
 
   function AddToCartSlice() {
     dispatch(cartActions.increaseItem({ id: props.key, price: props.price }));
   }
 
-  function dropdownOnSelect(eventKey, event) {
+  function dropdownOnSelect(eventKey) {
     console.log("dropdown ...........");
     console.log(eventKey);
     console.log("dropdown ...........");
-    console.log(event.target);
   }
-  // useEffect(() => {
-  //   console.log("inside list .................");
-  //   console.log(props.ItemNumber);
 
-  //   let arrayOfList = [];
-  //   for (let i = 0; i < props.ItemNumber; i++) {
-  //     if (i === 0) {
-  //       arrayOfList.push(
-  //         <li
-  //           data-target="#carouselExampleIndicators"
-  //           data-slide-to="0"
-  //           className="active"
-  //         ></li>
-  //       );
-  //     } else {
-  //       arrayOfList.push(
-  //         <li
-  //           data-target="#carouselExampleIndicators"
-  //           data-slide-to={`${i}`}
-  //         ></li>
-  //       );
-  //     }
-  //   }
-  //   setitemNumbers(arrayOfList);
-  //   let arrayOfImages = [];
-  //   console.log("inside images items .................");
-  //   console.log(props.ImagesItems);
-  //   for (let i = 0; i < props.ImagesItems; i++) {
-  //     if (i === 0) {
-  //       arrayOfImages.push(
-  //         <div className="carousel-item active">
-  //           <img
-  //             className="d-block w-100"
-  //             src={process.env.PUBLIC_URL + "/testProduct.jpg"}
-  //             alt={`${i} slide`}
-  //           />
-  //         </div>
-  //       );
-  //     } else {
-  //       arrayOfImages.push(
-  //         <div className="carousel-item">
-  //           <img
-  //             className="d-block w-100"
-  //             src={process.env.PUBLIC_URL + "/testProduct.jpg"}
-  //             alt={`${i} slide`}
-  //           />
-  //         </div>
-  //       );
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    let hashtagsList = props.Hashtags.split(" ");
+    let hashtagsElement = hashtagsList.map((item , i) => {
+      return (
+        <div key={i} className="d-flex justify-content-center">
+          <h3 className="hashtags">{item}</h3>
+        </div>
+      );
+    });
+    setHashTags(hashtagsElement);
+
+    let imagesList = props.ImagesItems;
+    let imageElement = imagesList.map((item , i) => {
+      return (
+        <Carousel.Item key={i}>
+              <img
+                className="d-block w-100 carouselImage"
+                src={`${serverBaseURLImage}${item.file}`}
+                alt={`${i} slide`}
+              />
+            </Carousel.Item>
+      );
+    });
+    setHashTags(hashtagsElement);
+    setimages(imageElement);
+  }, [props.ImagesItems,props.Hashtags, ]);
 
   return (
     <div className="container-lg paddingTop">
       <div className="row">
         <div className="col-lg-6">
           <Carousel indicators={true} pause="hover">
-            <Carousel.Item key={1}>
+            {/* <Carousel.Item >
               <img
                 className="d-block w-100 carouselImage"
                 src={process.env.PUBLIC_URL + "/testProduct.jpg"}
                 alt="First slide"
               />
             </Carousel.Item>
-            <Carousel.Item key={2}>
+            <Carousel.Item >
               <img
                 className="d-block w-100 carouselImage"
                 src={process.env.PUBLIC_URL + "/cover.jpg"}
                 alt="Second slide"
               />
             </Carousel.Item>
-            <Carousel.Item key={3}>
+            <Carousel.Item >
               <img
                 className="d-block w-100 carouselImage"
                 src={process.env.PUBLIC_URL + "/testProduct.jpg"}
                 alt="Third slide"
               />
             </Carousel.Item>
-            <Carousel.Item key={4}>
+            <Carousel.Item >
               <img
                 className="d-block w-100 carouselImage"
-                src={process.env.PUBLIC_URL + "/cover.jpg"}
+                src={`${serverBaseURLImage}${props.ImagesItems[0].file}`}
                 alt="Second slide"
               />
-            </Carousel.Item>
+            </Carousel.Item> */}
+            {images}
           </Carousel>
         </div>
         <div className="col-lg-6 align-self-center">
@@ -124,31 +102,58 @@ function ProductDetailComponent(props) {
                 {props.crypto} {props.priceInCrypto}
               </span>{" "}
               <span className="currencyType">(Crypto currency)</span>
-            </h4>    
+            </h4>
           </div>
-          <div className="row">
-          <div className="col-sm-6 d-flex justify-content-center">
-            <span className="spanQuanityText">Quantity:</span>
-            <DropDown MaxQuantity={5} MinQuantity={1} />
-          </div>
+          <div className="row paddingForRowQuantity">
             <div className="col-sm-6 d-flex justify-content-center">
-            <AddToCart ClickAdd={AddToCartSlice} />
+              <DropDown
+                onSelect={dropdownOnSelect}
+                MaxQuantity={5}
+                MinQuantity={1}
+                CurrentQuantity={1}
+              />
+            </div>
+            <div className="col-sm-6 d-flex justify-content-center">
+              <AddToCart ClickAdd={AddToCartSlice} />
             </div>
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-6">
-        <h2>Artist</h2>
-      <p>Artist Description</p>
-        </div>
-        <div className="col-sm-6">
-          <img src={props.ArtistImageURL} />
+      <div className="container-lg paddingForArtist">
+        <div className="row">
+          <div className="col-md-6 align-self-center">
+            <h2 className="MadeByHashtag">#MadeBy</h2>
+            <h2 className="ArtistTitle">I AM {props.ArtistFirstName} {props.ArtistLastName}</h2>
+            <p className="ArtistDescription">
+              {props.ArtistStory}
+            </p>
+          </div>
+          <div className="col-md-6">
+            <img
+              className="ArtistImage"
+              src={process.env.PUBLIC_URL + "/alpacino.jpg"}
+            />
+          </div>
         </div>
       </div>
-      
-      <h2>Description</h2>
-      <p className="info">{props.description}</p>
+      <div
+        className="container-lg paddingForDescription"
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('${process.env.PUBLIC_URL}/productDescription.jpg')`,
+        }}
+      >
+        <div className="row">
+          <div className="col-md-6 align-self-center">
+            <h2 className="DescriptionTitle">DESCRIPTION</h2>
+            <p className="ProductDescription">
+              {props.description}
+            </p>
+          </div>
+          <div className="col-md-6 align-self-center ">
+            {hashTags}
+          </div>
+        </div>
+      </div>
       <div className="d-flex justify-content-center">
         <h4 className="ratingHeading">Rate</h4>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import ListProductComponent from "./Components/ListProductComponent";
 import LoadingImage from "./Loading";
-import serverBaseURL from "./constants";
+import {serverBaseURL} from "./constants";
 import "./ListProduct.css";
 
 function ListProducts(props) {

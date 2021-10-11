@@ -25,7 +25,7 @@ function DropDown(props) {
     <div>
     <Dropdown onSelect={dropdownOnSelect} className="d-inline mx-2">
     <Dropdown.Toggle id="dropdown-autoclose-true" childBsPrefix="dropdownConfigs" className="dropdownConfigs">
-      {dropdownItem}
+      Quantity {dropdownItem}
     </Dropdown.Toggle>
     <Dropdown.Menu className="menuItems">
       {dropdownItemList}
