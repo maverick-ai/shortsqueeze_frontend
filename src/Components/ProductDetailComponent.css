@@ -38,6 +38,34 @@
   /* object-position: center; */
   /* background-position: 30% ; */
 }
+.paddingForBox{
+  margin-top: 60px;
+  background-color: rgba(255,103,90,255);
+  border-radius: 50px;
+  padding: 20px 50px 20PX;
+  background-size: cover;
+  background-position: 30% ;
+}
+
+.rowBox{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.textinBox{
+  color: white;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.rateTextPadding{
+  padding-top: 30px;
+}
+
+.ratecolPadding{
+  padding-bottom: 2px;
+}
 
 .ArtistTitle{
   color: rgba(238, 238, 238, 1);

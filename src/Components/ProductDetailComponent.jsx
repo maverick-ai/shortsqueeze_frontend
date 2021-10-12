@@ -8,7 +8,13 @@ import { useDispatch } from "react-redux";
 import Carousel from "react-bootstrap/Carousel";
 import DropDown from "./DropDown";
 import Rating from "./Rating";
-import {serverBaseURLImage} from "../constants";
+import { serverBaseURLImage } from "../constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faQrcode,
+  faTrophy,
+  faFileInvoice,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetailComponent(props) {
   const dispatch = useDispatch();
@@ -27,7 +33,7 @@ function ProductDetailComponent(props) {
 
   useEffect(() => {
     let hashtagsList = props.Hashtags.split(" ");
-    let hashtagsElement = hashtagsList.map((item , i) => {
+    let hashtagsElement = hashtagsList.map((item, i) => {
       return (
         <div key={i} className="d-flex justify-content-center">
           <h3 className="hashtags">{item}</h3>
@@ -37,20 +43,20 @@ function ProductDetailComponent(props) {
     setHashTags(hashtagsElement);
 
     let imagesList = props.ImagesItems;
-    let imageElement = imagesList.map((item , i) => {
+    let imageElement = imagesList.map((item, i) => {
       return (
         <Carousel.Item key={i}>
-              <img
-                className="d-block w-100 carouselImage"
-                src={`${serverBaseURLImage}${item.file}`}
-                alt={`${i} slide`}
-              />
-            </Carousel.Item>
+          <img
+            className="d-block w-100 carouselImage"
+            src={`${serverBaseURLImage}${item.file}`}
+            alt={`${i} slide`}
+          />
+        </Carousel.Item>
       );
     });
     setHashTags(hashtagsElement);
     setimages(imageElement);
-  }, [props.ImagesItems,props.Hashtags, ]);
+  }, [props.ImagesItems, props.Hashtags]);
 
   return (
     <div className="container-lg paddingTop">
@@ -123,10 +129,10 @@ function ProductDetailComponent(props) {
         <div className="row">
           <div className="col-md-6 align-self-center">
             <h2 className="MadeByHashtag">#MadeBy</h2>
-            <h2 className="ArtistTitle">I AM {props.ArtistFirstName} {props.ArtistLastName}</h2>
-            <p className="ArtistDescription">
-              {props.ArtistStory}
-            </p>
+            <h2 className="ArtistTitle">
+              I AM {props.ArtistFirstName} {props.ArtistLastName}
+            </h2>
+            <p className="ArtistDescription">{props.ArtistStory}</p>
           </div>
           <div className="col-md-6">
             <img
@@ -145,16 +151,58 @@ function ProductDetailComponent(props) {
         <div className="row">
           <div className="col-md-6 align-self-center">
             <h2 className="DescriptionTitle">DESCRIPTION</h2>
-            <p className="ProductDescription">
-              {props.description}
-            </p>
+            <p className="ProductDescription">{props.description}</p>
           </div>
-          <div className="col-md-6 align-self-center ">
-            {hashTags}
+          <div className="col-md-6 align-self-center ">{hashTags}</div>
+        </div>
+      </div>
+      <div
+        className="container-lg paddingForBox"
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('${process.env.PUBLIC_URL}/box.jpg')`,
+        }}
+      >
+        <h2 className="DescriptionTitle">what's in the box</h2>
+        <div className="row rowBox">
+          <div className="col-md-4 align-self-center">
+            <div className="d-flex justify-content-center">
+              <FontAwesomeIcon
+                icon={faQrcode}
+                size="4x"
+                style={{ color: "white" }}
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h3 className="textinBox">qrcode of NFT</h3>
+            </div>
+          </div>
+          <div className="col-md-4 align-self-center ">
+            <div className="d-flex justify-content-center">
+              <FontAwesomeIcon
+                icon={faTrophy}
+                size="4x"
+                style={{ color: "white" }}
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h3 className="textinBox">{props.title}</h3>
+            </div>
+          </div>
+          <div className="col-md-4 ratecolPadding align-self-center ">
+            <div className="d-flex justify-content-center">
+              <FontAwesomeIcon
+                icon={faFileInvoice}
+                size="4x"
+                style={{ color: "white" }}
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h3 className="textinBox">Invoice</h3>
+            </div>
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center rateTextPadding">
         <h4 className="ratingHeading">Rate</h4>
       </div>
       <div className="ratingPadding d-flex justify-content-center">

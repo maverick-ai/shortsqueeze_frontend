@@ -10,6 +10,7 @@ import ProductDetail from "./ProductDetail";
 import { Provider } from 'react-redux';
 import store from './Store/index';
 import TestCarousel from "./test";
+import MyCart from "./MyCart";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path="/product/:productId" exact>
           <ProductDetail />
+        </Route>
+        <Route path="/mycart" exact>
+          <MyCart />
         </Route>
         <Route path="/story" exact>
           <Redirect to="/" />
