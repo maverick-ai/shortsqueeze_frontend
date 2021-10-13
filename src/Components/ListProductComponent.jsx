@@ -11,7 +11,7 @@ function ListProductComponent(props) {
   const dispatch = useDispatch();
 
   function AddToCartSlice() {
-    dispatch(cartActions.increaseItem({ id:props.key, price: props.price }));
+    dispatch(cartActions.increaseItem({ id:props.key,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto }));
   }
 
   return (

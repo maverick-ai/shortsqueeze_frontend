@@ -3,7 +3,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./styles.css";
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function Navbar(props) {
@@ -20,11 +20,12 @@ function Navbar(props) {
             src={process.env.PUBLIC_URL + "/logo.png"}
             style={{ transform: "translateY(10%)", paddingRight:"3rem"}}
           />
+          <NavLink to="/mycart">
           <i
             className="fa fa-shopping-cart moving-cart"
             aria-hidden="true"  
             style={{ color: "rgb(1,1,1)", }}
-          ></i>
+          ></i></NavLink>
         <button
           data-bs-toggle="collapse"
           className="navbar-toggler navbar-toggler-right"

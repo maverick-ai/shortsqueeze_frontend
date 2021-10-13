@@ -18,17 +18,24 @@ import {
 
 function ProductDetailComponent(props) {
   const dispatch = useDispatch();
+  const [currentQuantity, setCurrentQuantity] = useState(1);
   const [hashTags, setHashTags] = useState([]);
   const [images, setimages] = useState([]);
 
   function AddToCartSlice() {
-    dispatch(cartActions.increaseItem({ id: props.key, price: props.price }));
+    dispatch(
+      cartActions.changeItemQuantity({
+        id: props.key,
+        title:props.title,
+        quantity: currentQuantity,
+        TraditionalPrice: props.price,
+        CryptoPrice: props.priceInCrypto,
+      })
+    );
   }
 
   function dropdownOnSelect(eventKey) {
-    console.log("dropdown ...........");
-    console.log(eventKey);
-    console.log("dropdown ...........");
+    setCurrentQuantity(+eventKey);
   }
 
   useEffect(() => {
@@ -63,34 +70,6 @@ function ProductDetailComponent(props) {
       <div className="row">
         <div className="col-lg-6">
           <Carousel indicators={true} pause="hover">
-            {/* <Carousel.Item >
-              <img
-                className="d-block w-100 carouselImage"
-                src={process.env.PUBLIC_URL + "/testProduct.jpg"}
-                alt="First slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item >
-              <img
-                className="d-block w-100 carouselImage"
-                src={process.env.PUBLIC_URL + "/cover.jpg"}
-                alt="Second slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item >
-              <img
-                className="d-block w-100 carouselImage"
-                src={process.env.PUBLIC_URL + "/testProduct.jpg"}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item >
-              <img
-                className="d-block w-100 carouselImage"
-                src={`${serverBaseURLImage}${props.ImagesItems[0].file}`}
-                alt="Second slide"
-              />
-            </Carousel.Item> */}
             {images}
           </Carousel>
         </div>

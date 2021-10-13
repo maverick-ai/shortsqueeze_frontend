@@ -7,56 +7,23 @@ import "./MyCart.css";
 function MyCart(props) {
   const Cart = useSelector((state) => state.cart);
   const [CartItems, setCartItems] = useState([]);
-  const [testCartItems, testsetCartItems] = useState([]);
 
   useEffect(() => {
-    testsetCartItems([<tr>
-      <td data-label="Account">
-        <h2 className="CartRowTitle">test</h2>
-      </td>
-      <td data-label="Quantity">
-        <DropDown
-          CurrentQuantity={props.quantity}
-          MinQuantity={props.MinQuantity}
-          MaxQuantity={props.MaxQuantity}
+    let tempCartList = [];
+    tempCartList = Cart.CartItems.map((item) => {
+      return (
+        <CartRow
+          title={item.title}
+          quantity={item.quantity}
+          price={item.TraditionalPrice}
+          priceInCrypto={item.CryptoPrice}
+          MinQuantity={1}
+          MaxQuantity={5}
         />
-      </td>
-      <td data-label="Amount">
-        <h2 className="traditionalCurrencyPrice">{props.price}</h2>
-      </td>
-      <td data-label="Period">03/01/2016 - 03/31/2016</td>
-    </tr>,
-    <tr>
-    <td data-label="Account">
-      <h2 className="CartRowTitle">test</h2>
-    </td>
-    <td data-label="Quantity">
-      <DropDown
-        CurrentQuantity={props.quantity}
-        MinQuantity={props.MinQuantity}
-        MaxQuantity={props.MaxQuantity}
-      />
-    </td>
-    <td data-label="Amount">
-      <h2 className="traditionalCurrencyPrice">{props.price}</h2>
-    </td>
-    <td data-label="Period">03/01/2016 - 03/31/2016</td>
-  </tr>,<tr>
-            <td data-label="Account">
-              <h2 className="CartRowTitle">test</h2>
-            </td>
-            <td data-label="Quantity">
-              <DropDown
-                CurrentQuantity={props.quantity}
-                MinQuantity={props.MinQuantity}
-                MaxQuantity={props.MaxQuantity}
-              />
-            </td>
-            <td data-label="Amount">
-              <h2 className="traditionalCurrencyPrice">{props.price}</h2>
-            </td>
-            <td data-label="Period">03/01/2016 - 03/31/2016</td>
-          </tr>]);
+      );
+    });
+    setCartItems(tempCartList);
+
   }, [Cart]);
 
   return (
@@ -71,10 +38,7 @@ function MyCart(props) {
             <th scope="col">Price in Crypto Currency</th>
           </tr>
         </thead>
-        <tbody>
-          {testCartItems}
-         
-        </tbody>
+        <tbody>{CartItems}</tbody>
       </table>
       <div>
         <hr className="hrCartRow" />
@@ -85,3 +49,20 @@ function MyCart(props) {
 }
 
 export default MyCart;
+
+// <tr>
+//           <td data-label="Product">
+//             <h2 className="CartRowTitle">test</h2>
+//           </td>
+//           <td data-label="Quantity">
+//             <DropDown
+//               CurrentQuantity={item.quantity}
+//               MinQuantity={props.MinQuantity}
+//               MaxQuantity={props.MaxQuantity}
+//             />
+//           </td>
+//           <td data-label="Price in Traditional Currency">
+//             <h2 className="traditionalCurrencyPrice">{item.TraditionalPrice}</h2>
+//           </td>
+//           <td data-label="Price in Crypto Currency">{item.CryptoPrice}</td>
+//         </tr>
