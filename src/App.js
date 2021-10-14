@@ -12,6 +12,7 @@ import store from './Store/index';
 import TestCarousel from "./test";
 import MyCart from "./MyCart";
 import Story from "./Story";
+import Support from "./Support";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -51,7 +52,7 @@ function App() {
           <Story />
         </Route>
         <Route path="/support" exact>
-          <Redirect to="/" />
+          <Support />
         </Route>
         <Route path="/logIn" exact>
           <LogIn />

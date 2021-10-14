@@ -3,10 +3,17 @@ import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./styles.css";
-import { NavLink } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 
 function Navbar(props) {
+  const history =useHistory();
+
+  function pushToNewPage(path){
+    history.push(path);
+  }
+
+
   return (
     <nav
       className="navbar navbar-light navbar-expand-lg fixed-top"
@@ -20,12 +27,14 @@ function Navbar(props) {
             src={process.env.PUBLIC_URL + "/logo.png"}
             style={{ transform: "translateY(10%)", paddingRight:"3rem"}}
           />
-          <NavLink to="/mycart">
           <i
             className="fa fa-shopping-cart moving-cart"
             aria-hidden="true"  
             style={{ color: "rgb(1,1,1)", }}
-          ></i></NavLink>
+            onClick={()=>{
+              pushToNewPage('/mycart');
+            }}
+          ></i>
         <button
           data-bs-toggle="collapse"
           className="navbar-toggler navbar-toggler-right"
@@ -58,7 +67,9 @@ function Navbar(props) {
               </button>
             </li>
             <li className="nav-item nav-link">
-              <button className="btn btn-sm navButtons" onClick={props.story}>
+              <button className="btn btn-sm navButtons" onClick={()=>{
+                pushToNewPage('/story');
+              }}>
                 story
               </button>
             </li>
