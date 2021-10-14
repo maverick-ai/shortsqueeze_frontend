@@ -74,7 +74,9 @@ function Navbar(props) {
               </button>
             </li>
             <li className="nav-item nav-link">
-              <button className="btn btn-sm navButtons" onClick={props.support}>
+              <button className="btn btn-sm navButtons"  onClick={()=>{
+                pushToNewPage('/support');
+              }}>
                 support
               </button>
             </li>
