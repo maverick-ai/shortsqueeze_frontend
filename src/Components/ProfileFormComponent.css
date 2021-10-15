@@ -1,0 +1,46 @@
+.profileFormPadding{
+    padding: 10px;
+}
+
+.ProfileImage {
+  object-fit: cover;
+  /* object-position: 45% top; */
+  height: 100%;
+  width: 100%;
+}
+
+.contentDIV{
+    background-color: black;
+    margin-top: 100px;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.profileName{
+    border-radius: 30px;
+    border-width:0px !important;
+    font-size: 14px;
+    line-height: 34px;
+    padding: 8px 41px 8px 41px;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    outline: none;
+}
+.profileName::placeholder{
+    color: #BBC1E1;
+    text-align: center;
+}
+.nameField{
+    margin-top: 40px;
+}
+
+.saveField{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.profileHeading{
+    color:white;
+    font-size: 50px;
+}

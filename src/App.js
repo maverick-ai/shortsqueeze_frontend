@@ -13,6 +13,7 @@ import TestCarousel from "./test";
 import MyCart from "./MyCart";
 import Story from "./Story";
 import Support from "./Support";
+import Profile from "./Profile";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/support" exact>
           <Support />
+        </Route>
+        <Route path="/profile" exact>
+          <Profile />
         </Route>
         <Route path="/logIn" exact>
           <LogIn />
