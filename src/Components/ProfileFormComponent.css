@@ -1,5 +1,7 @@
 .profileFormPadding{
     padding: 10px;
+    min-height: 100vh;
+    height: 100%;
 }
 
 .ProfileImage {

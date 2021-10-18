@@ -14,6 +14,8 @@ import MyCart from "./MyCart";
 import Story from "./Story";
 import Support from "./Support";
 import Profile from "./Profile";
+import ShippingAddress from "./ShippingAddress";
+import BillingAddress from "./BillingAddress";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -48,6 +50,12 @@ function App() {
         </Route>
         <Route path="/mycart" exact>
           <MyCart />
+        </Route>
+        <Route path="/shippingAddress" exact>
+          <ShippingAddress />
+        </Route>
+        <Route path="/billingAddress" exact>
+          <BillingAddress />
         </Route>
         <Route path="/story" exact>
           <Story />
