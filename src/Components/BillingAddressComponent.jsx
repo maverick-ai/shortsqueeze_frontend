@@ -70,6 +70,13 @@ function BillingAddressComponent(props) {
                   disabled={disable}
                 />
               </div>
+              <div className="addressFieldMargin d-flex justify-content-center">
+                <input
+                  className="shippingAddressField"
+                  placeholder="Pincode"
+                  disabled={disable}
+                />
+              </div>
             </form>
           </div>
           <div className="col-md-6 align-self-center">
