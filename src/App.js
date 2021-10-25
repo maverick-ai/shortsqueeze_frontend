@@ -17,6 +17,10 @@ import Profile from "./Profile";
 import ShippingAddress from "./ShippingAddress";
 import BillingAddress from "./BillingAddress";
 import Order from "./Order";
+import Payment from "./Payment";
+import PayInCryptoComponent from "./Components/PayInCryptoComponent";
+import CryptoInformation from "./Components/CryptoInformation";
+import PaymentInfoCryptoComponent from "./Components/PaymentInformationCrypto";
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -73,7 +77,18 @@ function App() {
         <Route path="/logIn" exact>
           <LogIn />
         </Route>
-        
+        <Route path="/review-payment" exact>
+          <Payment />
+        </Route>
+        <Route path="/pay-in-crypto-review" exact>
+          <PayInCryptoComponent />
+        </Route>
+        <Route path="/crypto-information" exact>
+          <CryptoInformation />
+        </Route>
+        <Route path="/payment-info-crypto" exact>
+          <PaymentInfoCryptoComponent />
+        </Route>
       </Switch>
     </div>
     </Provider>

@@ -26,20 +26,45 @@ function PaymentComponent(props) {
                 <td className="tdShiping">Alfreds Futterkiste</td>
               </tr>
               <tr className="trShipping">
-                <th>Shipping</th>
+                <th>State</th>
                 <td className="tdShiping">14</td>
               </tr>
               <tr className="trShipping">
-                <th>Duties and Taxes</th>
-                <td className="tdShipingBeTC">Due at Customs</td>
+                <th>City</th>
+                <td className="tdShiping">Due at Customs</td>
               </tr>
               <tr className="trShipping">
-                <th>Price in Traditional Currency</th>
-                <td className="tdShipingTC">14</td>
+                <th>Street Address</th>
+                <td className="tdShiping">14</td>
               </tr>
               <tr className="trShipping">
-                <th>Price in Crypto Currency</th>
-                <td className="tdShipingCC">14</td>
+                <th>Pincode</th>
+                <td className="tdShiping">14</td>
+              </tr>
+            </table>
+            <div className="d-flex justify-content-center">
+              <h1 className="shippingHeading">Billing Address</h1>
+            </div>
+            <table className="tableShippingAddress">
+              <tr className="trShipping">
+                <th>Country</th>
+                <td className="tdShiping">Alfreds Futterkiste</td>
+              </tr>
+              <tr className="trShipping">
+                <th>State</th>
+                <td className="tdShiping">14</td>
+              </tr>
+              <tr className="trShipping">
+                <th>City</th>
+                <td className="tdShiping">ftghnustoms</td>
+              </tr>
+              <tr className="trShipping">
+                <th>Street Address</th>
+                <td className="tdShiping">th14</td>
+              </tr>
+              <tr className="trShipping">
+                <th>Pincode</th>
+                <td className="tdShiping">ftghn14</td>
               </tr>
             </table>
           </div>
@@ -63,10 +88,6 @@ function PaymentComponent(props) {
               <tr className="trShipping">
                 <th>Price in Traditional Currency</th>
                 <td className="tdShipingTC">14</td>
-              </tr>
-              <tr className="trShipping">
-                <th>Price in Crypto Currency</th>
-                <td className="tdShipingCC">14</td>
               </tr>
             </table>
           </div>

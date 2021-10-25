@@ -1,6 +1,8 @@
 import "./ShippingAddressComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { useDispatch } from "react-redux";
+
 
 function ShippingAddressComponent(props) {
   const dispatch = useDispatch();
@@ -55,6 +57,12 @@ function ShippingAddressComponent(props) {
                 <input
                   className="shippingAddressField"
                   placeholder="phone number"
+                />
+              </div>
+              <div className="addressFieldMargin d-flex justify-content-center">
+                <input
+                  className="shippingAddressField"
+                  placeholder="Pincode"
                 />
               </div>
             </form>
