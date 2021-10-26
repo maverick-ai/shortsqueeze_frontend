@@ -1,11 +1,11 @@
 import React from "react";
 import "./Checkbox.scss";
 
-function Checkbox() {
+function Checkbox(props) {
 
 
     function handleChange(event){
-        console.log(event.target.checked);
+      props.OnTick();
     }
 
 

@@ -37,7 +37,7 @@ function LogIn(prop) {
     if(response.ok){
       const data = await response.json();
       dispatch(UserTokenActions.setToken({token:data.key}));
-      history.push('/');
+      history.replace('/');
 
     }
     else{

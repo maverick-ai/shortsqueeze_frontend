@@ -6,10 +6,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {BillingAddressSliceActions} from "../Store/BillingAddressSlice";
 
 
 function BillingAddressComponent(props) {
   const [disable,setDisable]=useState(false);
+  const ShippingAddress = useSelector((state) => state.shippingAddress);
   const dispatch = useDispatch();
   const history =useHistory();
   const countryInputRef=useRef();
@@ -24,7 +27,38 @@ function BillingAddressComponent(props) {
 
   function handleShippingSubmit(event) {
     event.preventDefault();
+    if(disable){
+      dispatch(BillingAddressSliceActions.addBillingAddress({
+        country:ShippingAddress.country,
+        state:ShippingAddress.state,
+        city:ShippingAddress.city,
+        streetAddress:ShippingAddress.streetAddress,
+        phoneNumber:ShippingAddress.phoneNumber,
+        pincode:ShippingAddress.pincode,
+      }));
+    }else{
+      const streetAddress=streedAddressXInputRef.current.value.trim()+streedAddressYInputRef.current.value.trim();
+
+      dispatch(ShippingAddressSliceActions.addshippingAddress({
+        country:countryInputRef.current.value,
+        state:stateInputRef.current.value,
+        city:cityInputRef.current.value,
+        streetAddress:streetAddress,
+        phoneNumber:phoneNumberInputRef.current.value,
+        pincode:pincodeInputRef.current.value,
+      }));
+
+    }
+
+    history();
+
+
   }
+
+  function onTick(){
+    setDisable(prev=>!prev);
+  }
+
 
   return (
     <div
@@ -50,41 +84,41 @@ function BillingAddressComponent(props) {
             <p style={{"padding":0,}}>(Tick the box below)</p>
             </div> 
             <div className="d-flex justify-content-center">
-            <Checkbox />   
+            <Checkbox OnTick={onTick}/>   
             </div> 
             <form onSubmit={handleShippingSubmit}>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input className="shippingAddressField" placeholder="country" disabled={disable}/>
+                <input ref={countryInputRef} className="shippingAddressField" placeholder="country" disabled={disable}/>
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input className="shippingAddressField" placeholder="state" disabled={disable}/>
+                <input ref={stateInputRef} className="shippingAddressField" placeholder="state" disabled={disable}/>
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input className="shippingAddressField" placeholder="city" disabled={disable}/>
+                <input ref={cityInputRef} className="shippingAddressField" placeholder="city" disabled={disable}/>
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input
+                <input ref={streedAddressXInputRef}
                   className="shippingAddressField"
                   placeholder="Street Address Line 1"
                   disabled={disable}
                 />
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input
+                <input ref={streedAddressYInputRef}
                   className="shippingAddressField"
                   placeholder="Street Address Line 2"
                   disabled={disable}
                 />
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input
+                <input ref={phoneNumberInputRef}
                   className="shippingAddressField"
                   placeholder="phone number"
                   disabled={disable}
                 />
               </div>
               <div className="addressFieldMargin d-flex justify-content-center">
-                <input
+                <input ref={pincodeInputRef}
                   className="shippingAddressField"
                   placeholder="Pincode"
                   disabled={disable}

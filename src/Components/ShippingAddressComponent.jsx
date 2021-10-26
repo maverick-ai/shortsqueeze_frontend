@@ -21,7 +21,7 @@ function ShippingAddressComponent(props) {
 
 
   async function handleShippingSubmit(event) {
-    const streetAddress=streedAddressXInputRef.current.value.trim()+streedAddressYInputRef.current.value.trim()
+    const streetAddress=streedAddressXInputRef.current.value.trim()+streedAddressYInputRef.current.value.trim();
     event.preventDefault();
     if(
       countryInputRef.current.value.trim().length!==0  && 
