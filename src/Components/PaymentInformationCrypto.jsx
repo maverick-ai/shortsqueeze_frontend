@@ -1,8 +1,20 @@
 import "./PaymentInformationCrypto.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { useDispatch } from "react-redux";
+import {ETHAccountActions} from "../Store/ETHAccountSlice";
+
+
 
 function PaymentInfoCryptoComponent(props) {
+  const dispatch = useDispatch();
+
+  function AddAccountAndMoveToNextPage(event){
+    dispatch(ETHAccountActions.increaseItem({ id:props.key,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto }));
+  }
+
+
+
   return (
     <div
       className="divOfShippingAddressPage"
