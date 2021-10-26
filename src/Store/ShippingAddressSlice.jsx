@@ -1,10 +1,12 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   country: "",
   state: "",
   city: "",
   streetAddress: "",
+  pincode:"",
+  phoneNumber:"",
 };
 
 const ShippingAddressSlice = createSlice({
@@ -17,12 +19,16 @@ const ShippingAddressSlice = createSlice({
       state.state = action.payload.state;
       state.city = action.payload.city;
       state.streetAddress = action.payload.streetAddress;
+      state.pincode=action.payload.pincode;
+      state.phoneNumber=action.payload.phoneNumber;
     },
     removeshippingAddress(state, action) {
-        state.country = "";
+      state.country = "";
       state.state ="";
       state.city = "";
       state.streetAddress = "";
+      state.pincode="";
+      state.phoneNumber=""
     },
   },
 });

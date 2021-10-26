@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const ETHAccountSlice = createSlice({
-  name: "cart",
+  name: "ETHAccount",
   initialState: initialState,
   reducers: {
     AddAccount(state, action) {

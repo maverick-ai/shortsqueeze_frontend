@@ -2,15 +2,20 @@ import "./PaymentInformationCrypto.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useDispatch } from "react-redux";
+import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import {ETHAccountActions} from "../Store/ETHAccountSlice";
 
 
 
 function PaymentInfoCryptoComponent(props) {
   const dispatch = useDispatch();
+  const history =useHistory();
+  const accountInputRef=useRef()
 
   function AddAccountAndMoveToNextPage(event){
-    dispatch(ETHAccountActions.increaseItem({ id:props.key,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto }));
+    dispatch(ETHAccountActions.AddAccount({ accountNo:accountInputRef.current.value}));
+    history.push('/pay-in-crypto-review');
   }
 
 
@@ -29,7 +34,8 @@ function PaymentInfoCryptoComponent(props) {
         </div>
         <div className="d-flex justify-content-center">
           <p className="paragraphAccountNumber">
-            1)To pay for your puchase, Please tranfer the required amount in ETH
+            1)We only accept ETH (Ether) among other cryptocurrencies as a form of
+          payment.To pay for your puchase, Please tranfer the required amount in ETH
             (Mainnet) to shortsqueeze wallet account no:-
           </p>
         </div>
@@ -51,10 +57,10 @@ function PaymentInfoCryptoComponent(props) {
           </p>
         </div>
         <div className="d-flex justify-content-center paddingBottomCryptoInput">
-          <input className="cryptoAccountPayNumber" placeholder="Account Number"/>
+          <input ref={accountInputRef} className="cryptoAccountPayNumber" placeholder="Account Number"/>
         </div>
         <div className="d-flex justify-content-center">
-          <button className="nextButton">Next</button>
+          <button onClick={AddAccountAndMoveToNextPage} className="nextButton">Next</button>
         </div>
       </div>
     </div>

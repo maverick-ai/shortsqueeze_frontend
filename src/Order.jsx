@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 
-function Order(){
+function MyOrder(){
     useEffect(()=>{
         
     });
+
+    return(<div></div>);
+
 }
-export default Order;
+export default MyOrder;

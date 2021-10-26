@@ -3,9 +3,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Checkbox from "./Checkbox";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useRef } from "react";
+import { useHistory } from "react-router-dom";
+
 
 function BillingAddressComponent(props) {
   const [disable,setDisable]=useState(false);
+  const dispatch = useDispatch();
+  const history =useHistory();
+  const countryInputRef=useRef();
+  const stateInputRef=useRef();
+  const cityInputRef=useRef();
+  const streedAddressXInputRef=useRef();
+  const streedAddressYInputRef=useRef();
+  const phoneNumberInputRef=useRef();
+  const pincodeInputRef=useRef();
 
 
 

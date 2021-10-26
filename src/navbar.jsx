@@ -82,9 +82,14 @@ function Navbar(props) {
             </li>
             <li className="nav-item nav-link">
               <button className="btn btn-sm navButtons"onClick={()=>{
-                pushToNewPage('/profile');
+                if(localStorage.getItem("token")===null){
+                  pushToNewPage('/logIn');
+                }
+                else{
+                  pushToNewPage('/profile');
+                }
               }}>
-                profile
+                {`${localStorage.getItem("token")===null?'log in':'profile'}`}
               </button>
             </li>
           </ul>

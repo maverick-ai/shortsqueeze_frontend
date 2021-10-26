@@ -3,15 +3,21 @@ import "./LogInForm.css";
 import EmailField from "./Components/Email";
 import PasswordField from "./Components/Password";
 
-function LogInForm() {
+function LogInForm(props) {
+
+
+
   return (<div className="containerForm">
     <form className="form" style={{textAlign:"center"}}>
-    <EmailField />
+    <EmailField EmailRef={props.EmailRef}/>
     <div style={{paddingTop:"30px"}}>
-    <PasswordField />
+    <PasswordField LogInCorrect={props.LogInCorrect} PasswordRef={props.PasswordRef}/>
     </div>
     <div style={{paddingTop:"10px"}}>
-    <button className="buttonForm">LOGIN</button>
+    <button onClick={(event)=>{
+      event.preventDefault();
+      props.performLogin();
+    }} className="buttonForm">LOGIN</button>
     </div>
     </form>
     </div>

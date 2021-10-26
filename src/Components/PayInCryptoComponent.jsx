@@ -1,8 +1,16 @@
 import "./PayInCryptoComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { useSelector } from "react-redux";
+import {shortsqueezeETHAccount} from "../constants";
 
 function PayInCryptoComponent(props) {
+  const shippingAddress = useSelector((state) => state.shippingAddress);
+  const billingAddress = useSelector((state) => state.billingAddress);
+  const ETHAccount = useSelector((state) => state.ETHAccount);
+  const NFTAccount = useSelector((state) => state.NFTAccount);
+
+
   return (
     <div
       className="divOfShippingAddressPage"
@@ -21,11 +29,15 @@ function PayInCryptoComponent(props) {
             <table className="tableCryptoAddress">
               <tr className="trCrypto">
                 <th>Your ETH Wallet Account Number</th>
-                <td className="tdCrypto">0x96C5A9bA429265101638c5436E8cF36eA2500f5A</td>
+                <td className="tdCrypto">{ETHAccount.ETHWaaletAccount}</td>
+              </tr>
+              <tr className="trCrypto">
+                <th>Your NFT Wallet Account Number</th>
+                <td className="tdCrypto">{NFTAccount.NFTAccountNumber}</td>
               </tr>
               <tr className="trCrypto">
                 <th>shortsqueeze ETH Wallet Account Number</th>
-                <td className="tdCrypto">0x96C5A9bA429265101638c5436E8cF36eA2500f5A</td>
+                <td className="tdCrypto">{shortsqueezeETHAccount}</td>
               </tr>
             </table>
         <div className="row">

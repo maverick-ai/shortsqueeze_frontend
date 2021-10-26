@@ -1,0 +1,23 @@
+import { createSlice, current } from "@reduxjs/toolkit";
+
+const initialState = {
+  token:""
+};
+
+const UserTokenSlice = createSlice({
+  name: "userToken",
+  initialState:localStorage.getItem("token")===null?initialState:{token:localStorage.getItem("token")},
+  reducers: {
+    setToken(state, action) {
+        state.token=action.payload.token;
+        localStorage.setItem("token",action.payload.token)
+    },
+    deleteToken(state, action) {
+        state.token="";
+        localStorage.removeItem("token");
+    },
+  },
+});
+const UserTokenActions = UserTokenSlice.actions;
+
+export { UserTokenSlice, UserTokenActions };
