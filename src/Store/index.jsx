@@ -5,6 +5,8 @@ import { BillingAddressSlice } from "./BillingAddressSlice";
 import {ETHAccountSlice} from "./ETHAccountSlice";
 import {NFTAccountNumberSlice} from "./NFTAccountSlice";
 import {UserTokenSlice} from "./UserTokenSlice";
+import {PaymentOptionSlice} from "./PaymentOptionSlice";
+
 
 const store = configureStore({
   reducer: {
@@ -14,6 +16,7 @@ const store = configureStore({
     ETHAccount:ETHAccountSlice.reducer,
     NFTAccount:NFTAccountNumberSlice.reducer,
     userToken:UserTokenSlice.reducer,
+    paymentOption:PaymentOptionSlice.reducer,
   },
 });
 export default store;

@@ -26,7 +26,7 @@ function ProductDetailComponent(props) {
     dispatch(
       cartActions.changeItemQuantity({
         id: props.key,
-        title:props.title,
+        title: props.title,
         quantity: currentQuantity,
         TraditionalPrice: props.price,
         CryptoPrice: props.priceInCrypto,
@@ -74,23 +74,38 @@ function ProductDetailComponent(props) {
           </Carousel>
         </div>
         <div className="col-lg-6 align-self-center">
-          <div className="paddingForTitle">
+          <div className="paddingForTitle d-flex justify-content-center">
             <h2 className="title">{props.title} (NFT + Real Art)</h2>
-            <h4 className="price">
-              <span className="priceText">Price:</span>{" "}
-              <span className="insidePrice">
-                {props.currency} {props.price}
-              </span>{" "}
-              <span className="currencyType">(traditional currency)</span>{" "}
-              <span className="orInPrice">or</span>{" "}
-              <span className="insidePrice">
-                {props.crypto} {props.priceInCrypto}
-              </span>{" "}
-              <span className="currencyType">(Crypto currency)</span>
-            </h4>
+          </div>
+          <div className="row paddingForPrice">
+          <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center align-self-center">
+            <h4 className="priceText">Price:</h4>
+            </div>
+            <div className="col-sm-6 paddingBTWButtons">
+            <div className="d-flex justify-content-center">
+              <h4 className="price">
+                <span className="insidePrice">
+                  {props.currency} {props.price}
+                </span>
+              </h4>
+            </div>
+            <div className="d-flex justify-content-center">
+              <h3>
+                <span>or</span>
+              </h3>
+            </div>
+            <div className="d-flex justify-content-center">
+              <h4 className="price">
+                <span className="insidePrice">
+                  {props.crypto} {props.priceInCrypto}
+                </span>
+              </h4>
+            </div>
+            </div>
+            
           </div>
           <div className="row paddingForRowQuantity">
-            <div className="col-sm-6 d-flex justify-content-center">
+            <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center">
               <DropDown
                 onSelect={dropdownOnSelect}
                 MaxQuantity={5}
@@ -98,7 +113,7 @@ function ProductDetailComponent(props) {
                 CurrentQuantity={1}
               />
             </div>
-            <div className="col-sm-6 d-flex justify-content-center">
+            <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center">
               <AddToCart ClickAdd={AddToCartSlice} />
             </div>
           </div>

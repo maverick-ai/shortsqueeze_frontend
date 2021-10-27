@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import {ETHAccountActions} from "../Store/ETHAccountSlice";
-
+import {shortsqueezeETHAccount} from "../constants";
 
 
 function PaymentInfoCryptoComponent(props) {
@@ -41,7 +41,7 @@ function PaymentInfoCryptoComponent(props) {
         </div>
         <div className="d-flex justify-content-center">
           <p className="spanAccountNumber">
-            0x96C5A9bA429265101638c5436E8cF36eA2500f5A
+            {shortsqueezeETHAccount}
           </p>
         </div>
         <div className="d-flex justify-content-center">

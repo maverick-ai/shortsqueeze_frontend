@@ -8,7 +8,7 @@ import {
 import { getStarSign } from "./helpers";
 import Emoji from "./Emoji";
 
-const DateInput = () => {
+const DateInput = (props) => {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
