@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
+import { useDispatch } from "react-redux";
 import {
   EmojiWrapper,
   StyledInput,
@@ -7,12 +8,28 @@ import {
 } from "./styles";
 import { getStarSign } from "./helpers";
 import Emoji from "./Emoji";
+import {DateChangeSliceActions} from "../../Store/DateChangeSlice";
+
+
 
 const DateInput = (props) => {
+  const dispatch = useDispatch();
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [sign, setSign] = useState("");
+
+
+  useEffect(() => {
+    setDay(props.Day);
+    setMonth(props.Month);
+    setYear(props.Year);
+    const sign = getStarSign(day, month);
+    if (sign !== "") {
+      setSign(sign);
+    }
+    dispatch(DateChangeSliceActions.changeDate({day:props.Day,month:props.Month,year:props.Year}));
+  }, [setDay,setMonth,setYear,setSign,props.Day,props.Month,props.Year]);
 
   const refDay = useRef(null);
   const refMonth = useRef(null);
@@ -28,6 +45,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
+    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
   };
 
   const handleChangeMonth = e => {
@@ -41,6 +59,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
+    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
   };
 
   const handleChangeYear = e => {
@@ -50,6 +69,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
+    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
   };
 
   // console.log(sign);

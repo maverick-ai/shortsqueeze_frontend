@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import ListProductComponent from "./Components/ListProductComponent";
 import LoadingImage from "./Loading";
-import {serverBaseURL} from "./constants";
+import {ListProductsURL,Host} from "./constants";
 import "./ListProduct.css";
 
 function ListProducts(props) {
@@ -10,11 +10,13 @@ function ListProducts(props) {
 
   const fetchListOfProduct = useCallback(async () => {
     try {
-      const response = await fetch(serverBaseURL + "api/listproducts/", {
+      const response = await fetch(ListProductsURL, {
         headers: {
-          Authorization: "Token 623ab0169fccd7d3a17ff3f4affc7c001d8e17f5",
-          Accept: "*/*",
-          Connection: "keep-alive",
+          'Content-Type': 'application/json',
+          'Accept':'*/*',
+          'Accept-Encoding':'gzip, deflate, br',
+          'Connection': 'keep-alive',
+          'Host':Host
         },
       });
       if (!response.ok) {
@@ -29,9 +31,11 @@ function ListProducts(props) {
             title={item.title}
             description={item.description}
             price={item.price}
+            imagesOfProduct={item.productImages}
             currency={item.currency}
             crypto={item.crypto}
             priceInCrypto={item.priceInCrypto}
+            ProductID={item.product_id}
           />
         );
       });

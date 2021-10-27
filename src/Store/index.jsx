@@ -6,6 +6,7 @@ import {ETHAccountSlice} from "./ETHAccountSlice";
 import {NFTAccountNumberSlice} from "./NFTAccountSlice";
 import {UserTokenSlice} from "./UserTokenSlice";
 import {PaymentOptionSlice} from "./PaymentOptionSlice";
+import {DateChangeSlice} from "./DateChangeSlice";
 
 
 const store = configureStore({
@@ -17,6 +18,7 @@ const store = configureStore({
     NFTAccount:NFTAccountNumberSlice.reducer,
     userToken:UserTokenSlice.reducer,
     paymentOption:PaymentOptionSlice.reducer,
+    date:DateChangeSlice.reducer,
   },
 });
 export default store;

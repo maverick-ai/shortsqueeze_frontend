@@ -4,10 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 function Navbar(props) {
   const history =useHistory();
+  const userToken = useSelector((state) => state.userToken);
 
   function pushToNewPage(path){
     history.push(path);
@@ -84,14 +86,14 @@ function Navbar(props) {
             </li>
             <li className="nav-item nav-link">
               <button className="btn btn-sm navButtons"onClick={()=>{
-                if(localStorage.getItem("token")===null){
+                if(userToken.token===""){
                   pushToNewPage('/logIn');
                 }
                 else{
                   pushToNewPage('/profile');
                 }
               }}>
-                {`${localStorage.getItem("token")===null?'log in':'profile'}`}
+                {`${userToken.token===""?'log in':'profile'}`}
               </button>
             </li>
           </ul>

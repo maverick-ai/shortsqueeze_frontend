@@ -3,8 +3,20 @@ import "bootstrap/dist/js/bootstrap.js";
 import "./ProfileFormComponent.css";
 import SubmitProfileButton from "./SubmitProfile";
 import DateInput from "./DateInput";
+import { useRef } from "react";
 
 function ProfileComponent(props) {
+  const firstNameInputRef=useRef();
+  const lastNameInputRef=useRef();
+  const countryInputRef=useRef();
+  const stateInputRef=useRef();
+  const cityInputRef=useRef();
+  const streetAddressXInputRef=useRef();
+  const streetAddressYInputRef=useRef();
+  const phoneNumberInputRef=useRef();
+
+
+
   function handleSubmit(event) {
     event.preventDefault();
   }
@@ -27,35 +39,44 @@ function ProfileComponent(props) {
 
             <form onSubmit={handleSubmit}>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.first_name} placeholder="first name" />
+                <input ref={firstNameInputRef} className="profileName" defaultValue={props.FirstName} placeholder="first name" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.last_name} placeholder="last name" />
+                <input ref={lastNameInputRef} className="profileName" defaultValue={props.LastName} placeholder="last name" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.country} placeholder="country" />
+                <input ref={countryInputRef} className="profileName" defaultValue={props.Country} placeholder="country" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.state} placeholder="state" />
+                <input ref={stateInputRef} className="profileName" defaultValue={props.State} placeholder="state" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.city} placeholder="city" />
+                <input ref={cityInputRef} className="profileName" defaultValue={props.City} placeholder="city" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.streetAddress} placeholder="Street Address Line 1" />
+                <input ref={streetAddressXInputRef} className="profileName" defaultValue={props.StreetAddress} placeholder="Street Address Line 1" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName"  placeholder="Street Address Line 2" />
+                <input ref={streetAddressYInputRef} className="profileName"  placeholder="Street Address Line 2" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input className="profileName" defaultValue={props.phoneNumber} placeholder="phone number" />
+                <input ref={phoneNumberInputRef} className="profileName" defaultValue={props.PhoneNumber} placeholder="phone number" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <DateInput Day={props.day} Month={props.month} Year={props.year}/>
+                <DateInput Day={props.Day} Month={props.Month} Year={props.Year}/>
               </div>
 
               <div className="saveField d-flex justify-content-center">
-                <SubmitProfileButton />
+                <SubmitProfileButton 
+                FirstName={firstNameInputRef} 
+                LastName={lastNameInputRef} 
+                Country={countryInputRef} 
+                State={stateInputRef} 
+                City={cityInputRef}
+                StreetAddressX={streetAddressXInputRef}
+                StreetAddressY={streetAddressYInputRef}
+                PhoneNumber={phoneNumberInputRef}
+                />
               </div>
             </form>
           </div>

@@ -1,12 +1,15 @@
 .parentDiv{
     padding: 0px 10px 0px;
+    background-color: #e9eaec;
+    padding-top: 100px;
+    padding-bottom: 10px;
 }
 .storyPadding{
-    margin-top: 100px;
+    /* padding-top: 100px; */
     background-color: black;
     border-radius: 50px ;
     padding: 50px 40px 0px;
-    margin-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 .heading1{
     color: white;

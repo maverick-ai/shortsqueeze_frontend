@@ -6,12 +6,19 @@ import AddToCart from "./AddToCart";
 import "./HorizontalLine.scss";
 import { cartActions } from "../Store/AddToCartSlice";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 
 function ListProductComponent(props) {
   const dispatch = useDispatch();
+  const history =useHistory();
 
   function AddToCartSlice() {
     dispatch(cartActions.increaseItem({ id:props.key,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto }));
+  }
+
+  function MoreDetail(){
+    history.push(`/product/${props.ProductID}`);
   }
 
   return (
@@ -39,7 +46,7 @@ function ListProductComponent(props) {
       </div>
       <div className="row">
         <div className="col-sm-6 text-center buttonPadding">
-          <button className="btn btn-md MoreDetailButton">
+          <button onClick={MoreDetail} className="btn btn-md MoreDetailButton">
             More details ...
           </button>
         </div>

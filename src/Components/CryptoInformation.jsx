@@ -4,18 +4,24 @@ import "bootstrap/dist/js/bootstrap.js";
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {NFTAccountNumberActions} from "../Store/NFTAccountSlice";
 
 
 
 function CryptoInformation(props) {
+  const paymentOption = useSelector((state) => state.paymentOption);
   const dispatch = useDispatch();
   const history =useHistory();
   const NFTaccountInputRef=useRef()
 
   function AddNFTAccountAndMoveToNextPage(event){
     dispatch(NFTAccountNumberActions.AddAccountNFT({ NFTaccountNo:NFTaccountInputRef.current.value}));
-    history.push('/payment-info-crypto');
+    if (paymentOption.paymentCrypto) {
+      history.push('/payment-info-crypto');
+    } else {
+      history("/review-payment");
+    }
   }
 
 

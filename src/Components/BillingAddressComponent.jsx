@@ -53,12 +53,8 @@ function BillingAddressComponent(props) {
         })
       );
     }
-
-    if (paymentOption.paymentCrypto) {
-      history("/crypto-information");
-    } else {
-      history("/review-payment");
-    }
+    
+    history("/crypto-information");
   }
 
   function onTick() {

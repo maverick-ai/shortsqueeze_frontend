@@ -1,19 +1,18 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router";
 import LoadingImage from "./Loading";
-import {serverBaseURL} from "./constants";
+import {ProductDetailBaseURL} from "./constants";
 import ProductDetailComponent from "./Components/ProductDetailComponent";
 
 
 function ProductsDetail(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState();
-  const location = useLocation();
+  const params=useParams();
 
   const fetchListOfProduct = useCallback(async () => {
     try {
-      // const producID=location.state.productID;
-      const response = await fetch(serverBaseURL + "api/product/1e889563-0eb2-4dab-8c99-2ea697e9d8be/", {
+      const response = await fetch(ProductDetailBaseURL+params.productId+"/", {
         headers: {
           Accept: "*/*",
           Connection: "keep-alive",
@@ -51,7 +50,7 @@ function ProductsDetail(props) {
       setIsLoading(false);
     } catch (error) {}
     
-  }, []);
+  }, [params.productId]);
 
   useEffect(() => {
     fetchListOfProduct();

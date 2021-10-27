@@ -35,7 +35,7 @@ function CartRow(props) {
       <td data-label="Price in Traditional Currency">
         <h2 className="traditionalCurrencyPrice">{props.price}</h2>
       </td>
-      <td data-label="Price in Crypto Currency">{props.priceInCrypto}</td>
+      <td data-label="Price in Crypto Currency"><h2 className="traditionalCurrencyPrice">{props.priceInCrypto}</h2></td>
     </tr>
   );
 }

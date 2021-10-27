@@ -13,6 +13,7 @@ function MyCart(props) {
     tempCartList = Cart.CartItems.map((item) => {
       return (
         <CartRow
+        key={item.id}
           title={item.title}
           quantity={item.quantity}
           price={item.TraditionalPrice}

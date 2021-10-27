@@ -1,15 +1,45 @@
 import { useState } from "react";
 import "./SubmitProfile.scss";
+import { useSelector } from "react-redux";
+import {ProfileURL,Host} from "../constants";
 
-function SubmitProfileButton() {
+
+
+function SubmitProfileButton(props) {
   const [loadingState, setLoadingState] = useState(false);
   const [completeState, setCompleteState] = useState(false);
+  const userToken = useSelector((state) => state.userToken);
+  const date = useSelector((state) => state.date);
 
-  function ClickSaveButton() {
+  async function ClickSaveButton() {
+
     setLoadingState(true);
-    setTimeout(() => {
-        setCompleteState(true);
-      }, 1600);
+    const credentials=JSON.stringify({
+      first_name: props.FirstName.current.value,
+      last_name:props.LastName.current.value,
+      date_of_birth: `${date.year}-${date.month}-${date.day}`,
+      phoneNumber:props.PhoneNumber.current.value,
+      country:props.Country.current.value,
+      state:props.State.current.value,
+      city:props.City.current.value,
+      streetAddress:`${props.StreetAddressX.current.value} ${props.StreetAddressY.current.value}`
+  });
+    const response=await fetch(ProfileURL,{method:'PATCH',headers:{
+      'Content-Type': 'application/json',
+      'Accept':'*/*',
+      'Accept-Encoding':'gzip, deflate, br',
+      'Connection': 'keep-alive',
+      'Content-Length':credentials.length,
+      'Host':Host,
+      'Authorization': `Token ${userToken.token}`,
+    },body:credentials});
+
+
+
+    if(response.ok){
+      setCompleteState(true);
+    }
+    
   }
 
   return (
