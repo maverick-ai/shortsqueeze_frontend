@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
-import DropDown from "./DropDown";
+import DropDownCart from "./DropDownCart";
 import "./MyCartComponent.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../Store/AddToCartSlice";
@@ -25,7 +25,7 @@ function CartRow(props) {
         <h2 className="CartRowTitle">{props.title}</h2>
       </td>
       <td data-label="Quantity">
-        <DropDown
+        <DropDownCart
           CurrentQuantity={props.quantity}
           MinQuantity={props.MinQuantity}
           MaxQuantity={props.MaxQuantity}
