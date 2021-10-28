@@ -27,7 +27,7 @@ function CryptoInformation(props) {
 
   return (
     <div
-      className="divOfShippingAddressPage"
+      className="divOfCryptoInformation"
       style={{
         display: "block",
         background: `url('${process.env.PUBLIC_URL}/EthereumImage.jpg')`,

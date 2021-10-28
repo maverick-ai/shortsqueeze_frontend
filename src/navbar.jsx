@@ -55,7 +55,9 @@ function Navbar(props) {
             <li className="nav-item nav-link">
               <button
                 className="btn btn-sm navButtons"
-                onClick={props.artisans}
+                onClick={()=>{
+                  pushToNewPage('/artisans');
+                }}
               >
                 artisans
               </button>

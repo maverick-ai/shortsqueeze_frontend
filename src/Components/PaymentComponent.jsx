@@ -11,7 +11,7 @@ function PaymentComponent(props) {
         background: `url('${process.env.PUBLIC_URL}/payment.jpg')`,
       }}
     >
-      <div className="container-lg shippingPaddingContainer">
+      <div className="container-lg paymentComponentPaddingContainer">
         <div className="d-flex justify-content-center">
           <h1 className="checkoutHeading">Order Review</h1>
         </div>

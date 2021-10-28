@@ -1,0 +1,14 @@
+.ArtistListMainDiv{
+    background-color: #e9eaec;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+.MadeByHashtagArtistList{
+    font-size: 100px;
+    color: rgba(121,121,121,1);
+    font-weight: bold;
+    padding-top: 20px;
+}
+.MarginForContainer{
+    margin-bottom: 30px;
+}

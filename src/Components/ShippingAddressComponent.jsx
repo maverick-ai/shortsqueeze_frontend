@@ -110,6 +110,7 @@ function ShippingAddressComponent(props) {
               <h1 className="shippingHeading">Order Summary</h1>
             </div>
             <table className="tableShippingAddress">
+              <tbody>
               <tr className="trShipping">
                 <th>item Subtotal</th>
                 <td className="tdShiping">Alfreds Futterkiste</td>
@@ -130,6 +131,7 @@ function ShippingAddressComponent(props) {
                 <th>Price in Crypto Currency</th>
                 <td className="tdShipingCC">14</td>
               </tr>
+              </tbody>
             </table>
           </div>
         </div>

@@ -22,7 +22,7 @@ function PaymentInfoCryptoComponent(props) {
 
   return (
     <div
-      className="divOfShippingAddressPage"
+      className="divOfPaymentInfoCrypto"
       style={{
         display: "block",
         background: `linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),url('${process.env.PUBLIC_URL}/PaymentInformationCrypto.jpg')`,

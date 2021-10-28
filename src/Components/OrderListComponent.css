@@ -1,0 +1,41 @@
+.OrderListComponentDiv{
+    border-radius: 50px;
+    background-color: #de6f90;
+    /* background-color: #bcbfdc; */
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 20px;
+    max-width: 450px;
+    min-width: 350px;
+    /* border: 2px solid black; */
+}
+
+.OrderNoHeading{
+    font-size: 40px;
+    font-weight: bold;
+
+}
+.OrderNumber{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgba(80,80,80,80);
+}
+
+.MoreDetailOrder {
+    background-color: #0294dd;
+    color: white;
+    border-radius: 6rem;
+    width: 160px !important;
+    height: 43px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+.MoreDetailOrder:focus,
+.MoreDetailOrder:active {
+  box-shadow: 0px 0px 0 2.5px black !important;
+  color: white;
+}
+.MoreDetailOrder:hover{
+  color: white;
+}

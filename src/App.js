@@ -16,11 +16,13 @@ import Support from "./Support";
 import Profile from "./Profile";
 import ShippingAddress from "./ShippingAddress";
 import BillingAddress from "./BillingAddress";
-import Order from "./Order";
 import Payment from "./Payment";
 import PayInCryptoComponent from "./Components/PayInCryptoComponent";
 import CryptoInformation from "./Components/CryptoInformation";
 import PaymentInfoCryptoComponent from "./Components/PaymentInformationCrypto";
+import ArtisitList from "./ArtistList";
+import MyOrder from "./Order";
+
 
 function App() {
   const [isShow, setIsShow] = useState(false);
@@ -45,16 +47,13 @@ function App() {
           <TestCarousel />
         </Route>
         <Route path="/artisans" exact>
-          <Redirect to="/" />
+          <ArtisitList />
         </Route>
         <Route path="/listproducts" exact>
           <ListProducts />
         </Route>
         <Route path="/product/:productId" exact>
           <ProductDetail />
-        </Route>
-        <Route path="/order/:orderId" exact>
-          <Order />
         </Route>
         <Route path="/mycart" exact>
           <MyCart />
@@ -88,6 +87,11 @@ function App() {
         </Route>
         <Route path="/payment-info-crypto" exact>
           <PaymentInfoCryptoComponent />
+        </Route>
+        <Route path="/my-orders" exact>
+          <MyOrder />
+        </Route>
+        <Route path="/order/:orderId" exact>
         </Route>
       </Switch>
     </div>

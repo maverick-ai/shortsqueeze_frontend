@@ -1,4 +1,4 @@
-.divOfShippingAddressPage {
+.divOfPaymentComponent {
     position: relative !important;
     z-index: 1;
     background-size: cover !important;
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
   }
   
-  .shippingPaddingContainer {
+  .paymentComponentPaddingContainer {
     border-radius: 50px;
     background-color: rgba(248, 240, 0, 0.75);
     position: relative;
@@ -106,7 +106,7 @@
     }
   }
   @media screen and (max-width: 768px) {
-    .divOfShippingAddressPage {
+    .divOfPaymentComponent {
       position: relative !important;
       z-index: 1;
       background-size: cover !important;
@@ -120,7 +120,7 @@
       background-repeat: no-repeat;
     }
   
-    .shippingPaddingContainer {
+    .paymentComponentPaddingContainer {
       border-radius: 50px;
       background-color: rgba(248, 240, 0, 0.75);
       overflow: hidden;

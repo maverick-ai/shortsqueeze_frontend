@@ -6,20 +6,19 @@ import {shortsqueezeETHAccount} from "../constants";
 
 function PayInCryptoComponent(props) {
   const shippingAddress = useSelector((state) => state.shippingAddress);
-  const billingAddress = useSelector((state) => state.billingAddress);
   const ETHAccount = useSelector((state) => state.ETHAccount);
   const NFTAccount = useSelector((state) => state.NFTAccount);
 
 
   return (
     <div
-      className="divOfShippingAddressPage"
+      className="divOfPayInCryptoPage"
       style={{
         display: "block",
         background: `url('${process.env.PUBLIC_URL}/PayInCrypto.jpg')`,
       }}
     >
-      <div className="container-lg shippingPaddingContainer">
+      <div className="container-lg payInCryptoPaddingContainer">
         <div className="d-flex justify-content-center">
           <h1 className="checkoutHeading">Order Review</h1>
         </div>

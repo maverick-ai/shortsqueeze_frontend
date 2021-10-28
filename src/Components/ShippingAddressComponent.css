@@ -124,7 +124,7 @@
     border-radius: 50px;
     background-color: rgba(248, 240, 0, 0.75);
     overflow: hidden;
-    top: 0%;
+    top: 5%;
     transform: translateY(0);
   }
 }

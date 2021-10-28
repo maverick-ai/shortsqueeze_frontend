@@ -22,8 +22,6 @@ function ProductsDetail(props) {
         throw new Error("Response is not ok");
       }
       const data = await response.json();
-      console.log("Inside fetch .................");
-      console.log(data["productImages"]);
 
       setProduct(<ProductDetailComponent
       key={data["product_id"]}
