@@ -22,6 +22,7 @@ import CryptoInformation from "./Components/CryptoInformation";
 import PaymentInfoCryptoComponent from "./Components/PaymentInformationCrypto";
 import ArtisitList from "./ArtistList";
 import MyOrder from "./Order";
+import OrderDetail from "./OrderDetail";
 
 
 function App() {
@@ -92,6 +93,7 @@ function App() {
           <MyOrder />
         </Route>
         <Route path="/order/:orderId" exact>
+          <OrderDetail />
         </Route>
       </Switch>
     </div>
