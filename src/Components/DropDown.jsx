@@ -19,7 +19,7 @@ function DropDown(props) {
       itmemList.push(<Dropdown.Item key={i} eventKey={`${i+1}`} className="insideMenu">{`${i+1}`}</Dropdown.Item>);
       setDropdownItemList(itmemList);
     }
-  },[]);
+  },[props.MinQuantity,props.MaxQuantity]);
 
   return (
     <div>

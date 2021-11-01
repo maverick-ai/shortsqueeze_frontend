@@ -2,6 +2,7 @@ import OrderDetailComponent from "./Components/OrdeDetailComponent";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { OrderDetailBaseURL,Host } from "./constants";
 import { useCallback } from "react";
 import "./OrderDetail.css";
@@ -9,7 +10,8 @@ import LoadingImage from "./Loading";
 
 function OrderDetail() {
   const params = useParams();
-  const [isLoading, setIsLoading] = useState();
+  const userToken = useSelector((state) => state.userToken);
+  const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState();
 
   const fetchOrder = useCallback(async () => {
@@ -20,7 +22,7 @@ function OrderDetail() {
             'Accept-Encoding':'gzip, deflate, br',
             'Connection': 'keep-alive',
             'Host':Host,
-            "Authorization":"Token 2a0c7208ddf9c0dc14cebf2d42ea0af9a8162670"
+            'Authorization': `Token ${userToken.token}`
           },
       });
       if (!response.ok) {
@@ -31,7 +33,7 @@ function OrderDetail() {
       setIsLoading(false);
       setOrder(
         <OrderDetailComponent
-        OrderNo={data.order_no}
+        OrderNo={data.order_no.toUpperCase()}
           shippingAddress={data.shippingAddress}
           billingAddress={data.billingAddress}
           products={data.products}

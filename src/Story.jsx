@@ -16,7 +16,7 @@ function Story(props) {
       <div className="paragraphDiv">
       <p className="paragraph">
         Every piece of art tells a story, and stories keep us alive. Hailing
-        from the culturally dense land of Madhya Pradesh, India, we witnessed
+        from the culturally dense land of Madhya Pradesh, India. We witnessed
         firsthand the art and craftsmanship around us. We knew that these were
         sacred traditions handed over from generations, and it was a struggle to
         keep them alive, especially when our society is moving towards

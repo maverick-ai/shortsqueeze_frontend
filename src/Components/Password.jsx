@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Password.scss";
 
 function PasswordField(props) {

@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./ProfileFormComponent.css";
 import SubmitProfileButton from "./SubmitProfile";
+import MyOrderButton from "./MyOrderButtonComponent.jsx";
 import DateInput from "./DateInput";
 import { useRef } from "react";
 
@@ -79,6 +80,10 @@ function ProfileComponent(props) {
                 />
               </div>
             </form>
+            <hr style={{"background":"white","height":"2px","width":"250px"}} />
+            <div className="d-flex justify-content-center MyOrderButtonMargin">
+              <MyOrderButton />
+            </div>
           </div>
         </div>
       </div>

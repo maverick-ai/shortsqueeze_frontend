@@ -13,15 +13,15 @@ function OrderListComponent(props) {
           <tbody>
             <tr className="trShipping">
               <th>Order Date</th>
-              <td className="tdShiping">4 Feb,2021</td>
+              <td className="tdShiping">{props.Date}</td>
             </tr>
             <tr className="trShipping">
               <th>Ordered Amount</th>
-              <td className="tdShiping">ETH 34</td>
+              <td className="tdShiping">{props.Amount}</td>
             </tr>
             <tr className="trShipping">
               <th>Status</th>
-              <td className="tdShiping">Preparing</td>
+              <td className="tdShiping">{props.Status}</td>
             </tr>
           </tbody>
         </table>

@@ -6,15 +6,13 @@ import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
 function Navbar(props) {
-  const history =useHistory();
+  const history = useHistory();
   const userToken = useSelector((state) => state.userToken);
 
-  function pushToNewPage(path){
+  function pushToNewPage(path) {
     history.push(path);
   }
-
 
   return (
     <nav
@@ -22,21 +20,23 @@ function Navbar(props) {
       id="mainNav"
     >
       <div className="container">
-          <img
-          onClick={props.logo} 
-            alt="Logo of shortsqueeze"
-            className="logoImage navbar-brand"
-            src={process.env.PUBLIC_URL + "/logo.png"}
-            style={{ transform: "translateY(10%)", paddingRight:"3rem"}}
-          />
-          <i
-            className="fa fa-shopping-cart moving-cart"
-            aria-hidden="true"  
-            style={{ color: "rgb(1,1,1)", }}
-            onClick={()=>{
-              pushToNewPage('/mycart');
-            }}
-          ></i>
+        <img
+          onClick={() => {
+            pushToNewPage("/");
+          }}
+          alt="Logo of shortsqueeze"
+          className="logoImage navbar-brand"
+          src={process.env.PUBLIC_URL + "/logo.png"}
+          style={{ transform: "translateY(10%)", paddingRight: "3rem" }}
+        />
+        <i
+          className="fa fa-shopping-cart moving-cart"
+          aria-hidden="true"
+          style={{ color: "rgb(1,1,1)" }}
+          onClick={() => {
+            pushToNewPage("/mycart");
+          }}
+        ></i>
         <button
           data-bs-toggle="collapse"
           className="navbar-toggler navbar-toggler-right"
@@ -46,7 +46,7 @@ function Navbar(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
           value="Menu"
-          style={{  transform:"translateY(20%)"}}
+          style={{ transform: "translateY(20%)" }}
         >
           <i className="fa fa-bars"></i>
         </button>
@@ -55,8 +55,8 @@ function Navbar(props) {
             <li className="nav-item nav-link">
               <button
                 className="btn btn-sm navButtons"
-                onClick={()=>{
-                  pushToNewPage('/artisans');
+                onClick={() => {
+                  pushToNewPage("/artisans");
                 }}
               >
                 artisans
@@ -65,37 +65,45 @@ function Navbar(props) {
             <li className="nav-item nav-link">
               <button
                 className="btn btn-sm navButtons"
-                onClick={()=>{
-                  pushToNewPage('/listproducts');
+                onClick={() => {
+                  pushToNewPage("/listproducts");
                 }}
               >
                 products
               </button>
             </li>
             <li className="nav-item nav-link">
-              <button className="btn btn-sm navButtons" onClick={()=>{
-                pushToNewPage('/story');
-              }}>
+              <button
+                className="btn btn-sm navButtons"
+                onClick={() => {
+                  pushToNewPage("/story");
+                }}
+              >
                 story
               </button>
             </li>
             <li className="nav-item nav-link">
-              <button className="btn btn-sm navButtons"  onClick={()=>{
-                pushToNewPage('/support');
-              }}>
+              <button
+                className="btn btn-sm navButtons"
+                onClick={() => {
+                  pushToNewPage("/support");
+                }}
+              >
                 support
               </button>
             </li>
             <li className="nav-item nav-link">
-              <button className="btn btn-sm navButtons"onClick={()=>{
-                if(userToken.token===""){
-                  pushToNewPage('/logIn');
-                }
-                else{
-                  pushToNewPage('/profile');
-                }
-              }}>
-                {`${userToken.token===""?'log in':'profile'}`}
+              <button
+                className="btn btn-sm navButtons"
+                onClick={() => {
+                  if (userToken.token === "") {
+                    pushToNewPage("/logIn");
+                  } else {
+                    pushToNewPage("/profile");
+                  }
+                }}
+              >
+                {`${userToken.token === "" ? "log in" : "profile"}`}
               </button>
             </li>
           </ul>

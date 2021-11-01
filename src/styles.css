@@ -13,6 +13,7 @@
 .divOfCoverPage {
   overflow: hidden;
   position: relative;
+  background-color:#eff0f2;
 }
 
 .masthead {
@@ -113,3 +114,67 @@
   box-shadow: 0px 0px 0 2.5px black !important;
 }
 
+.Stories{
+  background-size: cover;
+  border-radius: 50px;
+  padding: 10px 20px 10px;
+  background-position: 45% bottom;
+  overflow: hidden;
+}
+.StoryTitle{
+  color: white;
+  font-size: 70px;
+}
+.StorySubTitle{
+  color: rgba(230,230,230,1);
+  font-size: 45px;
+}
+.StorySubSubTitle{
+  margin-top: 50px;
+  color: rgba(100,100,100,1);
+  font-size: 6.5vw;
+}
+.StoriesPadding{
+  padding: 100px 10px 0px;
+}
+
+.ProbleImage {
+  object-fit: cover;
+  /* object-position: 45% top; */
+  height: 100%;
+  width: 100%;
+}
+
+.ProblemDIV{
+  background-color: black;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 0;
+}
+.ProblemPaddingContent{
+  padding: 20px 10px 20px;
+}
+.ProblemHeading{
+  color:grey;
+  font-size: 45px;
+}
+.ProblemHighlight{
+  color: white;
+}
+.SolutionDIV{
+  background-size: cover;
+  border-radius: 50px;
+  padding: 10px 20px 10px;
+  background-position: 45% bottom;
+  overflow: hidden;
+}
+.SolutionHeading{
+  /* color:rgba(210,210,210,1); */
+  color: #f8f000;
+  font-size: 45px;
+}
+.SolutionSubHeading{
+  /* color:rgba(210,210,210,1); */
+  color: #f8f000;
+  font-size: 45px;
+}
