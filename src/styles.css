@@ -172,9 +172,57 @@
   /* color:rgba(210,210,210,1); */
   color: #f8f000;
   font-size: 45px;
+  font-weight: 600;
 }
 .SolutionSubHeading{
   /* color:rgba(210,210,210,1); */
-  color: #f8f000;
+  color: #fdf989;
+  font-weight: 500;
+  font-size: 30px;
+}
+.SolutionSpanSubHeading{
+  /* color:rgba(210,210,210,1); */
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 30px;
+}
+.SolutionHashtagPadding{
+  padding-bottom: 0px;
+}
+.SolutionHashtagSecondPadding{
+  padding-bottom: 10px;
+}
+.SolutionPaddingContent{
+  padding: 20px 10px 20px;
+}
+.SolutionSubPaddingContent{
+  padding: 20px 10px 5px;
+}
+.SolutionHashtag{
+  color: white;
+  font-size: 6.5vw;
+}
+.CustomerHeading{
   font-size: 45px;
+  font-weight: 700;
+  color: white
+}
+.CustomerHighlight{
+  color: #f8f000;
+}
+.CustomerQuestion{
+  font-size: 40px;
+  font-weight: 500;
+  color: white
+}
+.CustomerAnswer{
+  font-size: 25px;
+  font-weight: 500;
+  color: white
+}
+.footerTag{
+  background-color: black;
+  margin-top: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

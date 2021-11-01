@@ -46,12 +46,11 @@ function Cover(prop) {
               <div className="d-flex justify-content-center ProblemPaddingContent">
                 <h1 className="ProblemHeading">
                   All around the world,{" "}
-                  <span className="ProblemHighlight">artist</span> and{" "}
+                  <span className="ProblemHighlight">artists</span> and{" "}
                   <span className="ProblemHighlight">artisans</span> fail to
                   keep up with{" "}
                   <span className="ProblemHighlight">exploitation</span>,{" "}
-                  <span className="ProblemHighlight">ideas stolen</span> and end
-                  up losing their craft and skills.
+                  <span className="ProblemHighlight">ideas stolen</span> and eventually <span className="ProblemHighlight">losing</span> their craft and skills.
                 </h1>
               </div>
             </div>
@@ -62,7 +61,7 @@ function Cover(prop) {
         <div className="container-lg SolutionDIV" style={{
             background: `url('${process.env.PUBLIC_URL}/ArtSolution2.jpg')`,
           }}>
-          <div className="d-flex justify-content-center ProblemPaddingContent">
+          <div className="d-flex justify-content-center SolutionPaddingContent">
             <h1 className="SolutionHeading">
               We <span className="ProblemHighlight">redefine</span> the artisnal
               and art industry through{" "}
@@ -71,19 +70,49 @@ function Cover(prop) {
               using <span className="ProblemHighlight">NFT</span>
             </h1>
           </div>
-          <div className="d-flex justify-content-center ProblemPaddingContent">
-            <h2 className="ProblemSUbHeading">
-              We <span className="ProblemHighlight">redefine</span> the artisnal
-              and art industry through{" "}
-              <span className="ProblemHighlight">unbelievable </span> power of{" "}
-              <span className="ProblemHighlight">blockchain</span> technology
-              using <span className="ProblemHighlight">NFT</span>
+          <div className="d-flex justify-content-center SolutionSubPaddingContent">
+            <h2 className="SolutionSubHeading">
+              through blockchain(NFT) artist and artisans can easily <span className="SolutionSpanSubHeading">transfer </span> their <span className="SolutionSpanSubHeading">designs</span> or <span className="SolutionSpanSubHeading">intellectual property</span> to the customers.
+            </h2>
+          </div>
+          <div className="SolutionHashtagPadding">
+            <h1 className="SolutionHashtag">
+              #NoNeedOfLawyers
+            </h1>
+          </div>
+          <div className="SolutionHashtagSecondPadding">
+            <h1 className="SolutionHashtag">
+              #NoMiddleMan
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div className="StoriesPadding">
+        <div className="container-lg SolutionDIV" style={{
+            background: `url('${process.env.PUBLIC_URL}/Cork.jpeg')`,
+            "backgroundSize":'cover'
+          }}>
+          <div className="d-flex justify-content-center SolutionPaddingContent">
+            <h1 className="CustomerHeading">
+              You can now own a <span className="CustomerHighlight">breathtaking</span> piece
+              of <span className="CustomerHighlight">art</span> or <span className="CustomerHighlight">handicraft</span>{" "}
+              directly from our listed <span className="CustomerHighlight">incredible</span> artists and artisans.
+            </h1>
+          </div>
+          <div className="SolutionHashtagPadding">
+          <h1 className="CustomerQuestion">
+              What you get?
+            </h1>
+          </div>
+          <div className="SolutionHashtagPadding">
+          <h2 className="CustomerAnswer">
+          After buying, You get a digital version of your art through <span className="CustomerHighlight">NFT</span>, which is unique to you and resell on Opensea or to a digital art collector. You also get art or handicraft in the physical version, which can be shipped to you <span className="CustomerHighlight">anywhere in the world.</span>  We also accept ETH (cryptocurrency) as a form of payment.
             </h2>
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-center">
-        <h1 className="profileHeading">oh so Pro!</h1>
+      <div className="d-flex justify-content-center footerTag">
+        <h1 className="profileHeading">Oh. So. Pro!</h1>
       </div>
     </div>
   );
