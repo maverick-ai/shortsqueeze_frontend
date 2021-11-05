@@ -50,7 +50,9 @@ function Cover(prop) {
                   <span className="ProblemHighlight">artisans</span> fail to
                   keep up with{" "}
                   <span className="ProblemHighlight">exploitation</span>,{" "}
-                  <span className="ProblemHighlight">ideas stolen</span> and eventually <span className="ProblemHighlight">losing</span> their craft and skills.
+                  <span className="ProblemHighlight">ideas stolen</span> and
+                  eventually <span className="ProblemHighlight">losing</span>{" "}
+                  their craft and skills.
                 </h1>
               </div>
             </div>
@@ -58,9 +60,12 @@ function Cover(prop) {
         </div>
       </div>
       <div className="StoriesPadding">
-        <div className="container-lg SolutionDIV" style={{
+        <div
+          className="container-lg SolutionDIV"
+          style={{
             background: `url('${process.env.PUBLIC_URL}/ArtSolution2.jpg')`,
-          }}>
+          }}
+        >
           <div className="d-flex justify-content-center SolutionPaddingContent">
             <h1 className="SolutionHeading">
               We <span className="ProblemHighlight">redefine</span> the artisnal
@@ -70,44 +75,86 @@ function Cover(prop) {
               using <span className="ProblemHighlight">NFT</span>
             </h1>
           </div>
-          <div className="d-flex justify-content-center SolutionSubPaddingContent">
-            <h2 className="SolutionSubHeading">
-              through blockchain(NFT) artist and artisans can easily <span className="SolutionSpanSubHeading">transfer </span> their <span className="SolutionSpanSubHeading">designs</span> or <span className="SolutionSpanSubHeading">intellectual property</span> to the customers.
-            </h2>
-          </div>
           <div className="SolutionHashtagPadding">
-            <h1 className="SolutionHashtag">
-              #NoNeedOfLawyers
-            </h1>
+            <h1 className="SolutionHashtag">#NoNeedOfLawyers</h1>
           </div>
           <div className="SolutionHashtagSecondPadding">
-            <h1 className="SolutionHashtag">
-              #NoMiddleMan
-            </h1>
+            <h1 className="SolutionHashtag">#NoMiddleMan</h1>
           </div>
         </div>
       </div>
       <div className="StoriesPadding">
-        <div className="container-lg SolutionDIV" style={{
+        <div
+          className="container-lg SolutionDIV"
+          style={{
             background: `url('${process.env.PUBLIC_URL}/Cork.jpeg')`,
-            "backgroundSize":'cover'
-          }}>
+            backgroundSize: "cover",
+          }}
+        >
           <div className="d-flex justify-content-center SolutionPaddingContent">
             <h1 className="CustomerHeading">
-              You can now own a <span className="CustomerHighlight">breathtaking</span> piece
-              of <span className="CustomerHighlight">art</span> or <span className="CustomerHighlight">handicraft</span>{" "}
-              directly from our listed <span className="CustomerHighlight">incredible</span> artists and artisans.
+              You can now own a{" "}
+              <span className="CustomerHighlight">breathtaking</span> piece of{" "}
+              <span className="CustomerHighlight">art</span> or{" "}
+              <span className="CustomerHighlight">handicraft</span> directly
+              from our listed{" "}
+              <span className="CustomerHighlight">incredible</span> artists and
+              artisans.
             </h1>
           </div>
           <div className="SolutionHashtagPadding">
-          <h1 className="CustomerQuestion">
-              What you get?
+            <h1 className="SolutionHashtag">#Exotic #UnbelievableQuality</h1>
+          </div>
+        </div>
+      </div>
+      <div className="StoriesPadding">
+        <div
+          className="container-lg SolutionDIV"
+          style={{
+            background: `url('${process.env.PUBLIC_URL}/Trust.jpg') center center / cover`,
+          }}
+        >
+          <div className="d-flex justify-content-center SolutionPaddingContent">
+            <h1 className="CustomerHeading">
+              Building the metaverse just for you{" "}
+              <span className="CustomerHighlight">you</span>. The{" "}
+              <span className="CustomerHighlight">incredible</span> digital
+              canvas for the <span className="CustomerHighlight">creators</span>
+              . The <span className="CustomerHighlight">trusted</span> platform
+              for the collectors
             </h1>
           </div>
+
           <div className="SolutionHashtagPadding">
-          <h2 className="CustomerAnswer">
-          After buying, You get a digital version of your art through <span className="CustomerHighlight">NFT</span>, which is unique to you and resell on Opensea or to a digital art collector. You also get art or handicraft in the physical version, which can be shipped to you <span className="CustomerHighlight">anywhere in the world.</span>  We also accept ETH (cryptocurrency) as a form of payment.
+            <h1 className="SolutionHashtag">#creators #you</h1>
+          </div>
+        </div>
+      </div>
+      <div className="StoriesPadding">
+        <div
+          className="container-lg SolutionDIV"
+          style={{
+            background: `linear-gradient(rgba(90,90,90,0.5), rgba(90,90,90,0.5)), url('${process.env.PUBLIC_URL}/BoxCover.jpg') center center / cover`,
+            // backgroundSize: "cover",
+            // backgroundPosition:"center center"
+          }}
+        >
+          <div className="SolutionPaddingContent">
+            <h1 className="CustomerHeading">What you get?</h1>
+          </div>
+          <div className="SolutionHashtagPadding">
+            <h2 className="CustomerAnswer">
+              After buying, You get a digital version of your art through{" "}
+              <span className="CustomerHighlight">NFT</span>, which is unique to
+              you and resell on Opensea or to a digital art collector. You also
+              get art or handicraft in the physical version, which can be
+              shipped to you{" "}
+              <span className="CustomerHighlight">anywhere in the world.</span>{" "}
+              We also accept ETH (cryptocurrency) as a form of payment.
             </h2>
+          </div>
+          <div className="SolutionHashtagPadding">
+            <h1 className="SolutionHashtag">#Timeless #Forever</h1>
           </div>
         </div>
       </div>

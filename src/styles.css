@@ -179,6 +179,7 @@
   color: #fdf989;
   font-weight: 500;
   font-size: 30px;
+  margin-top: 40px;
 }
 .SolutionSpanSubHeading{
   /* color:rgba(210,210,210,1); */
@@ -199,7 +200,7 @@
   padding: 20px 10px 5px;
 }
 .SolutionHashtag{
-  color: white;
+  color: #eff0f2;
   font-size: 6.5vw;
 }
 .CustomerHeading{
@@ -225,4 +226,7 @@
   margin-top: 80px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.MarginForQuestion{
+  margin-top:40px
 }
