@@ -59,6 +59,7 @@ function ProductsDetail(props) {
             ArtistLastName={data.artist_last_name}
             ArtistStory={data.story}
             ProductID={data.product_id}
+            ArtistImage={data.artistImage}
           />
         );
       } else {

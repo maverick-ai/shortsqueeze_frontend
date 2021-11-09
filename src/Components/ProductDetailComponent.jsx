@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetailComponent(props) {
+  console.log(props.ArtistImage);
   const dispatch = useDispatch();
   const [currentQuantity, setCurrentQuantity] = useState(1);
   const [hashTags, setHashTags] = useState([]);
@@ -55,7 +56,7 @@ function ProductDetailComponent(props) {
         <Carousel.Item key={i}>
           <img
             className="d-block w-100 carouselImage"
-            src={`${serverBaseURLImage}${item.file}`}
+            src={`${item.file}`}
             alt={`${i} slide`}
           />
         </Carousel.Item>
@@ -131,7 +132,7 @@ function ProductDetailComponent(props) {
           <div className="col-md-6">
             <img
               className="ArtistImage"
-              src={process.env.PUBLIC_URL + "/alpacino.jpg"}
+              src={props.ArtistImage}
             />
           </div>
         </div>

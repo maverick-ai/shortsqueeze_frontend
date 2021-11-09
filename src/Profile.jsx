@@ -1,6 +1,9 @@
 import ProfileComponent from "./Components/ProfileFormComponent";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState,useCallback,useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import {UserTokenActions} from "./Store/UserTokenSlice";
 import {ProfileURL,Host} from "./constants";
 import LoadingImage from "./Loading";
 
@@ -8,13 +11,15 @@ import LoadingImage from "./Loading";
 
 function Profile(){
     const userToken = useSelector((state) => state.userToken);
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
     const [profile, setProfile] = useState();
 
 
     const fetchProfile = useCallback(async () => {
         try {
-
+          console.log(userToken.token);
             const response=await fetch(ProfileURL,{method:'GET',headers:{
                 'Accept':'*/*',
                 'Accept-Encoding':'gzip, deflate, br',
@@ -24,7 +29,7 @@ function Profile(){
               }});
             
             if (!response.ok) {
-                throw new Error("Response is not ok");
+                throw new Error(response.status);
             }
             const data = await response.json();
             const DOB = data["date_of_birth"].split("-");
@@ -45,9 +50,18 @@ function Profile(){
           />);
     
           setIsLoading(false);
-        } catch (error) {}
+        } catch (error) {
+          console.log("inside error.....");
+          console.log(error.message);
+          console.log(+error.message === 403);
+          if(+error.message === 403){
+            dispatch(UserTokenActions.deleteToken());
+            history.replace('/logIn');
+          }
+
+        }
         
-      }, [userToken.token]);
+      }, [userToken.token,dispatch,history]);
     
       useEffect(() => {
         fetchProfile();

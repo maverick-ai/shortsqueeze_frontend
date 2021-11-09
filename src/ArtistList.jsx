@@ -28,11 +28,13 @@ function ArtisitList(props) {
       const responseArtistList = data.results.map((item) => {
         return (
           <ArtistComponent
+          key={item.artist_id}
             ArtistFirstName={item.first_name}
             ArtistLastName={item.last_name}
             ArtistStory={item.story}
             Category={item.category_name}
             SubCategory={item.sub_category_name}
+            ArtistImage={item.artistImage}
           />
         );
       });

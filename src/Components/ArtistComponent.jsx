@@ -18,8 +18,9 @@ function ArtistComponent(props){
       </div>
       <div className="col-md-6">
         <img
+        alt="Artist"
           className="ArtistComponentImage"
-          src={process.env.PUBLIC_URL + "/alpacino.jpg"}
+          src={props.ArtistImage}
         />
       </div>
     </div>

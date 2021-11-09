@@ -25,7 +25,6 @@ function ListProducts(props) {
       const data = await response.json();
       const IpInfo = await fetch(IPInfoURL);
       const IPdata = await IpInfo.json();
-
       const transformedProductrs = data.results.map((item) => {
         const CryptoPriceObject=(item.priceForProduct).filter((price)=>{
           return price.IsPriceCrpyto===true});
@@ -34,7 +33,6 @@ function ListProducts(props) {
         const USDPriceObject=(item.priceForProduct).filter((price)=>price.priceCurrency==="USD");
 
         if(IPdata.currency==="INR"){
-          console.log(item.productImages);
 
           return (
             <ListProductComponent

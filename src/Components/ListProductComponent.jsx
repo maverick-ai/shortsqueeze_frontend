@@ -26,7 +26,7 @@ function ListProductComponent(props) {
       <img
         className="productImage"
         alt="Product"
-        src={process.env.PUBLIC_URL + "/testProduct.jpg"}
+        src={props.imagesOfProduct[0].file}
       />
       <div>
         <h2 className="title">{props.title} (NFT + Real Art)</h2>
