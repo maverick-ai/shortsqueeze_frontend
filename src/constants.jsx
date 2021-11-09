@@ -9,7 +9,10 @@ const ProductDetailBaseURL = "http://127.0.0.1:8000/api/product/";
 const OrderDetailBaseURL = "http://127.0.0.1:8000/api/order/";
 const MyOrderURL="http://127.0.0.1:8000/api/myorders/";
 const ListArtistURL="http://127.0.0.1:8000/api/listartist/";
+const SupportTicketURL="http://127.0.0.1:8000/api/create_support_ticket/";
 const IPInfoURL = "https://ipapi.co/json/";
+
+
 export {
   serverBaseURL,
   serverBaseURLImage,
@@ -23,4 +26,5 @@ export {
   IPInfoURL,
   MyOrderURL,
   ListArtistURL,
+  SupportTicketURL,
 };

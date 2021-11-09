@@ -3,15 +3,15 @@ import "./Submit.scss";
 
 
 
-function SubmitButton() {
+function SubmitButton(props) {
     const [SubmitButtonState, setSubmitButtonState]=useState(false);
 
 
 
-    function ClickSubmitButton(){
-        setSubmitButtonState(true);
-    
-        
+    function ClickSubmitButton(event){
+      event.preventDefault();
+      props.SendSupportQuery();
+      setSubmitButtonState(true);
     }
 
 

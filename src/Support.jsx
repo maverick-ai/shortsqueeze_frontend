@@ -1,12 +1,33 @@
 import "./Support.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { useRef } from "react";
+import { Host,SupportTicketURL } from "./constants";
 import Submit from "./Components/Submit";
 import EmailField from "./Components/Email";
 
 function Support() {
-  function handleSubmit(event) {
-    event.preventDefault();
+  const EmailRef = useRef();
+  const SubjectRef = useRef();
+  const DescriptionRef = useRef();
+
+
+  async function handleSubmit(event)  {
+    // event.preventDefault();
+    const supportQuery=JSON.stringify({
+      support_user: EmailRef.current.value,
+      subject:SubjectRef.current.value,
+      description:DescriptionRef.current.value
+  });
+
+    const response=await fetch(SupportTicketURL,{method:'POST',headers:{
+      'Content-Type': 'application/json',
+      'Accept':'*/*',
+      'Accept-Encoding':'gzip, deflate, br',
+      'Connection': 'keep-alive',
+      'Content-Length':supportQuery.length,
+      'Host':Host
+    },body:supportQuery});
   }
 
   return (
@@ -36,16 +57,16 @@ function Support() {
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="emailField">
-            <EmailField />
+            <EmailField EmailRef={EmailRef}/>
           </div>
           <div className="subjectField d-flex justify-content-center">
-            <input className="supportSubject" placeholder="Subject"/>
+            <input ref={SubjectRef} className="supportSubject" placeholder="Subject"/>
           </div>
           <div className="queryField d-flex justify-content-center">
-              <textarea className="textAreaField" placeholder="Descriptio of your query ......."></textarea>
+              <textarea ref={DescriptionRef} className="textAreaField" placeholder="Descriptio of your query ......."></textarea>
           </div>
           <div className="submitField d-flex justify-content-center">
-            <Submit />
+            <Submit SendSupportQuery={handleSubmit}/>
           </div>
         </form>
       </div>
