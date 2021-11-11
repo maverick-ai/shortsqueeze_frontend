@@ -26,7 +26,7 @@ function ProductDetailComponent(props) {
   function AddToCartSlice() {
     dispatch(
       cartActions.changeItemQuantity({
-        id: props.key,
+        id: props.ProductID,
         title: props.title,
         quantity: currentQuantity,
         TraditionalPrice: props.price,

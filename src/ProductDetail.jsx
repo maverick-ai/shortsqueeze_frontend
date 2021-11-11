@@ -41,6 +41,7 @@ function ProductsDetail(props) {
         setProduct(
           <ProductDetailComponent
             key={data["product_id"]}
+            ProductID={data["product_id"]}
             ItemNumber={data["productImages"].length}
             ImagesItems={data["productImages"]}
             title={data["title"]}

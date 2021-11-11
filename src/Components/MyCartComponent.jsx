@@ -11,7 +11,7 @@ function CartRow(props) {
   function changeQuantity(changedQuantity) {
     dispatch(
       cartActions.changeItemQuantity({
-        id: props.key,
+        id: props.ProductID,
         quantity: changedQuantity,
         TraditionalPrice: props.price,
         CryptoPrice: props.CryptoPrice,
@@ -32,10 +32,10 @@ function CartRow(props) {
           onSelect={changeQuantity}
         />
       </td>
-      <td data-label="Price in Traditional Currency">
+      <td data-label="Unit Price in Traditional Currency">
         <h2 className="traditionalCurrencyPrice">{props.price}</h2>
       </td>
-      <td data-label="Price in Crypto Currency"><h2 className="traditionalCurrencyPrice">{props.priceInCrypto}</h2></td>
+      <td data-label="Unit Price in Crypto Currency"><h2 className="traditionalCurrencyPrice">{props.priceInCrypto}</h2></td>
     </tr>
   );
 }

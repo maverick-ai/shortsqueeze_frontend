@@ -31,9 +31,11 @@ const CartSlice = createSlice({
       }
       state.totalItem++;
       state.totalAmountTraditionalPrice =
-        state.totalAmountTraditionalPrice + action.payload.TraditionalPrice;
+        state.totalAmountTraditionalPrice +  parseFloat(action.payload.TraditionalPrice);
       state.totalAmountCryptoPrice =
-        state.totalAmountCryptoPrice + action.payload.CryptoPrice;
+        state.totalAmountCryptoPrice + parseFloat(action.payload.CryptoPrice);
+      console.log(state.totalAmountCryptoPrice);
+      console.log(state.totalAmountTraditionalPrice);
     },
     decreaseItem(state, action) {
       console.log("Initial State ..........");
@@ -51,9 +53,9 @@ const CartSlice = createSlice({
         }
         state.totalItem--;
         state.totalAmountTraditionalPrice =
-          state.totalAmountTraditionalPrice - action.payload.TraditionalPrice;
+          state.totalAmountTraditionalPrice - parseFloat(action.payload.TraditionalPrice);
         state.totalAmountCryptoPrice =
-          state.totalAmountCryptoPrice - action.payload.CryptoPrice;
+          state.totalAmountCryptoPrice - parseFloat(action.payload.CryptoPrice);
       }
     },
     removeItem(state, action) {
@@ -67,17 +69,17 @@ const CartSlice = createSlice({
           );
           state.totalItem--;
           state.totalAmountTraditionalPrice =
-            state.totalAmountTraditionalPrice - action.payload.TraditionalPrice;
+            state.totalAmountTraditionalPrice - parseFloat(action.payload.TraditionalPrice);
           state.totalAmountCryptoPrice =
-            state.totalAmountCryptoPrice - action.payload.CryptoPrice;
+            state.totalAmountCryptoPrice - parseFloat(action.payload.CryptoPrice);
         } else {
           state.totalItem = state.totalItem - itemObject.quantity;
           state.totalAmountTraditionalPrice =
             state.totalAmountTraditionalPrice -
-            itemObject.quantity * action.payload.TraditionalPrice;
+            itemObject.quantity * parseFloat(action.payload.TraditionalPrice);
           state.totalAmountCryptoPrice =
             state.totalAmountCryptoPrice -
-            itemObject.quantity * action.payload.CryptoPrice;
+            itemObject.quantity * parseFloat(action.payload.CryptoPrice);
           state.CartItems = state.CartItems.filter(
             (item) => item.id !== action.payload.id
           );

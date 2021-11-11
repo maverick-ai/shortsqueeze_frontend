@@ -33,10 +33,11 @@ function ListProducts(props) {
         const USDPriceObject=(item.priceForProduct).filter((price)=>price.priceCurrency==="USD");
 
         if(IPdata.currency==="INR"){
-
+          console.log(item.product_id)
           return (
             <ListProductComponent
               key={item.product_id}
+              ProductID={item.product_id}
               title={item.title}
               description={item.description}
               price={INRPriceObject[0].price}

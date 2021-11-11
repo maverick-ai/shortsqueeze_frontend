@@ -13,7 +13,8 @@ function MyCart(props) {
     tempCartList = Cart.CartItems.map((item) => {
       return (
         <CartRow
-        key={item.id}
+          key={item.id}
+          ProductID={item.id}
           title={item.title}
           quantity={item.quantity}
           price={item.TraditionalPrice}
@@ -35,8 +36,8 @@ function MyCart(props) {
           <tr>
             <th scope="col">Product</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Price in Traditional Currency</th>
-            <th scope="col">Price in Crypto Currency</th>
+            <th scope="col">Unit Price in Traditional Currency</th>
+            <th scope="col">Unit Price in Crypto Currency</th>
           </tr>
         </thead>
         <tbody>{CartItems}</tbody>
