@@ -131,6 +131,7 @@ function ProductDetailComponent(props) {
           </div>
           <div className="col-md-6">
             <img
+            alt="artist"
               className="ArtistImage"
               src={props.ArtistImage}
             />

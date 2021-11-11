@@ -1,10 +1,12 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   CartItems: [],
   totalAmountTraditionalPrice: 0,
   totalItem: 0,
   totalAmountCryptoPrice: 0,
+  traditionalCurrency:"",
+  cryptoCurrency:""
 };
 
 const CartSlice = createSlice({
@@ -13,8 +15,6 @@ const CartSlice = createSlice({
   // initialState:localStorage.getItem("cart")===null?initialState:localStorage.getItem("cart"),
   reducers: {
     increaseItem(state, action) {
-      console.log("Initial State ..........");
-      console.log(current(state));
       let itemObject = state.CartItems.find(
         (item) => item.id === action.payload.id
       );
@@ -34,12 +34,8 @@ const CartSlice = createSlice({
         state.totalAmountTraditionalPrice +  parseFloat(action.payload.TraditionalPrice);
       state.totalAmountCryptoPrice =
         state.totalAmountCryptoPrice + parseFloat(action.payload.CryptoPrice);
-      console.log(state.totalAmountCryptoPrice);
-      console.log(state.totalAmountTraditionalPrice);
     },
     decreaseItem(state, action) {
-      console.log("Initial State ..........");
-      console.log(current(state));
       let itemObject = state.CartItems.find(
         (item) => item.id === action.payload.id
       );
@@ -94,14 +90,15 @@ const CartSlice = createSlice({
         let itemObjectQuantity = itemObject.quantity;
         state.totalAmountTraditionalPrice =
           state.totalAmountTraditionalPrice +
-          (action.payload.quantity - itemObjectQuantity) *
-            action.payload.TraditionalPrice;
+          (parseInt(action.payload.quantity) - itemObjectQuantity) *
+          parseFloat(action.payload.TraditionalPrice);
         state.totalAmountCryptoPrice =
           state.totalAmountCryptoPrice +
-          (action.payload.quantity - itemObjectQuantity) *
-            action.payload.CryptoPrice;
+          (parseInt(action.payload.quantity) - itemObjectQuantity) *
+          parseFloat(action.payload.CryptoPrice);
+          state.totalItem=state.totalItem+parseInt(action.payload.quantity) - itemObjectQuantity;
         if (action.payload.quantity !== 0) {
-          itemObject.quantity = action.payload.quantity;
+          itemObject.quantity = parseInt(action.payload.quantity);
         } else {
           state.CartItems = state.CartItems.filter(
             (item) => item.id !== action.payload.id
@@ -111,19 +108,22 @@ const CartSlice = createSlice({
         state.CartItems.push({
           id: action.payload.id,
           title:action.payload.title,
-          quantity: action.payload.quantity,
-          TraditionalPrice: action.payload.TraditionalPrice,
-          CryptoPrice: action.payload.CryptoPrice,
+          quantity: parseInt(action.payload.quantity),
+          TraditionalPrice: parseFloat(action.payload.TraditionalPrice),
+          CryptoPrice: parseFloat(action.payload.CryptoPrice),
         });
         state.totalAmountTraditionalPrice =
           state.totalAmountTraditionalPrice +
-          action.payload.quantity * action.payload.TraditionalPrice;
+          parseInt(action.payload.quantity) * parseFloat(action.payload.TraditionalPrice);
         state.totalAmountCryptoPrice =
           state.totalAmountCryptoPrice +
-          action.payload.quantity * action.payload.CryptoPrice;
+          parseInt(action.payload.quantity) * parseFloat(action.payload.CryptoPrice);
+          state.totalItem=state.totalItem+parseInt(action.payload.quantity);
       }
-      console.log("Inside change item quantity ..........");
-      console.log(current(state));
+    },
+    setCurrency(state, action) {
+      state.traditionalCurrency=action.payload.traditionalCurrency;
+      state.cryptoCurrency=action.payload.cryptoCurrency;
     },
   },
 });

@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import CartRow from "./Components/MyCartComponent";
-import DropDown from "./Components/DropDown";
+import PaymentButton from "./Components/PaymentButton";
 import "./MyCart.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
 
 function MyCart(props) {
   const Cart = useSelector((state) => state.cart);
   const [CartItems, setCartItems] = useState([]);
+  const [tradCurrency, setTradCurrency] = useState("");
+  const [cryptoCurrency, setCryptoCurrency] = useState("");
 
   useEffect(() => {
     let tempCartList = [];
@@ -25,10 +29,12 @@ function MyCart(props) {
       );
     });
     setCartItems(tempCartList);
-
+    setTradCurrency(Cart.traditionalCurrency);
+    setCryptoCurrency(Cart.cryptoCurrency);
   }, [Cart]);
 
   return (
+    <div>
     <div className="container-lg paddingMyCart">
       <h1 className="MyCartTitle">#MyCart</h1>
       <table>
@@ -36,16 +42,53 @@ function MyCart(props) {
           <tr>
             <th scope="col">Product</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Unit Price in Traditional Currency</th>
-            <th scope="col">Unit Price in Crypto Currency</th>
+            <th scope="col">{`Price in ${tradCurrency}`}</th>
+            <th scope="col">{`Price in ${cryptoCurrency}`}</th>
           </tr>
         </thead>
         <tbody>{CartItems}</tbody>
       </table>
       <div>
         <hr className="hrCartRow" />
-        <h2>Total Amount</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td></td>
+              <td data-label="Total Quantity">{Cart.totalItem}</td>
+              <td data-label={`Total Amount in ${tradCurrency}`}>
+                <h2 className="traditionalCurrencyPrice">
+                  {Cart.totalAmountTraditionalPrice.toFixed(3)}
+                </h2>
+              </td>
+              <td data-label={`Total Amount in ${cryptoCurrency}`}>
+                <h2 className="traditionalCurrencyPrice">
+                  {Cart.totalAmountCryptoPrice.toFixed(3)}
+                </h2>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr className="hrCartRow" />
+        <div className="container-lg PaymentContainer">
+          <div className="row">
+            <div className="col-md-4 align-self-center">
+              <div className="d-flex justify-content-center PaymentButtonPadding">
+                <PaymentButton Currency={tradCurrency}/>
+              </div>
+            </div>
+            <div className="col-md-4 align-self-center"> <div className="d-flex justify-content-center">
+                -or-
+              </div></div>
+            <div className="col-md-4 align-self-center">
+              <div className="d-flex justify-content-center PaymentButtonPadding">
+                <PaymentButton Currency={cryptoCurrency}/>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div className="CartFooter"></div>
     </div>
   );
 }

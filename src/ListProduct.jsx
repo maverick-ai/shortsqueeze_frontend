@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import ListProductComponent from "./Components/ListProductComponent";
+import { cartActions } from "./Store/AddToCartSlice";
 import LoadingImage from "./Loading";
 import {ListProductsURL,Host,IPInfoURL} from "./constants";
 import "./ListProduct.css";
 
 function ListProducts(props) {
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState([]);
 
@@ -34,6 +37,7 @@ function ListProducts(props) {
 
         if(IPdata.currency==="INR"){
           console.log(item.product_id)
+          dispatch(cartActions.setCurrency({ traditionalCurrency:INRPriceObject[0].priceCurrency,cryptoCurrency:CryptoPriceObject[0].priceCurrency,}));
           return (
             <ListProductComponent
               key={item.product_id}
@@ -50,6 +54,7 @@ function ListProducts(props) {
           );
         }
         else{
+          dispatch(cartActions.setCurrency({ traditionalCurrency:USDPriceObject[0].priceCurrency,cryptoCurrency:CryptoPriceObject[0].priceCurrency,}));
           return (
             <ListProductComponent
               key={item.product_id}

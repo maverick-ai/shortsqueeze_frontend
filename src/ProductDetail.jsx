@@ -59,7 +59,6 @@ function ProductsDetail(props) {
             ArtistFirstName={data.artist_first_name}
             ArtistLastName={data.artist_last_name}
             ArtistStory={data.story}
-            ProductID={data.product_id}
             ArtistImage={data.artistImage}
           />
         );

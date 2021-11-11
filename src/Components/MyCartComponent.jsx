@@ -4,17 +4,24 @@ import DropDownCart from "./DropDownCart";
 import "./MyCartComponent.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../Store/AddToCartSlice";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function CartRow(props) {
   const dispatch = useDispatch();
+  const Cart = useSelector((state) => state.cart);
+  const [TradPrice,setTradPrice]=useState(props.quantity*props.price)
+  const [CryptoPriceState,setCryptoPriceState]=useState(props.quantity*props.priceInCrypto)
 
   function changeQuantity(changedQuantity) {
+    setTradPrice(changedQuantity*props.price)
+    setCryptoPriceState(changedQuantity*props.priceInCrypto)
     dispatch(
       cartActions.changeItemQuantity({
         id: props.ProductID,
         quantity: changedQuantity,
         TraditionalPrice: props.price,
-        CryptoPrice: props.CryptoPrice,
+        CryptoPrice: props.priceInCrypto,
       })
     );
   }
@@ -32,10 +39,10 @@ function CartRow(props) {
           onSelect={changeQuantity}
         />
       </td>
-      <td data-label="Unit Price in Traditional Currency">
-        <h2 className="traditionalCurrencyPrice">{props.price}</h2>
+      <td data-label={`Price in ${Cart.traditionalCurrency}`}>
+        <h2 className="traditionalCurrencyPrice">{TradPrice}</h2>
       </td>
-      <td data-label="Unit Price in Crypto Currency"><h2 className="traditionalCurrencyPrice">{props.priceInCrypto}</h2></td>
+      <td data-label={`Price in ${Cart.cryptoCurrency}`}><h2 className="traditionalCurrencyPrice">{CryptoPriceState}</h2></td>
     </tr>
   );
 }

@@ -7,12 +7,21 @@
     padding-bottom: 100px;
 }
 .hrCartRow {
-    width: 50%;
+    width: 100%;
     color: rgba(121, 121, 121, 1);
     size: 5;
     margin-left: 0;
   }
 
+.PaymentContainer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.PaymentButtonPadding{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
   table {
     border: 0px solid white;
@@ -49,6 +58,12 @@
   @media screen and (max-width: 600px) {
     table {
       border: 0;
+    }
+    .hrCartRow {
+      width: 0%;
+      color: rgba(121, 121, 121, 1);
+      size: 5;
+      margin-left: 0;
     }
   
     table caption {
