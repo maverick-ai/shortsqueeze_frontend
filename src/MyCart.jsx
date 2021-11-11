@@ -34,7 +34,7 @@ function MyCart(props) {
   }, [Cart]);
 
   return (
-    <div>
+    <div className="MyCartPageParentDiv">
     <div className="container-lg paddingMyCart">
       <h1 className="MyCartTitle">#MyCart</h1>
       <table>
@@ -88,7 +88,7 @@ function MyCart(props) {
         </div>
       </div>
     </div>
-    <div className="CartFooter"></div>
+    <div className="CartFooter"><h1 className="MyCartFooterHeading">You are a change-maker!</h1></div>
     </div>
   );
 }
