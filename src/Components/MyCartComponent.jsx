@@ -29,7 +29,7 @@ function CartRow(props) {
   return (
     <tr>
       <td data-label="Product">
-        <h2 className="CartRowTitle">{props.title}</h2>
+        <h2 className="CartRowTitle" style={{color:`${props.OutOfStock===true?"red":"black"}`}}>{props.title}</h2>
       </td>
       <td data-label="Quantity">
         <DropDownCart

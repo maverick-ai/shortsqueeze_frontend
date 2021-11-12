@@ -22,6 +22,7 @@ function ListProducts(props) {
           'Host':Host
         },
       });
+
       if (!response.ok) {
         throw new Error("Response is not ok");
       }
@@ -36,7 +37,6 @@ function ListProducts(props) {
         const USDPriceObject=(item.priceForProduct).filter((price)=>price.priceCurrency==="USD");
 
         if(IPdata.currency==="INR"){
-          console.log(item.product_id)
           dispatch(cartActions.setCurrency({ traditionalCurrency:INRPriceObject[0].priceCurrency,cryptoCurrency:CryptoPriceObject[0].priceCurrency,}));
           return (
             <ListProductComponent

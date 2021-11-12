@@ -11,6 +11,7 @@ const MyOrderURL="http://127.0.0.1:8000/api/myorders/";
 const ListArtistURL="http://127.0.0.1:8000/api/listartist/";
 const SupportTicketURL="http://127.0.0.1:8000/api/create_support_ticket/";
 const IPInfoURL = "https://ipapi.co/json/";
+const OutOfStockURL="http://127.0.0.1:8000/api/out_of_stock/";
 
 
 export {
@@ -27,4 +28,5 @@ export {
   MyOrderURL,
   ListArtistURL,
   SupportTicketURL,
+  OutOfStockURL
 };

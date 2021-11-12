@@ -10,6 +10,13 @@
 .MyCartPageParentDiv{
   min-height: 100vh;
 }
+.OutOfStockDiv{
+  background-color: rgb(141, 1, 1);
+}
+.OutOfStockDivParagraph{
+  color:white;
+  text-align: center;
+}
 .hrCartRow {
     width: 100%;
     color: rgba(121, 121, 121, 1);

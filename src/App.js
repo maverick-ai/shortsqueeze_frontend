@@ -23,6 +23,7 @@ import PaymentInfoCryptoComponent from "./Components/PaymentInformationCrypto";
 import ArtisitList from "./ArtistList";
 import MyOrder from "./Order";
 import OrderDetail from "./OrderDetail";
+import LogInOrSignUp from "./LogInOrSignUp";
 
 
 function App() {
@@ -76,6 +77,12 @@ function App() {
         </Route>
         <Route path="/logIn" exact>
           <LogIn />
+        </Route>
+        <Route path="/logInCart" exact>
+          <LogIn />
+        </Route>
+        <Route path="/logInOrSignUp" exact>
+          <LogInOrSignUp />
         </Route>
         <Route path="/review-payment" exact>
           <Payment />

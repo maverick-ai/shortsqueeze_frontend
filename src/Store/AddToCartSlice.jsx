@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { current } from "@reduxjs/toolkit";
+
 
 const initialState = {
   CartItems: [],
@@ -11,8 +13,7 @@ const initialState = {
 
 const CartSlice = createSlice({
   name: "cart",
-  initialState: initialState,
-  // initialState:localStorage.getItem("cart")===null?initialState:localStorage.getItem("cart"),
+  initialState:localStorage.getItem("cart")===null?initialState:JSON.parse(localStorage.getItem("cart")),
   reducers: {
     increaseItem(state, action) {
       let itemObject = state.CartItems.find(
@@ -34,6 +35,8 @@ const CartSlice = createSlice({
         state.totalAmountTraditionalPrice +  parseFloat(action.payload.TraditionalPrice);
       state.totalAmountCryptoPrice =
         state.totalAmountCryptoPrice + parseFloat(action.payload.CryptoPrice);
+        localStorage.setItem("cart",JSON.stringify(state));
+      console.log(localStorage.getItem("cart"));
     },
     decreaseItem(state, action) {
       let itemObject = state.CartItems.find(
@@ -53,6 +56,7 @@ const CartSlice = createSlice({
         state.totalAmountCryptoPrice =
           state.totalAmountCryptoPrice - parseFloat(action.payload.CryptoPrice);
       }
+      localStorage.setItem("cart",JSON.stringify(state));
     },
     removeItem(state, action) {
       let itemObject = state.CartItems.find(
@@ -81,6 +85,7 @@ const CartSlice = createSlice({
           );
         }
       }
+      localStorage.setItem("cart",JSON.stringify(state));
     },
     changeItemQuantity(state, action) {
       let itemObject = state.CartItems.find(
@@ -120,11 +125,26 @@ const CartSlice = createSlice({
           parseInt(action.payload.quantity) * parseFloat(action.payload.CryptoPrice);
           state.totalItem=state.totalItem+parseInt(action.payload.quantity);
       }
+      localStorage.setItem("cart",JSON.stringify(state));
+      console.log(localStorage.getItem("cart"));
     },
     setCurrency(state, action) {
       state.traditionalCurrency=action.payload.traditionalCurrency;
       state.cryptoCurrency=action.payload.cryptoCurrency;
+      localStorage.setItem("cart",JSON.stringify(state));
     },
+    OutOfStockHandle(state, action){
+      let temp=action.payload.outOfStockItems.map((parentItem)=>{
+        let itemObject = state.CartItems.find(
+          (item) => ((item.id === parentItem.product_id)&&(parentItem.outOfStock===true))
+        );
+        if(itemObject!==undefined){
+          itemObject.OutOfStock=true;
+        }
+        return "";
+      });
+      localStorage.setItem("cart",JSON.stringify(state));
+    }
   },
 });
 const cartActions = CartSlice.actions;

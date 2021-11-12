@@ -11,8 +11,6 @@ const UserTokenSlice = createSlice({
     setToken(state, action) {
         state.token=action.payload.token;
         localStorage.setItem("token",action.payload.token)
-        console.log("inside addition of token");
-        console.log(state.token);
     },
     deleteToken(state, action) {
         state.token="";
