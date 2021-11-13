@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
-
 
 const initialState = {
   CartItems: [],
@@ -144,7 +142,22 @@ const CartSlice = createSlice({
         return "";
       });
       localStorage.setItem("cart",JSON.stringify(state));
-    }
+    },
+    RemoveOutOfStock(state, action){
+      state.CartItems=state.CartItems.filter((item)=>{
+        if(item.OutOfStock===true){
+          state.totalItem=state.totalItem-parseInt(item.quantity);
+          state.totalAmountTraditionalPrice=state.totalAmountTraditionalPrice-parseInt(item.quantity)*parseFloat(item.TraditionalPrice);
+          state.totalAmountCryptoPrice= state.totalAmountCryptoPrice-parseInt(item.quantity)*parseFloat(item.CryptoPrice);
+        }
+        return item.OutOfStock!==true;
+      });
+      localStorage.setItem("cart",JSON.stringify(state));
+    },
+    createPaymentCart(state, action){
+      localStorage.setItem("Paymentmethod",action.payload.payMethod);
+      localStorage.setItem("Paymentcart",JSON.stringify(state));
+    },
   },
 });
 const cartActions = CartSlice.actions;

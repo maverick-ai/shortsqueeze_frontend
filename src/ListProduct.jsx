@@ -50,6 +50,8 @@ function ListProducts(props) {
               crypto={CryptoPriceObject[0].priceCurrency}
               priceInCrypto={CryptoPriceObject[0].price}
               ProductID={item.product_id}
+              MaxQuantity={item.maxQunatity}
+              MinQuantity={item.minQunatity}
             />
           );
         }
@@ -66,6 +68,8 @@ function ListProducts(props) {
               crypto={CryptoPriceObject[0].priceCurrency}
               priceInCrypto={CryptoPriceObject[0].price}
               ProductID={item.product_id}
+              MaxQuantity={item.maxQunatity}
+              MinQuantity={item.minQunatity}
             />
           );
         }

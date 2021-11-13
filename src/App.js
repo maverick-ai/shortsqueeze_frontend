@@ -24,6 +24,7 @@ import ArtisitList from "./ArtistList";
 import MyOrder from "./Order";
 import OrderDetail from "./OrderDetail";
 import LogInOrSignUp from "./LogInOrSignUp";
+import LogInCart from "./LogInCart";
 
 
 function App() {
@@ -79,7 +80,10 @@ function App() {
           <LogIn />
         </Route>
         <Route path="/logInCart" exact>
-          <LogIn />
+          <LogInCart />
+        </Route>
+        <Route path="/RegistrationCart" exact>
+          <LogInCart />
         </Route>
         <Route path="/logInOrSignUp" exact>
           <LogInOrSignUp />

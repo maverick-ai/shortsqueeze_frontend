@@ -8,14 +8,14 @@ import { useLocation } from "react-router-dom";
 
 
 function LogInOrSignUp(prop) {
-  const location = useLocation();
   const history =useHistory();
   console.log(location.state);
 
   async function performLogin(){
-      
+    history.push('/logInCart');
   }
   async function performRegister(){
+    history.push('/RegistrationCart');
 }
 
   return (

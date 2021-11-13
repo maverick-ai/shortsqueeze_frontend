@@ -16,15 +16,15 @@ function DropDownCart(props) {
   useEffect(()=>{
     let itmemList=[];
     for(let i=props.MinQuantity-1;i<props.MaxQuantity;i++){
-      itmemList.push(<Dropdown.Item key={i} eventKey={`${i+1}`} className="insideMenuCart">{`${i+1}`}</Dropdown.Item>);
+      itmemList.push(<Dropdown.Item key={i} eventKey={`${i+1}`} style={{backgroundColor:`${props.OutOfStock===true?"red":"black"}`}} className="insideMenuCart">{`${i+1}`}</Dropdown.Item>);
       setDropdownItemList(itmemList);
     }
-  },[props.MinQuantity,props.MaxQuantity]);
+  },[props.MinQuantity,props.MaxQuantity,props.OutOfStock]);
 
   return (
     <div>
     <Dropdown onSelect={dropdownOnSelect} className="d-inline mx-2">
-    <Dropdown.Toggle id="dropdown-autoclose-true" childBsPrefix="dropdownCartConfigs" className="dropdownCartConfigs">
+    <Dropdown.Toggle id="dropdown-autoclose-true" childBsPrefix="dropdownCartConfigs" style={{backgroundColor:`${props.OutOfStock===true?"red":"black"}`}} className="dropdownCartConfigs">
       {dropdownItem}
     </Dropdown.Toggle>
     <Dropdown.Menu className="menuItemsCart">

@@ -14,7 +14,7 @@ function ListProductComponent(props) {
   const history =useHistory();
 
   function AddToCartSlice() {
-    dispatch(cartActions.increaseItem({ id:props.ProductID,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto }));
+    dispatch(cartActions.increaseItem({ id:props.ProductID,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto ,MaxQuantity:props.MaxQuantity, MinQuantity:props.MinQuantity }));
   }
 
   function MoreDetail(){

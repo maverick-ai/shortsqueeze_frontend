@@ -7,13 +7,11 @@ import LogInCartForm from "./LogInCartForm";
 import { useRef,useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import {UserTokenActions} from "./Store/UserTokenSlice"
 
 
 function LogInCart(prop) {
   const dispatch = useDispatch();
-  const location = useLocation();
   const emailInputRef=useRef();
   const passwordInputRef=useRef();
   const history =useHistory();

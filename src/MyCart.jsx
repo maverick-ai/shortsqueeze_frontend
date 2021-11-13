@@ -24,18 +24,17 @@ function MyCart(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [anyOutofStock, setanyOutOfStock] = useState(false);
 
+  function removeOutOfStockItem(){
+    dispatch(cartActions.RemoveOutOfStock());
+    setanyOutOfStock(false);
+  }
+
   const fetchOutOfStock = useCallback(async () => {
-    try {
-      console.log("above templ ....");
-      console.log(Cart);
-      if (Cart.CartItems.length === 0) {
+      if (Cart.CartItems.length !== 0) {
         let tempCartList = [];
-        console.log("above templ ....");
-        console.log(Cart.CartItems);
         tempCartList = Cart.CartItems.map((item) => {
           return { product_id: item.id };
         });
-        console.log(tempCartList);
         const OutOfStockQuery = JSON.stringify(tempCartList);
         const response = await fetch(OutOfStockURL, {
           method: "POST",
@@ -49,36 +48,41 @@ function MyCart(props) {
           },
           body: OutOfStockQuery,
         });
-        console.log(response);
         if (!response.ok) {
           throw new Error("Response is not ok");
         }
         const data = await response.json();
-        console.log(data);
         dispatch(cartActions.OutOfStockHandle({ outOfStockItems: data }));
       }
       setIsLoading(false);
-    } catch (error) {}
   }, []);
 
   async function HandlePayInCrypto() {
+    dispatch(cartActions.createPaymentCart({ payMethod: "crypto"}));
     if (UserToken.token === "") {
       history.push({
         pathname: "/logInOrSignUp",
         state: { payMethod: "crypto" },
       });
     } else {
-      history.push("/");
+      history.push({
+        pathname: "/shippingAddress",
+        state: { payMethod: "crypto" },
+      });
     }
   }
   async function HandlePayInTrad() {
+    dispatch(cartActions.createPaymentCart({ payMethod: "trad" }));
     if (UserToken.token === "") {
       history.push({
         pathname: "/logInOrSignUp",
         state: { payMethod: "trad" },
       });
     } else {
-      history.push("/");
+      history.push({
+        pathname: "/shippingAddress",
+        state: { payMethod: "trad"},
+      });
     }
   }
 
@@ -86,6 +90,9 @@ function MyCart(props) {
     if (initialLoad) {
       fetchOutOfStock();
       initialLoad = false;
+    }
+    else{
+      setIsLoading(false);
     }
 
     let tempCartList = [];
@@ -120,7 +127,7 @@ function MyCart(props) {
           {anyOutofStock === true && (
             <div className="OutOfStockDiv">
               <p className="OutOfStockDivParagraph">
-                items in red color are out of stock. Please remove these item.
+                items in red color are out of stock. <a onClick={removeOutOfStockItem}><u>Remove</u></a>
               </p>
             </div>
           )}

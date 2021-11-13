@@ -33,6 +33,7 @@ function CartRow(props) {
       </td>
       <td data-label="Quantity">
         <DropDownCart
+        OutOfStock={props.OutOfStock}
           CurrentQuantity={props.quantity}
           MinQuantity={props.MinQuantity}
           MaxQuantity={props.MaxQuantity}
@@ -40,9 +41,9 @@ function CartRow(props) {
         />
       </td>
       <td data-label={`Price in ${Cart.traditionalCurrency}`}>
-        <h2 className="traditionalCurrencyPrice">{TradPrice}</h2>
+        <h2 style={{color:`${props.OutOfStock===true?"red":"black"}`}} className="traditionalCurrencyPrice">{TradPrice}</h2>
       </td>
-      <td data-label={`Price in ${Cart.cryptoCurrency}`}><h2 className="traditionalCurrencyPrice">{CryptoPriceState}</h2></td>
+      <td data-label={`Price in ${Cart.cryptoCurrency}`}><h2 style={{color:`${props.OutOfStock===true?"red":"black"}`}} className="traditionalCurrencyPrice">{CryptoPriceState}</h2></td>
     </tr>
   );
 }
