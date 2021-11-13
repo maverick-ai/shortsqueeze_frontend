@@ -6,6 +6,7 @@ import EmailField from "./Email";
 import PasswordField from "./Password";
 import DateInput from "./DateInput";
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 function RegistrationCartComponent(props) {
   const EmailInputRef = useRef();
@@ -17,14 +18,14 @@ function RegistrationCartComponent(props) {
   const cityInputRef = useRef();
   const streetAddressXInputRef = useRef();
   const phoneNumberInputRef = useRef();
+  const history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();
   }
 
-  function MoveToNextPage(){
-      history.push('/shippingAddress');
-
+  function MoveToNextPage() {
+    history.push("/shippingAddress");
   }
 
   return (
@@ -35,7 +36,7 @@ function RegistrationCartComponent(props) {
             <img
               className="ProfileImage"
               alt="the genius"
-              src={process.env.PUBLIC_URL + "/ProfileImageTop.png"}
+              src={process.env.PUBLIC_URL + "/Registration.jpg"}
             />
           </div>
           <div className="col-lg-6 align-self-center">
@@ -44,11 +45,17 @@ function RegistrationCartComponent(props) {
             </div>
 
             <form onSubmit={handleSubmit}>
-              <EmailField EmailRef={EmailInputRef} />
-              <PasswordField
-                LogInCorrect={true}
-                PasswordRef={PasswordInputRef}
-              />
+              <div className="RegistrationCartEmail">
+                <EmailField EmailRef={EmailInputRef} />
+              </div>
+
+              <div className="RegistrationCart ">
+                <PasswordField
+                  LogInCorrect={true}
+                  PasswordRef={PasswordInputRef}
+                />
+              </div>
+
               <div className="nameField d-flex justify-content-center">
                 <input
                   ref={firstNameInputRef}

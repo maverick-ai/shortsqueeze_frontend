@@ -4,12 +4,10 @@ import "bootstrap/dist/js/bootstrap.js";
 import "./LogIn.css";
 import LogInOrSignUpComponent from "./LogInOrSignUpComponent";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 
 function LogInOrSignUp(prop) {
   const history =useHistory();
-  console.log(location.state);
 
   async function performLogin(){
     history.push('/logInCart');

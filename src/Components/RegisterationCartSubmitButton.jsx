@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SubmitProfile.scss";
 import { useDispatch } from "react-redux";
 import { UserTokenActions } from "../Store/UserTokenSlice";
+import { useSelector } from "react-redux";
 import { RegistrationURL, Host } from "../constants";
 
 function RegistrationCartSubmitButton(props) {

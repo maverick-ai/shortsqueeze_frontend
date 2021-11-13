@@ -25,6 +25,7 @@ import MyOrder from "./Order";
 import OrderDetail from "./OrderDetail";
 import LogInOrSignUp from "./LogInOrSignUp";
 import LogInCart from "./LogInCart";
+import RegistrationCart from "./RegistrationCart";
 
 
 function App() {
@@ -83,7 +84,7 @@ function App() {
           <LogInCart />
         </Route>
         <Route path="/RegistrationCart" exact>
-          <LogInCart />
+          <RegistrationCart />
         </Route>
         <Route path="/logInOrSignUp" exact>
           <LogInOrSignUp />
