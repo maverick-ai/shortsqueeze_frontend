@@ -8,6 +8,17 @@
     width: 100%;
     margin: auto;
     max-width: 400px;
+    margin-top: 40px;
+}
+.RegistrationCartPassword{
+    width: 100%;
+    margin: auto;
+    max-width: 400px;
+    margin-top: 40px;
+}
+.RadioLabel{
+    color: white;
+    padding: 0px 10px 0px 10px;
 }
 
 .ProfileImage {

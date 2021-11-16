@@ -5,8 +5,9 @@ import RegistrationCartSubmitButton from "./RegisterationCartSubmitButton";
 import EmailField from "./Email";
 import PasswordField from "./Password";
 import DateInput from "./DateInput";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./RadioButton.scss";
 
 function RegistrationCartComponent(props) {
   const EmailInputRef = useRef();
@@ -16,6 +17,7 @@ function RegistrationCartComponent(props) {
   const countryInputRef = useRef();
   const stateInputRef = useRef();
   const cityInputRef = useRef();
+  const [gender,setGender] = useState();
   const streetAddressXInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const history = useHistory();
@@ -27,6 +29,11 @@ function RegistrationCartComponent(props) {
   function MoveToNextPage() {
     history.push("/shippingAddress");
   }
+
+  function GetGender(value){
+    setGender(value)
+  }
+
 
   return (
     <div className="profileFormPadding">
@@ -49,7 +56,7 @@ function RegistrationCartComponent(props) {
                 <EmailField EmailRef={EmailInputRef} />
               </div>
 
-              <div className="RegistrationCart ">
+              <div className="RegistrationCartPassword">
                 <PasswordField
                   LogInCorrect={true}
                   PasswordRef={PasswordInputRef}
@@ -69,6 +76,44 @@ function RegistrationCartComponent(props) {
                   className="profileName"
                   placeholder="last name"
                 />
+              </div>
+              <div className="nameField d-flex justify-content-center">
+                <input
+                  id="r1"
+                  type="radio"
+                  name="radio"
+                  value="M"
+                  onChange={()=>{
+                    GetGender("M")
+                  }}
+                />
+                <label className="RadioLabel" htmlFor="r1">
+                  Male
+                </label>
+                <input
+                  id="r2"
+                  type="radio"
+                  name="radio"
+                  value="F"
+                  onChange={()=>{
+                    GetGender("F")
+                  }}
+                />
+                <label className="RadioLabel" htmlFor="r2">
+                  Female
+                </label>
+                <input
+                  id="r3"
+                  type="radio"
+                  name="radio"
+                  value="NB"
+                  onChange={()=>{
+                    GetGender("NB")
+                  }}
+                />
+                <label className="RadioLabel" htmlFor="r3">
+                  Non-binary
+                </label>
               </div>
               <div className="nameField d-flex justify-content-center">
                 <input
@@ -112,6 +157,7 @@ function RegistrationCartComponent(props) {
 
               <div className="saveField d-flex justify-content-center">
                 <RegistrationCartSubmitButton
+                  Gender={gender}
                   Email={EmailInputRef}
                   Password={PasswordInputRef}
                   FirstName={firstNameInputRef}

@@ -45,7 +45,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
-    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
+    dispatch(DateChangeSliceActions.changeDate({day:refDay.current.value,month:refMonth.current.value,year:refYear.current.value}));
   };
 
   const handleChangeMonth = e => {
@@ -59,7 +59,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
-    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
+    dispatch(DateChangeSliceActions.changeDate({day:refDay.current.value,month:refMonth.current.value,year:refYear.current.value}));
   };
 
   const handleChangeYear = e => {
@@ -69,7 +69,7 @@ const DateInput = (props) => {
     if (sign !== "") {
       setSign(sign);
     }
-    dispatch(DateChangeSliceActions.changeDate({day:day,month:month,year:year}));
+    dispatch(DateChangeSliceActions.changeDate({day:refDay.current.value,month:refMonth.current.value,year:refYear.current.value}));
   };
 
   // console.log(sign);

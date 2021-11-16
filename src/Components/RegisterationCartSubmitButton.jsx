@@ -15,6 +15,7 @@ function RegistrationCartSubmitButton(props) {
     setLoadingState(true);
     const credentials = JSON.stringify({
       email: props.Email.current.value,
+      gender:props.Gender,
       password1: props.Password.current.value,
       password2: props.Password.current.value,
       first_name: props.FirstName.current.value,
@@ -26,6 +27,7 @@ function RegistrationCartSubmitButton(props) {
       city: props.City.current.value,
       streetAddress: props.StreetAddressX.current.value,
     });
+    console.log(credentials);
     const response = await fetch(RegistrationURL, {
       method: "POST",
       headers: {
@@ -38,6 +40,8 @@ function RegistrationCartSubmitButton(props) {
       },
       body: credentials,
     });
+
+    console.log(response)
 
     if (response.ok) {
       const data = await response.json();

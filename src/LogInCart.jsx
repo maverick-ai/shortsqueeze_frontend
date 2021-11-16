@@ -37,7 +37,7 @@ function LogInCart(prop) {
     if(response.ok){
       const data = await response.json();
       dispatch(UserTokenActions.setToken({token:data.key}));
-      history.replace('/');
+      history.replace('/shippingAddress');
 
     }
     else{
