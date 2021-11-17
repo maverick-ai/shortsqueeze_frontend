@@ -17,6 +17,11 @@ function LogIn(prop) {
   const history =useHistory();
   const [loginCorrectState,setloginCorrectState]=useState(true)
 
+
+  function clickOnRegister(){
+    history.replace('/Registration');
+  }
+
   async function performLogin(){
     const credentials=JSON.stringify({
       email: emailInputRef.current.value,
@@ -57,7 +62,7 @@ function LogIn(prop) {
         alt="Scenic Background"
         src={process.env.PUBLIC_URL + "/logIn.jpg"}
       />
-       <LogInForm LogInCorrect={loginCorrectState} performLogin={performLogin} EmailRef={emailInputRef} PasswordRef={passwordInputRef}/>
+       <LogInForm ClickOnRegisterLink={clickOnRegister} LogInCorrect={loginCorrectState} performLogin={performLogin} EmailRef={emailInputRef} PasswordRef={passwordInputRef}/>
     </div>
   );
 }

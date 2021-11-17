@@ -2,8 +2,7 @@ import "./ShippingAddressComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef,useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import { ShippingAddressSliceActions } from "../Store/ShippingAddressSlice";
 

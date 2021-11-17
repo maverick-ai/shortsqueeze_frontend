@@ -14,11 +14,7 @@ function RegistrationComponent(props) {
   const PasswordInputRef = useRef();
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
-  const countryInputRef = useRef();
-  const stateInputRef = useRef();
-  const cityInputRef = useRef();
   const [gender,setGender] = useState();
-  const streetAddressXInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const history = useHistory();
 
@@ -79,6 +75,15 @@ function RegistrationComponent(props) {
               </div>
               <div className="nameField d-flex justify-content-center">
                 <input
+                    type="tel"
+                  ref={phoneNumberInputRef}
+                  className="profileName"
+                  defaultValue={props.PhoneNumber}
+                  placeholder="phone number"
+                />
+              </div>
+              <div className="nameField d-flex justify-content-center">
+                <input
                   id="r1"
                   type="radio"
                   name="radio"
@@ -115,42 +120,7 @@ function RegistrationComponent(props) {
                   Non-binary
                 </label>
               </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={countryInputRef}
-                  className="profileName"
-                  placeholder="country"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={stateInputRef}
-                  className="profileName"
-                  placeholder="state"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={cityInputRef}
-                  className="profileName"
-                  placeholder="city"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={streetAddressXInputRef}
-                  className="profileName"
-                  placeholder="Street Address Line 1"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={phoneNumberInputRef}
-                  className="profileName"
-                  defaultValue={props.PhoneNumber}
-                  placeholder="phone number"
-                />
-              </div>
+              
               <div className="nameField d-flex justify-content-center">
                 <DateInput Day={8} Month={11} Year={1997} />
               </div>
@@ -162,10 +132,6 @@ function RegistrationComponent(props) {
                   Password={PasswordInputRef}
                   FirstName={firstNameInputRef}
                   LastName={lastNameInputRef}
-                  Country={countryInputRef}
-                  State={stateInputRef}
-                  City={cityInputRef}
-                  StreetAddressX={streetAddressXInputRef}
                   PhoneNumber={phoneNumberInputRef}
                   NextPage={MoveToNextPage}
                 />

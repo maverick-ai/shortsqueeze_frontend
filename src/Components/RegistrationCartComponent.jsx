@@ -14,11 +14,7 @@ function RegistrationCartComponent(props) {
   const PasswordInputRef = useRef();
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
-  const countryInputRef = useRef();
-  const stateInputRef = useRef();
-  const cityInputRef = useRef();
   const [gender,setGender] = useState();
-  const streetAddressXInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const history = useHistory();
 
@@ -117,34 +113,6 @@ function RegistrationCartComponent(props) {
               </div>
               <div className="nameField d-flex justify-content-center">
                 <input
-                  ref={countryInputRef}
-                  className="profileName"
-                  placeholder="country"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={stateInputRef}
-                  className="profileName"
-                  placeholder="state"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={cityInputRef}
-                  className="profileName"
-                  placeholder="city"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
-                  ref={streetAddressXInputRef}
-                  className="profileName"
-                  placeholder="Street Address Line 1"
-                />
-              </div>
-              <div className="nameField d-flex justify-content-center">
-                <input
                   ref={phoneNumberInputRef}
                   className="profileName"
                   defaultValue={props.PhoneNumber}
@@ -162,10 +130,6 @@ function RegistrationCartComponent(props) {
                   Password={PasswordInputRef}
                   FirstName={firstNameInputRef}
                   LastName={lastNameInputRef}
-                  Country={countryInputRef}
-                  State={stateInputRef}
-                  City={cityInputRef}
-                  StreetAddressX={streetAddressXInputRef}
                   PhoneNumber={phoneNumberInputRef}
                   NextPage={MoveToNextPage}
                 />

@@ -19,10 +19,6 @@ function SubmitProfileButton(props) {
       last_name:props.LastName.current.value,
       date_of_birth: `${date.year}-${date.month}-${date.day}`,
       phoneNumber:props.PhoneNumber.current.value,
-      country:props.Country.current.value,
-      state:props.State.current.value,
-      city:props.City.current.value,
-      streetAddress:`${props.StreetAddressX.current.value} ${props.StreetAddressY.current.value}`
   });
     const response=await fetch(ProfileURL,{method:'PATCH',headers:{
       'Content-Type': 'application/json',

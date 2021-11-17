@@ -14,6 +14,11 @@
     box-shadow: 14px 14px 20px #cbced1, -5px -5px 20px white;
   } 
 
+  .RegisterLink{
+    color: white;
+    font-size: 12px;
+    margin-top: 8px;
+  }
 
 .buttonForm {
     padding: 0;

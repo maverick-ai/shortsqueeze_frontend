@@ -19,8 +19,7 @@ function MyOrder() {
           "Accept-Encoding": "gzip, deflate, br",
           Connection: "keep-alive",
           Host: Host,
-          // Authorization: `Token ${userToken.token}`,
-          Authorization: `Token 2a0c7208ddf9c0dc14cebf2d42ea0af9a8162670`,
+          Authorization: `Token ${userToken.token}`,
         },
       });
       if (!response.ok) {
