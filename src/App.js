@@ -26,6 +26,7 @@ import OrderDetail from "./OrderDetail";
 import LogInOrSignUp from "./LogInOrSignUp";
 import LogInCart from "./LogInCart";
 import RegistrationCart from "./RegistrationCart";
+import Registration from "./Registration";
 
 
 function App() {
@@ -85,6 +86,9 @@ function App() {
         </Route>
         <Route path="/RegistrationCart" exact>
           <RegistrationCart />
+        </Route>
+        <Route path="/Registration" exact>
+          <Registration />
         </Route>
         <Route path="/logInOrSignUp" exact>
           <LogInOrSignUp />
