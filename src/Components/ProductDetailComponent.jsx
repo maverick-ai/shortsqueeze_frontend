@@ -76,7 +76,7 @@ function ProductDetailComponent(props) {
         </div>
         <div className="col-lg-6 align-self-center">
           <div className="paddingForTitle d-flex justify-content-center">
-            <h2 className="title">{props.title} (NFT + Real Art)</h2>
+            <h2 className="title">{props.title}</h2>
           </div>
           <div className="row paddingForPrice">
           <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center align-self-center">
@@ -169,7 +169,7 @@ function ProductDetailComponent(props) {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <h3 className="textinBox">qrcode of NFT</h3>
+              <h3 className="textinBox">Certificate of sustainable sourcing</h3>
             </div>
           </div>
           <div className="col-md-4 align-self-center ">

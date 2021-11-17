@@ -173,18 +173,6 @@ function MyCart(props) {
                     />
                   </div>
                 </div>
-                <div className="col-md-4 align-self-center">
-                  {" "}
-                  <div className="d-flex justify-content-center">-or-</div>
-                </div>
-                <div className="col-md-4 align-self-center">
-                  <div className="d-flex justify-content-center PaymentButtonPadding">
-                    <PaymentButton
-                      HandleClick={HandlePayInCrypto}
-                      Currency={cryptoCurrency}
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </div>

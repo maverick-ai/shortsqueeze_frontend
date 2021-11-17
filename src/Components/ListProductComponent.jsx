@@ -29,7 +29,7 @@ function ListProductComponent(props) {
         src={props.imagesOfProduct[0].file}
       />
       <div>
-        <h2 className="title">{props.title} (NFT + Real Art)</h2>
+        <h2 className="title">{props.title}</h2>
         <h4 className="price">
           <span className="priceText">Price:</span>{" "}
           <span className="insidePrice">
