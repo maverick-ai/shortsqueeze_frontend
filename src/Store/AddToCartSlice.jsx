@@ -4,9 +4,7 @@ const initialState = {
   CartItems: [],
   totalAmountTraditionalPrice: 0,
   totalItem: 0,
-  totalAmountCryptoPrice: 0,
   traditionalCurrency:"",
-  cryptoCurrency:""
 };
 
 const CartSlice = createSlice({
@@ -23,7 +21,6 @@ const CartSlice = createSlice({
           title:action.payload.title,
           quantity: 1,
           TraditionalPrice: action.payload.TraditionalPrice,
-          CryptoPrice: action.payload.CryptoPrice,
         });
       } else {
         itemObject.quantity++;
@@ -31,10 +28,7 @@ const CartSlice = createSlice({
       state.totalItem++;
       state.totalAmountTraditionalPrice =
         state.totalAmountTraditionalPrice +  parseFloat(action.payload.TraditionalPrice);
-      state.totalAmountCryptoPrice =
-        state.totalAmountCryptoPrice + parseFloat(action.payload.CryptoPrice);
         localStorage.setItem("cart",JSON.stringify(state));
-      console.log(localStorage.getItem("cart"));
     },
     decreaseItem(state, action) {
       let itemObject = state.CartItems.find(
@@ -51,8 +45,6 @@ const CartSlice = createSlice({
         state.totalItem--;
         state.totalAmountTraditionalPrice =
           state.totalAmountTraditionalPrice - parseFloat(action.payload.TraditionalPrice);
-        state.totalAmountCryptoPrice =
-          state.totalAmountCryptoPrice - parseFloat(action.payload.CryptoPrice);
       }
       localStorage.setItem("cart",JSON.stringify(state));
     },
@@ -68,16 +60,11 @@ const CartSlice = createSlice({
           state.totalItem--;
           state.totalAmountTraditionalPrice =
             state.totalAmountTraditionalPrice - parseFloat(action.payload.TraditionalPrice);
-          state.totalAmountCryptoPrice =
-            state.totalAmountCryptoPrice - parseFloat(action.payload.CryptoPrice);
         } else {
           state.totalItem = state.totalItem - itemObject.quantity;
           state.totalAmountTraditionalPrice =
             state.totalAmountTraditionalPrice -
             itemObject.quantity * parseFloat(action.payload.TraditionalPrice);
-          state.totalAmountCryptoPrice =
-            state.totalAmountCryptoPrice -
-            itemObject.quantity * parseFloat(action.payload.CryptoPrice);
           state.CartItems = state.CartItems.filter(
             (item) => item.id !== action.payload.id
           );
@@ -95,10 +82,6 @@ const CartSlice = createSlice({
           state.totalAmountTraditionalPrice +
           (parseInt(action.payload.quantity) - itemObjectQuantity) *
           parseFloat(action.payload.TraditionalPrice);
-        state.totalAmountCryptoPrice =
-          state.totalAmountCryptoPrice +
-          (parseInt(action.payload.quantity) - itemObjectQuantity) *
-          parseFloat(action.payload.CryptoPrice);
           state.totalItem=state.totalItem+parseInt(action.payload.quantity) - itemObjectQuantity;
         if (action.payload.quantity !== 0) {
           itemObject.quantity = parseInt(action.payload.quantity);
@@ -113,22 +96,15 @@ const CartSlice = createSlice({
           title:action.payload.title,
           quantity: parseInt(action.payload.quantity),
           TraditionalPrice: parseFloat(action.payload.TraditionalPrice),
-          CryptoPrice: parseFloat(action.payload.CryptoPrice),
         });
         state.totalAmountTraditionalPrice =
           state.totalAmountTraditionalPrice +
           parseInt(action.payload.quantity) * parseFloat(action.payload.TraditionalPrice);
-        state.totalAmountCryptoPrice =
-          state.totalAmountCryptoPrice +
-          parseInt(action.payload.quantity) * parseFloat(action.payload.CryptoPrice);
-          state.totalItem=state.totalItem+parseInt(action.payload.quantity);
       }
       localStorage.setItem("cart",JSON.stringify(state));
-      console.log(localStorage.getItem("cart"));
     },
     setCurrency(state, action) {
       state.traditionalCurrency=action.payload.traditionalCurrency;
-      state.cryptoCurrency=action.payload.cryptoCurrency;
       localStorage.setItem("cart",JSON.stringify(state));
     },
     OutOfStockHandle(state, action){
@@ -148,7 +124,6 @@ const CartSlice = createSlice({
         if(item.OutOfStock===true){
           state.totalItem=state.totalItem-parseInt(item.quantity);
           state.totalAmountTraditionalPrice=state.totalAmountTraditionalPrice-parseInt(item.quantity)*parseFloat(item.TraditionalPrice);
-          state.totalAmountCryptoPrice= state.totalAmountCryptoPrice-parseInt(item.quantity)*parseFloat(item.CryptoPrice);
         }
         return item.OutOfStock!==true;
       });
@@ -161,5 +136,4 @@ const CartSlice = createSlice({
   },
 });
 const cartActions = CartSlice.actions;
-
 export { CartSlice, cartActions };

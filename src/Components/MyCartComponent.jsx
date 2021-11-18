@@ -11,17 +11,14 @@ function CartRow(props) {
   const dispatch = useDispatch();
   const Cart = useSelector((state) => state.cart);
   const [TradPrice,setTradPrice]=useState(props.quantity*props.price)
-  const [CryptoPriceState,setCryptoPriceState]=useState(props.quantity*props.priceInCrypto)
 
   function changeQuantity(changedQuantity) {
     setTradPrice(changedQuantity*props.price)
-    setCryptoPriceState(changedQuantity*props.priceInCrypto)
     dispatch(
       cartActions.changeItemQuantity({
         id: props.ProductID,
         quantity: changedQuantity,
         TraditionalPrice: props.price,
-        CryptoPrice: props.priceInCrypto,
       })
     );
   }
@@ -43,7 +40,6 @@ function CartRow(props) {
       <td data-label={`Price in ${Cart.traditionalCurrency}`}>
         <h2 style={{color:`${props.OutOfStock===true?"red":"black"}`}} className="traditionalCurrencyPrice">{TradPrice}</h2>
       </td>
-      <td data-label={`Price in ${Cart.cryptoCurrency}`}><h2 style={{color:`${props.OutOfStock===true?"red":"black"}`}} className="traditionalCurrencyPrice">{CryptoPriceState}</h2></td>
     </tr>
   );
 }

@@ -30,7 +30,6 @@ function ProductDetailComponent(props) {
         title: props.title,
         quantity: currentQuantity,
         TraditionalPrice: props.price,
-        CryptoPrice: props.priceInCrypto,
       })
     );
   }
@@ -90,27 +89,14 @@ function ProductDetailComponent(props) {
                 </span>
               </h4>
             </div>
-            <div className="d-flex justify-content-center">
-              <h3>
-                <span>or</span>
-              </h3>
             </div>
-            <div className="d-flex justify-content-center">
-              <h4 className="price">
-                <span className="insidePrice">
-                  {props.crypto} {props.priceInCrypto}
-                </span>
-              </h4>
-            </div>
-            </div>
-            
           </div>
           <div className="row paddingForRowQuantity">
             <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center">
               <DropDown
                 onSelect={dropdownOnSelect}
-                MaxQuantity={5}
-                MinQuantity={1}
+                MaxQuantity={props.MaxQuantity}
+                MinQuantity={props.MinQuantity}
                 CurrentQuantity={1}
               />
             </div>
@@ -169,7 +155,7 @@ function ProductDetailComponent(props) {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <h3 className="textinBox">Certificate of sustainable sourcing</h3>
+              <h3 className="textinBox">Certificate</h3>
             </div>
           </div>
           <div className="col-md-4 align-self-center ">

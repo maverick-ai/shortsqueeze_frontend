@@ -14,7 +14,7 @@ function ListProductComponent(props) {
   const history =useHistory();
 
   function AddToCartSlice() {
-    dispatch(cartActions.increaseItem({ id:props.ProductID,title:props.title, TraditionalPrice: props.price,CryptoPrice:props.priceInCrypto ,MaxQuantity:props.MaxQuantity, MinQuantity:props.MinQuantity }));
+    dispatch(cartActions.increaseItem({ id:props.ProductID,title:props.title, TraditionalPrice: props.price,MaxQuantity:props.MaxQuantity, MinQuantity:props.MinQuantity }));
   }
 
   function MoreDetail(){
@@ -34,13 +34,7 @@ function ListProductComponent(props) {
           <span className="priceText">Price:</span>{" "}
           <span className="insidePrice">
             {props.currency} {props.price}
-          </span>{" "}
-          <span className="currencyType">(traditional currency)</span>{" "}
-          <span className="orInPrice">or</span>{" "}
-          <span className="insidePrice">
-            {props.crypto} {props.priceInCrypto}
-          </span>{" "}
-          <span className="currencyType">(Crypto currency)</span>
+          </span>
         </h4>
         <p className="info">{props.description}</p>
       </div>

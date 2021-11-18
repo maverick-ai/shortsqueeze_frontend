@@ -20,7 +20,6 @@ function MyCart(props) {
   const UserToken = useSelector((state) => state.userToken);
   const [CartItems, setCartItems] = useState([]);
   const [tradCurrency, setTradCurrency] = useState("");
-  const [cryptoCurrency, setCryptoCurrency] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [anyOutofStock, setanyOutOfStock] = useState(false);
 
@@ -29,6 +28,7 @@ function MyCart(props) {
     setanyOutOfStock(false);
   }
 
+  
   const fetchOutOfStock = useCallback(async () => {
       if (Cart.CartItems.length !== 0) {
         let tempCartList = [];
@@ -57,20 +57,6 @@ function MyCart(props) {
       setIsLoading(false);
   }, []);
 
-  async function HandlePayInCrypto() {
-    dispatch(cartActions.createPaymentCart({ payMethod: "crypto"}));
-    if (UserToken.token === "") {
-      history.push({
-        pathname: "/logInOrSignUp",
-        state: { payMethod: "crypto" },
-      });
-    } else {
-      history.push({
-        pathname: "/shippingAddress",
-        state: { payMethod: "crypto" },
-      });
-    }
-  }
   async function HandlePayInTrad() {
     dispatch(cartActions.createPaymentCart({ payMethod: "trad" }));
     if (UserToken.token === "") {
@@ -108,7 +94,6 @@ function MyCart(props) {
           title={item.title}
           quantity={item.quantity}
           price={item.TraditionalPrice}
-          priceInCrypto={item.CryptoPrice}
           MinQuantity={1}
           MaxQuantity={5}
         />
@@ -116,7 +101,6 @@ function MyCart(props) {
     });
     setCartItems(tempCartList);
     setTradCurrency(Cart.traditionalCurrency);
-    setCryptoCurrency(Cart.cryptoCurrency);
   }, [Cart]);
 
   return (
@@ -137,7 +121,6 @@ function MyCart(props) {
                 <th scope="col">Product</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">{`Price in ${tradCurrency}`}</th>
-                <th scope="col">{`Price in ${cryptoCurrency}`}</th>
               </tr>
             </thead>
             <tbody>{CartItems}</tbody>
@@ -152,11 +135,6 @@ function MyCart(props) {
                   <td data-label={`Total Amount in ${tradCurrency}`}>
                     <h2 className="traditionalCurrencyPrice">
                       {Cart.totalAmountTraditionalPrice.toFixed(3)}
-                    </h2>
-                  </td>
-                  <td data-label={`Total Amount in ${cryptoCurrency}`}>
-                    <h2 className="traditionalCurrencyPrice">
-                      {Cart.totalAmountCryptoPrice.toFixed(3)}
                     </h2>
                   </td>
                 </tr>

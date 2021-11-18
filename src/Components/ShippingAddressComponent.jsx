@@ -130,7 +130,7 @@ function ShippingAddressComponent(props) {
               <tbody>
                 <tr className="trShipping">
                   <th>item Subtotal</th>
-                  <td className="tdShiping">{PaymentMethod === "crypto" ?PaymentCart.totalAmountCryptoPrice:PaymentCart.totalAmountTraditionalPrice}</td>
+                  <td className="tdShiping">{PaymentCart.totalAmountTraditionalPrice}</td>
                 </tr>
                 <tr className="trShipping">
                   <th>Shipping</th>
@@ -140,17 +140,12 @@ function ShippingAddressComponent(props) {
                   <th>Duties and Taxes</th>
                   <td className="tdShipingBeTC">Due at Customs</td>
                 </tr>
-                {PaymentMethod === "crypto" ? (
-                  <tr className="trShipping">
-                    <th>Price in Crypto Currency</th>
-                    <td className="tdShipingTC">14</td>
-                  </tr>
-                ) : (
+                
                   <tr className="trShipping">
                     <th>Price in Traditional Currency</th>
                     <td className="tdShipingCC">14</td>
                   </tr>
-                )}
+                
               </tbody>
             </table>
           </div>

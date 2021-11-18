@@ -98,16 +98,17 @@ h3 span {
   padding-top:20px;
 }
 .MadeByHashtag{
-  font-size: 100px;
-  color: #fffefe;
+  font-size: 70px;
+  color: #fdf989;
   font-weight: bold;
   padding-top: 20px;
 }
 
 .ArtistDescription{
-  color: rgba(151, 151, 151, 1);
+  color: white;
   font-size: 18px;
   padding-bottom:20px;
+  text-align: justify;
 }
 
 .DescriptionTitle{
@@ -129,9 +130,9 @@ h3 span {
 
 .ArtistImage{
   object-fit: cover;
-  object-position: 45% center;
-  height: 500px;
-  width: 100%;
+  object-position: 50% center;
+  height: 100%;
+  max-width: 500px;
 }
 
 .hashtags{

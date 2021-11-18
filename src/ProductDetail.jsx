@@ -27,9 +27,6 @@ function ProductsDetail(props) {
       const IpInfo = await fetch(IPInfoURL);
       const IPdata = await IpInfo.json();
 
-      const CryptoPriceObject = data.priceForProduct.filter((price) => {
-        return price.IsPriceCrpyto === true;
-      });
       const INRPriceObject = data.priceForProduct.filter((price) => {
         return price.priceCurrency === "INR";
       });
@@ -48,8 +45,6 @@ function ProductsDetail(props) {
             description={data.description}
             price={INRPriceObject[0].price}
             currency={INRPriceObject[0].priceCurrency}
-            crypto={CryptoPriceObject[0].priceCurrency}
-            priceInCrypto={CryptoPriceObject[0].price}
             MinQuantity={data.minQunatity}
             MaxQuantity={data.maxQunatity}
             Hashtags={data.hashatgs}
@@ -72,8 +67,6 @@ function ProductsDetail(props) {
             description={data.description}
             price={USDPriceObject[0].price}
             currency={USDPriceObject[0].priceCurrency}
-            crypto={CryptoPriceObject[0].priceCurrency}
-            priceInCrypto={CryptoPriceObject[0].price}
             MinQuantity={data.minQunatity}
             MaxQuantity={data.maxQunatity}
             Hashtags={data.hashatgs}

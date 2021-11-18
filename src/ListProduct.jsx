@@ -30,14 +30,12 @@ function ListProducts(props) {
       const IpInfo = await fetch(IPInfoURL);
       const IPdata = await IpInfo.json();
       const transformedProductrs = data.results.map((item) => {
-        const CryptoPriceObject=(item.priceForProduct).filter((price)=>{
-          return price.IsPriceCrpyto===true});
         const INRPriceObject=(item.priceForProduct).filter((price)=>{
           return price.priceCurrency==="INR"});
         const USDPriceObject=(item.priceForProduct).filter((price)=>price.priceCurrency==="USD");
 
         if(IPdata.currency==="INR"){
-          dispatch(cartActions.setCurrency({ traditionalCurrency:INRPriceObject[0].priceCurrency,cryptoCurrency:CryptoPriceObject[0].priceCurrency,}));
+          dispatch(cartActions.setCurrency({ traditionalCurrency:INRPriceObject[0].priceCurrency}));
           return (
             <ListProductComponent
               key={item.product_id}
@@ -47,8 +45,6 @@ function ListProducts(props) {
               price={INRPriceObject[0].price}
               imagesOfProduct={item.productImages}
               currency={INRPriceObject[0].priceCurrency}
-              crypto={CryptoPriceObject[0].priceCurrency}
-              priceInCrypto={CryptoPriceObject[0].price}
               ProductID={item.product_id}
               MaxQuantity={item.maxQunatity}
               MinQuantity={item.minQunatity}
@@ -56,7 +52,7 @@ function ListProducts(props) {
           );
         }
         else{
-          dispatch(cartActions.setCurrency({ traditionalCurrency:USDPriceObject[0].priceCurrency,cryptoCurrency:CryptoPriceObject[0].priceCurrency,}));
+          dispatch(cartActions.setCurrency({ traditionalCurrency:USDPriceObject[0].priceCurrency}));
           return (
             <ListProductComponent
               key={item.product_id}
@@ -65,8 +61,6 @@ function ListProducts(props) {
               price={USDPriceObject[0].price}
               imagesOfProduct={item.productImages}
               currency={USDPriceObject[0].priceCurrency}
-              crypto={CryptoPriceObject[0].priceCurrency}
-              priceInCrypto={CryptoPriceObject[0].price}
               ProductID={item.product_id}
               MaxQuantity={item.maxQunatity}
               MinQuantity={item.minQunatity}
