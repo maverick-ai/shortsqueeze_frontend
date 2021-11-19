@@ -23,38 +23,37 @@ function MyCart(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [anyOutofStock, setanyOutOfStock] = useState(false);
 
-  function removeOutOfStockItem(){
+  function removeOutOfStockItem() {
     dispatch(cartActions.RemoveOutOfStock());
     setanyOutOfStock(false);
   }
 
-  
   const fetchOutOfStock = useCallback(async () => {
-      if (Cart.CartItems.length !== 0) {
-        let tempCartList = [];
-        tempCartList = Cart.CartItems.map((item) => {
-          return { product_id: item.id };
-        });
-        const OutOfStockQuery = JSON.stringify(tempCartList);
-        const response = await fetch(OutOfStockURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "*/*",
-            "Accept-Encoding": "gzip, deflate, br",
-            Connection: "keep-alive",
-            "Content-Length": OutOfStockQuery.length,
-            Host: Host,
-          },
-          body: OutOfStockQuery,
-        });
-        if (!response.ok) {
-          throw new Error("Response is not ok");
-        }
-        const data = await response.json();
-        dispatch(cartActions.OutOfStockHandle({ outOfStockItems: data }));
+    if (Cart.CartItems.length !== 0) {
+      let tempCartList = [];
+      tempCartList = Cart.CartItems.map((item) => {
+        return { product_id: item.id };
+      });
+      const OutOfStockQuery = JSON.stringify(tempCartList);
+      const response = await fetch(OutOfStockURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "*/*",
+          "Accept-Encoding": "gzip, deflate, br",
+          Connection: "keep-alive",
+          "Content-Length": OutOfStockQuery.length,
+          Host: Host,
+        },
+        body: OutOfStockQuery,
+      });
+      if (!response.ok) {
+        throw new Error("Response is not ok");
       }
-      setIsLoading(false);
+      const data = await response.json();
+      dispatch(cartActions.OutOfStockHandle({ outOfStockItems: data }));
+    }
+    setIsLoading(false);
   }, []);
 
   async function HandlePayInTrad() {
@@ -67,7 +66,7 @@ function MyCart(props) {
     } else {
       history.push({
         pathname: "/shippingAddress",
-        state: { payMethod: "trad"},
+        state: { payMethod: "trad" },
       });
     }
   }
@@ -76,8 +75,7 @@ function MyCart(props) {
     if (initialLoad) {
       fetchOutOfStock();
       initialLoad = false;
-    }
-    else{
+    } else {
       setIsLoading(false);
     }
 
@@ -111,7 +109,10 @@ function MyCart(props) {
           {anyOutofStock === true && (
             <div className="OutOfStockDiv">
               <p className="OutOfStockDivParagraph">
-                items in red color are out of stock. <a onClick={removeOutOfStockItem}><u>Remove</u></a>
+                items in red color are out of stock.{" "}
+                <a onClick={removeOutOfStockItem}>
+                  <u>Remove</u>
+                </a>
               </p>
             </div>
           )}
@@ -142,15 +143,11 @@ function MyCart(props) {
             </table>
             <hr className="hrCartRow" />
             <div className="container-lg PaymentContainer">
-              <div className="row">
-                <div className="col-md-4 align-self-center">
-                  <div className="d-flex justify-content-center PaymentButtonPadding">
-                    <PaymentButton
-                      HandleClick={HandlePayInTrad}
-                      Currency={tradCurrency}
-                    />
-                  </div>
-                </div>
+              <div className="d-flex justify-content-center PaymentButtonPadding">
+                <PaymentButton
+                  HandleClick={HandlePayInTrad}
+                  Currency={tradCurrency}
+                />
               </div>
             </div>
           </div>

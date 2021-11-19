@@ -42,9 +42,8 @@ function ProductDetailComponent(props) {
     let hashtagsList = props.Hashtags.split(" ");
     let hashtagsElement = hashtagsList.map((item, i) => {
       return (
-        <div key={i} className="d-flex justify-content-center">
-          <h3 className="hashtags">{item}</h3>
-        </div>
+          <h3  key={i} className="hashtags">#{item}</h3>
+
       );
     });
     setHashTags(hashtagsElement);
@@ -78,17 +77,17 @@ function ProductDetailComponent(props) {
             <h2 className="title">{props.title}</h2>
           </div>
           <div className="row paddingForPrice">
-          <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center align-self-center">
-            <h4 className="priceText">Price:</h4>
+            <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center align-self-center">
+              <h4 className="priceText">Price:</h4>
             </div>
             <div className="col-sm-6 paddingBTWButtons">
-            <div className="d-flex justify-content-center">
-              <h4 className="price">
-                <span className="insidePrice">
-                  {props.currency} {props.price}
-                </span>
-              </h4>
-            </div>
+              <div className="d-flex justify-content-center">
+                <h4 className="price">
+                  <span className="insidePrice">
+                    {props.currency} {props.price}
+                  </span>
+                </h4>
+              </div>
             </div>
           </div>
           <div className="row paddingForRowQuantity">
@@ -116,11 +115,7 @@ function ProductDetailComponent(props) {
             <p className="ArtistDescription">{props.ArtistStory}</p>
           </div>
           <div className="col-md-6">
-            <img
-            alt="artist"
-              className="ArtistImage"
-              src={props.ArtistImage}
-            />
+            <img alt="artist" className="ArtistImage" src={props.ArtistImage} />
           </div>
         </div>
       </div>
@@ -130,13 +125,9 @@ function ProductDetailComponent(props) {
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('${process.env.PUBLIC_URL}/productDescription.jpg')`,
         }}
       >
-        <div className="row">
-          <div className="col-md-6 align-self-center">
-            <h2 className="DescriptionTitle">DESCRIPTION</h2>
-            <p className="ProductDescription">{props.description}</p>
-          </div>
-          <div className="col-md-6 align-self-center ">{hashTags}</div>
-        </div>
+        {hashTags}
+        <h2 className="DescriptionTitle">DESCRIPTION</h2>
+        <p className="ProductDescription">{props.description}</p>
       </div>
       <div
         className="container-lg paddingForBox"
