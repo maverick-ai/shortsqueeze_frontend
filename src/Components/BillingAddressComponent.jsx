@@ -4,14 +4,17 @@ import "bootstrap/dist/js/bootstrap.js";
 import Checkbox from "./Checkbox";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BillingAddressSliceActions } from "../Store/BillingAddressSlice";
 
 function BillingAddressComponent(props) {
+  const PaymentCart = useMemo(
+    () => JSON.parse(localStorage.getItem("Paymentcart")),
+    []
+  );
   const [disable, setDisable] = useState(false);
-  const paymentOption = useSelector((state) => state.paymentOption);
   const ShippingAddress = useSelector((state) => state.shippingAddress);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -19,12 +22,10 @@ function BillingAddressComponent(props) {
   const stateInputRef = useRef();
   const cityInputRef = useRef();
   const streedAddressXInputRef = useRef();
-  const streedAddressYInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const pincodeInputRef = useRef();
 
   function handleShippingSubmit(event) {
-   
     event.preventDefault();
     if (disable) {
       dispatch(
@@ -39,8 +40,7 @@ function BillingAddressComponent(props) {
       );
     } else {
       const streetAddress =
-        streedAddressXInputRef.current.value.trim() +
-        streedAddressYInputRef.current.value.trim();
+        streedAddressXInputRef.current.value.trim();
 
       dispatch(
         BillingAddressSliceActions.addBillingAddress({
@@ -53,7 +53,7 @@ function BillingAddressComponent(props) {
         })
       );
     }
-    
+
     history("/crypto-information");
   }
 
@@ -93,6 +93,7 @@ function BillingAddressComponent(props) {
                   ref={countryInputRef}
                   className="shippingAddressField"
                   placeholder="country"
+                  value={disable===true?ShippingAddress.country:""}
                   disabled={disable}
                 />
               </div>
@@ -101,6 +102,7 @@ function BillingAddressComponent(props) {
                   ref={stateInputRef}
                   className="shippingAddressField"
                   placeholder="state"
+                  value={disable===true?ShippingAddress.state:""}
                   disabled={disable}
                 />
               </div>
@@ -108,6 +110,7 @@ function BillingAddressComponent(props) {
                 <input
                   ref={cityInputRef}
                   className="shippingAddressField"
+                  value={disable===true?ShippingAddress.city:""}
                   placeholder="city"
                   disabled={disable}
                 />
@@ -116,15 +119,8 @@ function BillingAddressComponent(props) {
                 <input
                   ref={streedAddressXInputRef}
                   className="shippingAddressField"
-                  placeholder="Street Address Line 1"
-                  disabled={disable}
-                />
-              </div>
-              <div className="addressFieldMargin d-flex justify-content-center">
-                <input
-                  ref={streedAddressYInputRef}
-                  className="shippingAddressField"
-                  placeholder="Street Address Line 2"
+                  placeholder="Street Address"
+                  value={disable===true?ShippingAddress.streetAddress:""}
                   disabled={disable}
                 />
               </div>
@@ -133,6 +129,7 @@ function BillingAddressComponent(props) {
                   ref={phoneNumberInputRef}
                   className="shippingAddressField"
                   placeholder="phone number"
+                  value={disable===true?ShippingAddress.phoneNumber:""}
                   disabled={disable}
                 />
               </div>
@@ -141,6 +138,7 @@ function BillingAddressComponent(props) {
                   ref={pincodeInputRef}
                   className="shippingAddressField"
                   placeholder="Pincode"
+                  value={disable===true?ShippingAddress.pincode:""}
                   disabled={disable}
                 />
               </div>
@@ -151,26 +149,46 @@ function BillingAddressComponent(props) {
               <h1 className="shippingHeading">Order Summary</h1>
             </div>
             <table className="tableShippingAddress">
-              <tr className="trShipping">
-                <th>item Subtotal</th>
-                <td className="tdShiping">Alfreds Futterkiste</td>
-              </tr>
-              <tr className="trShipping">
-                <th>Shipping</th>
-                <td className="tdShiping">14</td>
-              </tr>
-              <tr className="trShipping">
-                <th>Duties and Taxes</th>
-                <td className="tdShipingBeTC">Due at Customs</td>
-              </tr>
-              <tr className="trShipping">
-                <th>Price in Traditional Currency</th>
-                <td className="tdShipingTC">14</td>
-              </tr>
-              <tr className="trShipping">
-                <th>Price in Crypto Currency</th>
-                <td className="tdShipingCC">14</td>
-              </tr>
+              <tbody>
+                <tr className="trShipping">
+                  <th>item Subtotal</th>
+                  <td className="tdShiping">
+                    {`${PaymentCart.traditionalCurrency} ${PaymentCart.totalAmountTraditionalPrice}`}
+                  </td>
+                </tr>
+                <tr className="trShipping">
+                  <th>Shipping</th>
+                  <td className="tdShiping">{`${
+                    PaymentCart.traditionalCurrency === "INR"
+                      ? "Free"
+                      : " 15 USD"
+                  }`}</td>
+                </tr>
+                {PaymentCart.traditionalCurrency !== "INR" && (
+                  <tr className="trShipping">
+                    <th>Duties and Taxes</th>
+                    <td className="tdShipingBeTC">Due at Customs</td>
+                  </tr>
+                )}
+
+                <tr className="trShipping">
+                  <th>
+                    Total Price{" "}
+                    {`${
+                      PaymentCart.traditionalCurrency !== "INR"
+                        ? "excluding customs"
+                        : ""
+                    }`}
+                  </th>
+                  <td className="tdShipingCC">{`${
+                    PaymentCart.traditionalCurrency
+                  } ${
+                    PaymentCart.traditionalCurrency === "INR"
+                      ? +PaymentCart.totalAmountTraditionalPrice
+                      : +PaymentCart.totalAmountTraditionalPrice + 15
+                  }`}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
