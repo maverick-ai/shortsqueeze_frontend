@@ -27,6 +27,10 @@ import LogInOrSignUp from "./LogInOrSignUp";
 import LogInCart from "./LogInCart";
 import RegistrationCart from "./RegistrationCart";
 import Registration from "./Registration";
+import TermsAndConditionPage from "./TermsAndConditions";
+import PrivacyPolicyPage from "./PrivacyPolicy";
+import RefundPolicyPage from "./RefundPolicy";
+import ShippingPolicyPage from "./ShippingPolicy";
 
 
 function App() {
@@ -47,6 +51,18 @@ function App() {
         </Route>
         <Route path="/home" exact>
           <Redirect to="/" />
+        </Route>
+        <Route path="/terms" exact>
+          <TermsAndConditionPage />
+        </Route>
+        <Route path="/privacy" exact>
+          <PrivacyPolicyPage />
+        </Route>
+        <Route path="/refund" exact>
+          <RefundPolicyPage />
+        </Route>
+        <Route path="/shippingPolicy" exact>
+          <ShippingPolicyPage />
         </Route>
         <Route path="/test123" exact>
           <TestCarousel />
@@ -95,15 +111,6 @@ function App() {
         </Route>
         <Route path="/review-payment" exact>
           <Payment />
-        </Route>
-        <Route path="/pay-in-crypto-review" exact>
-          <PayInCryptoComponent />
-        </Route>
-        <Route path="/crypto-information" exact>
-          <CryptoInformation />
-        </Route>
-        <Route path="/payment-info-crypto" exact>
-          <PaymentInfoCryptoComponent />
         </Route>
         <Route path="/my-orders" exact>
           <MyOrder />

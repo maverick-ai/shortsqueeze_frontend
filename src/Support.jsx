@@ -97,19 +97,19 @@ function Support() {
             <div className="col-sm-6">
               <h1 className="ContactUsHeading text-center">Terms</h1>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/', '_blank', 'noopener,noreferrer')
+                const newWindow = window.open('/terms', '_blank', 'noopener,noreferrer')
                 if (newWindow) newWindow.opener = null
               }}>Terms and Conditions</u></p>
              <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/', '_blank', 'noopener,noreferrer')
+                const newWindow = window.open('/privacy', '_blank', 'noopener,noreferrer')
                 if (newWindow) newWindow.opener = null
               }}>Privacy Policy</u></p>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/', '_blank', 'noopener,noreferrer')
+                const newWindow = window.open('/refund', '_blank', 'noopener,noreferrer')
                 if (newWindow) newWindow.opener = null
               }}>Refunds/Cancellations</u></p>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/', '_blank', 'noopener,noreferrer')
+                const newWindow = window.open('/shippingPolicy', '_blank', 'noopener,noreferrer')
                 if (newWindow) newWindow.opener = null
               }}>Shipping policy</u></p>
             </div>

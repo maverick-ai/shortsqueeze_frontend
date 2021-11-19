@@ -2,18 +2,18 @@ import "./ShippingAddressComponent.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useDispatch } from "react-redux";
-import { useRef,useMemo } from "react";
+import { useRef, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 import { ShippingAddressSliceActions } from "../Store/ShippingAddressSlice";
 
 function ShippingAddressComponent(props) {
   const PaymentCart = useMemo(
     () => JSON.parse(localStorage.getItem("Paymentcart")),
-    [localStorage.getItem("Paymentcart")]
+    []
   );
   const PaymentMethod = useMemo(
     () => localStorage.getItem("Paymentmethod"),
-    [localStorage.getItem("Paymentmethod")]
+    []
   );
   const dispatch = useDispatch();
   const history = useHistory();
@@ -130,7 +130,9 @@ function ShippingAddressComponent(props) {
               <tbody>
                 <tr className="trShipping">
                   <th>item Subtotal</th>
-                  <td className="tdShiping">{PaymentCart.totalAmountTraditionalPrice}</td>
+                  <td className="tdShiping">
+                    {PaymentCart.totalAmountTraditionalPrice}
+                  </td>
                 </tr>
                 <tr className="trShipping">
                   <th>Shipping</th>
@@ -140,12 +142,11 @@ function ShippingAddressComponent(props) {
                   <th>Duties and Taxes</th>
                   <td className="tdShipingBeTC">Due at Customs</td>
                 </tr>
-                
-                  <tr className="trShipping">
-                    <th>Price in Traditional Currency</th>
-                    <td className="tdShipingCC">14</td>
-                  </tr>
-                
+
+                <tr className="trShipping">
+                  <th>Price in Traditional Currency</th>
+                  <td className="tdShipingCC">14</td>
+                </tr>
               </tbody>
             </table>
           </div>
