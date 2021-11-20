@@ -10,6 +10,12 @@
     background-repeat: no-repeat;
   }
   
+  .qunatitySpan{
+    font-weight: 700;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
   .paymentComponentPaddingContainer {
     border-radius: 50px;
     background-color: rgba(248, 240, 0, 0.75);

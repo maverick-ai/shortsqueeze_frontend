@@ -54,7 +54,7 @@ function BillingAddressComponent(props) {
       );
     }
 
-    history("/crypto-information");
+    history.push("/review-payment");
   }
 
   function onTick() {
@@ -87,13 +87,13 @@ function BillingAddressComponent(props) {
             <div className="d-flex justify-content-center">
               <Checkbox OnTick={onTick} />
             </div>
-            <form onSubmit={handleShippingSubmit}>
+            <form>
               <div className="addressFieldMargin d-flex justify-content-center">
                 <input
                   ref={countryInputRef}
                   className="shippingAddressField"
                   placeholder="country"
-                  value={disable===true?ShippingAddress.country:""}
+                  defaultValue={disable===true?ShippingAddress.country:""}
                   disabled={disable}
                 />
               </div>
@@ -102,7 +102,7 @@ function BillingAddressComponent(props) {
                   ref={stateInputRef}
                   className="shippingAddressField"
                   placeholder="state"
-                  value={disable===true?ShippingAddress.state:""}
+                  defaultValue={disable===true?ShippingAddress.state:""}
                   disabled={disable}
                 />
               </div>
@@ -110,7 +110,7 @@ function BillingAddressComponent(props) {
                 <input
                   ref={cityInputRef}
                   className="shippingAddressField"
-                  value={disable===true?ShippingAddress.city:""}
+                  defaultValue={disable===true?ShippingAddress.city:""}
                   placeholder="city"
                   disabled={disable}
                 />
@@ -120,7 +120,7 @@ function BillingAddressComponent(props) {
                   ref={streedAddressXInputRef}
                   className="shippingAddressField"
                   placeholder="Street Address"
-                  value={disable===true?ShippingAddress.streetAddress:""}
+                  defaultValue={disable===true?ShippingAddress.streetAddress:""}
                   disabled={disable}
                 />
               </div>
@@ -129,7 +129,7 @@ function BillingAddressComponent(props) {
                   ref={phoneNumberInputRef}
                   className="shippingAddressField"
                   placeholder="phone number"
-                  value={disable===true?ShippingAddress.phoneNumber:""}
+                  defaultValue={disable===true?ShippingAddress.phoneNumber:""}
                   disabled={disable}
                 />
               </div>
@@ -138,7 +138,7 @@ function BillingAddressComponent(props) {
                   ref={pincodeInputRef}
                   className="shippingAddressField"
                   placeholder="Pincode"
-                  value={disable===true?ShippingAddress.pincode:""}
+                  defaultValue={disable===true?ShippingAddress.pincode:""}
                   disabled={disable}
                 />
               </div>
@@ -193,7 +193,7 @@ function BillingAddressComponent(props) {
           </div>
         </div>
         <div className="d-flex justify-content-center">
-          <button className="nextButton">Next</button>
+          <button onClick={handleShippingSubmit} className="nextButton">Next</button>
         </div>
       </div>
     </div>

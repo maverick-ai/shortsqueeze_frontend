@@ -39,11 +39,6 @@ function Profile(){
             key={data["pk"]}
             FirstName={data["first_name"]}
             LastName={data["last_name"]}
-            Country={data["country"]}
-            State={data["state"]}
-            City={data["city"]}
-            StreetAddress={data["streetAddress"]}
-            PhoneNumber={data["phoneNumber"]}
             Day={DOB[2]}
             Month={DOB[1]}
             Year={DOB[0]}

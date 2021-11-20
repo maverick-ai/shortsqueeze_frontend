@@ -18,7 +18,6 @@ function SubmitProfileButton(props) {
       first_name: props.FirstName.current.value,
       last_name:props.LastName.current.value,
       date_of_birth: `${date.year}-${date.month}-${date.day}`,
-      phoneNumber:props.PhoneNumber.current.value,
   });
     const response=await fetch(ProfileURL,{method:'PATCH',headers:{
       'Content-Type': 'application/json',

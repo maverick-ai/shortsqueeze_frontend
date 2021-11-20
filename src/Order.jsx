@@ -60,7 +60,7 @@ function MyOrder() {
       setOrderList(responseOrderList);
       setIsLoading(false);
     } catch (error) {}
-  }, []);
+  }, [userToken.token]);
 
   useEffect(() => {
     fetchOrderList();

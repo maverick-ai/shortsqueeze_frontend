@@ -9,7 +9,6 @@ import { useRef } from "react";
 function ProfileComponent(props) {
   const firstNameInputRef=useRef();
   const lastNameInputRef=useRef();
-  const phoneNumberInputRef=useRef();
 
 
 
@@ -41,16 +40,12 @@ function ProfileComponent(props) {
                 <input ref={lastNameInputRef} className="profileName" defaultValue={props.LastName} placeholder="last name" />
               </div>
               <div className="nameField d-flex justify-content-center">
-                <input ref={phoneNumberInputRef} className="profileName" defaultValue={props.PhoneNumber} placeholder="phone number" />
-              </div>
-              <div className="nameField d-flex justify-content-center">
                 <DateInput Day={props.Day} Month={props.Month} Year={props.Year}/>
               </div>
               <div className="saveField d-flex justify-content-center">
                 <SubmitProfileButton 
                 FirstName={firstNameInputRef} 
                 LastName={lastNameInputRef} 
-                PhoneNumber={phoneNumberInputRef}
                 />
               </div>
             </form>

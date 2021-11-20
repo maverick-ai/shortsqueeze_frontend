@@ -110,9 +110,9 @@ function MyCart(props) {
             <div className="OutOfStockDiv">
               <p className="OutOfStockDivParagraph">
                 items in red color are out of stock.{" "}
-                <a onClick={removeOutOfStockItem}>
+                <span onClick={removeOutOfStockItem}>
                   <u>Remove</u>
-                </a>
+                </span>
               </p>
             </div>
           )}

@@ -19,7 +19,7 @@ function Support() {
       description: DescriptionRef.current.value,
     });
 
-    const response = await fetch(SupportTicketURL, {
+    await fetch(SupportTicketURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
