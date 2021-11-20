@@ -11,8 +11,8 @@ const initialState = {
 
 const ShippingAddressSlice = createSlice({
   name: "shippingAddress",
-  initialState: initialState,
-  // initialState:localStorage.getItem("cart")===null?initialState:localStorage.getItem("cart"),
+  // initialState: initialState,
+  initialState:localStorage.getItem("shippingAddress")===null?initialState:JSON.parse(localStorage.getItem("shippingAddress")),
   reducers: {
     addshippingAddress(state, action) {
       state.country = action.payload.country;
@@ -21,6 +21,7 @@ const ShippingAddressSlice = createSlice({
       state.streetAddress = action.payload.streetAddress;
       state.pincode=action.payload.pincode;
       state.phoneNumber=action.payload.phoneNumber;
+      localStorage.setItem("shippingAddress",JSON.stringify(state));
     },
     removeshippingAddress(state, action) {
       state.country = "";
@@ -28,7 +29,8 @@ const ShippingAddressSlice = createSlice({
       state.city = "";
       state.streetAddress = "";
       state.pincode="";
-      state.phoneNumber=""
+      state.phoneNumber="";
+      localStorage.removeItem("shippingAddress");
     },
   },
 });

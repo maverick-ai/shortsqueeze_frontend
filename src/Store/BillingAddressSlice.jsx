@@ -11,7 +11,7 @@ const initialState = {
 
 const BillingAddressSlice = createSlice({
   name: "billingAddress",
-  initialState: initialState,
+  initialState:localStorage.getItem("billingAddress")===null?initialState:JSON.parse(localStorage.getItem("billingAddress")),
   reducers: {
     addBillingAddress(state, action) {
       state.country = action.payload.country;
@@ -20,7 +20,7 @@ const BillingAddressSlice = createSlice({
       state.streetAddress = action.payload.streetAddress;
       state.pincode = action.payload.pincode;
       state.phoneNumber=action.payload.phoneNumber;
-
+      localStorage.setItem("billingAddress",JSON.stringify(state));
     },
     removeBillingAddress(state, action) {
         state.country = "";
@@ -29,7 +29,7 @@ const BillingAddressSlice = createSlice({
       state.streetAddress = "";
       state.pincode="";
       state.phoneNumber="";
-
+      localStorage.removeItem("billingAddress");
     },
   },
 });
