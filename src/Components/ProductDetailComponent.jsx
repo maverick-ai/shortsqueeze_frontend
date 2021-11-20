@@ -89,7 +89,7 @@ function ProductDetailComponent(props) {
                 </h4>
               </div>
             </div>
-          </div>
+          </div> 
           <div className="row paddingForRowQuantity">
             <div className="col-sm-6 paddingBTWButtons d-flex justify-content-center">
               <DropDown
