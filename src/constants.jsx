@@ -13,7 +13,8 @@
 // const IPInfoURL = "https://ipapi.co/json/";
 // const OutOfStockURL="http://127.0.0.1:8000/api/out_of_stock/";
 // const RegistrationURL="http://127.0.0.1:8000/api/registration/";
-
+// const PaymentServerURL="http://127.0.0.1:8000/api/initiate_order/";
+// const PaymentVerifyURL="http://127.0.0.1:8000/api/verify_order/";
 
 const serverBaseURL = "https://backend.shortsqueeze.space/";
 const serverBaseURLImage = "https://backend.shortsqueeze.space";
@@ -30,6 +31,9 @@ const SupportTicketURL="https://backend.shortsqueeze.space/api/create_support_ti
 const IPInfoURL = "https://ipapi.co/json/";
 const OutOfStockURL="https://backend.shortsqueeze.space/api/out_of_stock/";
 const RegistrationURL="https://backend.shortsqueeze.space/api/registration/";
+const PaymentServerURL="https://backend.shortsqueeze.space/api/initiate_order/";
+const PaymentVerifyURL="https://backend.shortsqueeze.space/api/verify_order/";
+
 
 
 export {
@@ -47,5 +51,7 @@ export {
   ListArtistURL,
   SupportTicketURL,
   OutOfStockURL,
-  RegistrationURL
+  RegistrationURL,
+  PaymentServerURL,
+  PaymentVerifyURL
 };
