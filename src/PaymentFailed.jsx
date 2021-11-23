@@ -1,4 +1,4 @@
-import OrderDetailComponent from "./Components/OrdeDetailComponent";
+import PaymentFailedComponent from "./Components/PaymentFailedComponent";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { useCallback } from "react";
 import "./OrderDetail.css";
 import LoadingImage from "./Loading";
 
-function OrderDetail() {
+function PaymentFailed() {
   const params = useParams();
   const userToken = useSelector((state) => state.userToken);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +32,7 @@ function OrderDetail() {
 
       setIsLoading(false);
       setOrder(
-        <OrderDetailComponent
+        <PaymentFailedComponent
         OrderNo={data.order_no.toUpperCase()}
           shippingAddress={data.shippingAddress}
           billingAddress={data.billingAddress}
@@ -55,4 +55,4 @@ function OrderDetail() {
     </div>
   );
 }
-export default OrderDetail;
+export default PaymentFailed;

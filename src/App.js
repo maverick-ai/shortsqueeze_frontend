@@ -28,6 +28,8 @@ import TermsAndConditionPage from "./TermsAndConditions";
 import PrivacyPolicyPage from "./PrivacyPolicy";
 import RefundPolicyPage from "./RefundPolicy";
 import ShippingPolicyPage from "./ShippingPolicy";
+import OrderConfirmed from "./OrderConfirmed";
+import PaymentFailed from "./PaymentFailed";
 
 
 function App() {
@@ -114,6 +116,12 @@ function App() {
         </Route>
         <Route path="/order/:orderId" exact>
           <OrderDetail />
+        </Route>
+        <Route path="/orderconfirm/:orderId" exact>
+          <OrderConfirmed />
+        </Route>
+        <Route path="/paymentfailed/:orderId" exact>
+          <PaymentFailed />
         </Route>
       </Switch>
     </div>

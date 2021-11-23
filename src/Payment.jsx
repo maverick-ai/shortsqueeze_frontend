@@ -5,19 +5,7 @@ import PaymentComponent from "./Components/PaymentComponent";
 
 
 
-function Payment(){
-    const Cart = useSelector((state) => state.cart);
-    const ShippingAddress = useSelector((state) => state.shippingAddress);
-    const BillingAddress = useSelector((state) => state.billingAddress);
-    const[rzrConfig,setrzrConfig]=useState({});
-
-    async function fetchRZROrder(){
-
-    }
-
-    useEffect(()=>{
-        fetchRZROrder()
-    },[]);
+function Payment(){    
 
     return(<div><PaymentComponent /></div>);
 }

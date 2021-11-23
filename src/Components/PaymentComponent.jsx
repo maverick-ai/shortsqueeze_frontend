@@ -3,11 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useSelector } from "react-redux";
 import { useEffect, useState, useMemo } from "react";
+import { useHistory } from "react-router-dom";
 import {PaymentServerURL,Host,PaymentVerifyURL} from "../constants";
 
 
 
 function PaymentComponent(props) {
+  const history = useHistory();
   const ShippingAddress = useSelector((state) => state.shippingAddress);
   const BillingAddress = useSelector((state) => state.billingAddress);
   const userToken = useSelector((state) => state.userToken);
@@ -32,6 +34,15 @@ function PaymentComponent(props) {
 };
 
   async function VerifyPayment(razorpay_payment_id,razorpay_order_id,razorpay_signature,razorpayOrderId,orderNo){
+    const paymentVerificationQuery = JSON.stringify({
+      razorpayOrderId:razorpayOrderId,
+      RPI:razorpay_payment_id,
+      ROI:razorpay_order_id,
+      RS:razorpay_signature,
+      Valkyrie:orderNo
+  });
+
+    
     const response =await fetch(PaymentVerifyURL,{
       method: "POST",
       headers: {
@@ -39,27 +50,22 @@ function PaymentComponent(props) {
         Accept: "*/*",
         "Accept-Encoding": "gzip, deflate, br",
         Connection: "keep-alive",
-        "Content-Length": 0,
+        "Content-Length": paymentVerificationQuery.length,
         Host: Host,
         "Authorization":`Token ${userToken.token}`,
-        "razorpay-payment-id":razorpay_payment_id,
-        "razorpay_order-id":razorpay_order_id,
-        "razorpay-signature":razorpay_signature,
-        razorpayOrderId:razorpayOrderId,
-        "order-no":orderNo
       },
+      body: paymentVerificationQuery,
     });
 
-    const jsonResponse =await JSON.parse(response);
+    const jsonResponse =await response.json();
 
-    console.log(jsonResponse);
 
-    if(jsonResponse==="Order Placed"){
-      console.log("order placed");
+    if(jsonResponse.order_status==="Order Placed"){
+      history.replace(`/orderconfirm/${orderNo}`);
 
     }
     else{
-      console.log("order not placed");
+      history.replace(`/paymentfailed/${orderNo}`);
     }
 
 
@@ -88,16 +94,15 @@ function PaymentComponent(props) {
           phoneNumber:ShippingAddress.phoneNumber,
           pincode:ShippingAddress.pincode
       },
-      "billingAddress":{
-          "country":"India",
-          "state":"MP",
-          "city":"Bhopal",
-          "streetAddress":"HIG-419, E-7, Arera Colony",
-          "phoneNumber":148217859,
-          "pincode":462016
+      billingAddress:{
+          country:BillingAddress.country,
+          state:BillingAddress.state,
+          city:BillingAddress.city,
+          streetAddress:BillingAddress.streetAddress,
+          phoneNumber:BillingAddress.phoneNumber,
+          pincode:BillingAddress.pincode
       }
   });
-
     const response =await fetch(PaymentServerURL,{
       method: "POST",
       headers: {
@@ -116,6 +121,7 @@ function PaymentComponent(props) {
     const jsonResponse =await response.json();
     
     if(jsonResponse['order_status']=="Success"){
+
       const options = {
         key: "rzp_live_BnFipKxhOlsrQx",
         currency: PaymentCart.traditionalCurrency,
@@ -144,7 +150,6 @@ function PaymentComponent(props) {
 
   useEffect(() => {
     const temp = PaymentCart.CartItems.map((item) => {
-      console.log(item.title);
 
       return (
         <tr key={item.id} className="trShipping">
@@ -154,7 +159,6 @@ function PaymentComponent(props) {
       );
     });
 
-    console.log(temp);
     setCartItems(temp);
   }, [PaymentCart]);
 

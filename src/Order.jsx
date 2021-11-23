@@ -26,6 +26,7 @@ function MyOrder() {
         throw new Error("Response is not ok");
       }
       const data = await response.json();
+      console.log(data);
       const responseOrderList = data.results.map((item) => {
         const MonthList = [
           "Jan",

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useEffect, useState } from "react";
 
-function OrderDetailComponent(props) {
+function PaymentFailedComponent(props) {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -31,6 +31,9 @@ function OrderDetailComponent(props) {
         </div>
         <div className="d-flex justify-content-center">
           <h1 className="orderNoHeading">{props.OrderNo}</h1>
+        </div>
+        <div className="d-flex justify-content-center">
+          <h1 className="shippingHeading" style={{"color":"red"}}>(Payment Failed)</h1>
         </div>
         <div className="row">
           <div className="col-md-6 align-self-center">
@@ -115,11 +118,8 @@ function OrderDetailComponent(props) {
             </table>
           </div>
         </div>
-        <div className="d-flex justify-content-center">
-          <button className="nextButton">Go Back</button>
-        </div>
       </div>
     </div>
   );
 }
-export default OrderDetailComponent;
+export default PaymentFailedComponent;
