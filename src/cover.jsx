@@ -63,7 +63,7 @@ function Cover(prop) {
         <div
           className="container-lg SolutionDIV"
           style={{
-            background: `url('${process.env.PUBLIC_URL}/ArtSolution2.jpg')`,
+            background: `url('${process.env.PUBLIC_URL}/redefine.jpg')`,
           }}
         >
           <div className="d-flex justify-content-center SolutionPaddingContent">
