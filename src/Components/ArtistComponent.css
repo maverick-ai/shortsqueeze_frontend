@@ -24,8 +24,8 @@
   .ArtistComponentImage{
     object-fit: cover;
     object-position: 50% center;
+    width: 100%;
     height: 100%;
-    max-height: 500px;
     max-width: 500px;
   }
 
@@ -34,3 +34,14 @@
     font-weight: 400;
     color:rgba(191, 191, 191, 1);
   }
+
+  @media screen and (max-width: 768px) {
+    .ArtistComponentImage{
+      object-fit: cover;
+      object-position: 50% center;
+      width: 100%;
+      height: 100%;
+      max-height: 600px;
+      max-width: 500px;
+    }
+}
