@@ -1,8 +1,13 @@
 import "./Support.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import { useHistory } from "react-router";
 
 function TermsAndConditionPage() {
+
+  const history=useHistory();
+
+
   return (
     <div>
       <div className="SupportPaddingTop">
@@ -433,12 +438,7 @@ function TermsAndConditionPage() {
               <p className="ContactUsParagraph">
                 <u
                   onClick={() => {
-                    const newWindow = window.open(
-                      "/privacy",
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                    if (newWindow) newWindow.opener = null;
+                    history.push("/privacy");
                   }}
                 >
                   Privacy Policy
@@ -447,12 +447,7 @@ function TermsAndConditionPage() {
               <p className="ContactUsParagraph">
                 <u
                   onClick={() => {
-                    const newWindow = window.open(
-                      "/refund",
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                    if (newWindow) newWindow.opener = null;
+                    history.push("/refund");
                   }}
                 >
                   Refunds/Cancellations
@@ -461,12 +456,7 @@ function TermsAndConditionPage() {
               <p className="ContactUsParagraph">
                 <u
                   onClick={() => {
-                    const newWindow = window.open(
-                      "/shippingPolicy",
-                      "_blank",
-                      "noopener,noreferrer"
-                    );
-                    if (newWindow) newWindow.opener = null;
+                    history.push("/shippingPolicy");
                   }}
                 >
                   Shipping policy

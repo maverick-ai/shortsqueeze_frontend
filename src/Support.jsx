@@ -2,11 +2,13 @@ import "./Support.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useRef } from "react";
+import { useHistory } from "react-router";
 import { Host, SupportTicketURL } from "./constants";
 import Submit from "./Components/Submit";
 import EmailField from "./Components/Email";
 
 function Support() {
+  const history=useHistory()
   const EmailRef = useRef();
   const SubjectRef = useRef();
   const DescriptionRef = useRef();
@@ -75,7 +77,7 @@ function Support() {
               <textarea
                 ref={DescriptionRef}
                 className="textAreaField"
-                placeholder="Descriptio of your query ......."
+                placeholder="Description of your query ......."
               ></textarea>
             </div>
             <div className="submitField d-flex justify-content-center">
@@ -97,20 +99,16 @@ function Support() {
             <div className="col-sm-6">
               <h1 className="ContactUsHeading text-center">Terms</h1>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/terms', '_blank', 'noopener,noreferrer')
-                if (newWindow) newWindow.opener = null
+                history.push('/terms');
               }}>Terms and Conditions</u></p>
              <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/privacy', '_blank', 'noopener,noreferrer')
-                if (newWindow) newWindow.opener = null
+               history.push('/privacy');
               }}>Privacy Policy</u></p>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/refund', '_blank', 'noopener,noreferrer')
-                if (newWindow) newWindow.opener = null
+                history.push('/refund');
               }}>Refunds/Cancellations</u></p>
               <p className="ContactUsParagraph"><u onClick={()=>{
-                const newWindow = window.open('/shippingPolicy', '_blank', 'noopener,noreferrer')
-                if (newWindow) newWindow.opener = null
+                 history.push('/shippingPolicy');
               }}>Shipping policy</u></p>
             </div>
           </div>

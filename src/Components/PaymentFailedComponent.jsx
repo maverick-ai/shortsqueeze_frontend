@@ -33,7 +33,7 @@ function PaymentFailedComponent(props) {
           <h1 className="orderNoHeading">{props.OrderNo}</h1>
         </div>
         <div className="d-flex justify-content-center">
-          <h1 className="shippingHeading" style={{"color":"red"}}>(Payment Failed)</h1>
+          <h1 className="shippingHeading" style={{"color":"red"}}>(Payment Pending)</h1>
         </div>
         <div className="row">
           <div className="col-md-6 align-self-center">
